@@ -1,0 +1,74 @@
+input , select {
+    border:1px solid #ddd !important;
+    background: none;
+    border-radius: 5px !important;
+    padding-left:5px;
+
+
+}
+
+label.control-label{
+    font-size:13px;
+    margin-top: 15px;
+    color:#000;
+
+}
+
+.form-control{
+    margin-top:2px;
+    margin-bottom: 15px;
+}
+.upload .form .button{
+    line-height:35px !important;
+}
+
+.profile section {
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.04);
+    margin-bottom: 10px;
+}
+.profile section .tit {
+    height: 30px;
+    line-height: 30px;
+    padding: 0 10px;
+    font-size: 12px;
+    border-bottom: 1px solid #eee;
+}
+
+.profile section .text {
+    padding: 10px;
+    font-size: 12px;
+    color: #999;
+    line-height: 150%;
+}
+.profile section .btn {
+    display: -webkit-box;
+    display: -moz-box;
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.profile section .btn a {
+    height: 26px;
+    line-height: 25px;
+    text-align: center;
+    color: #333;
+    font-size: 12px;
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    margin-left: 6px;
+    border: 1px solid #ddd;
+    display: block;
+    border-radius: 3px;
+    padding-top:0px;
+}
+
+.upload .form p span input,.upload .form p span select{
+    border:none !important;
+}
+
+.home .head{
+    position:fixed;
+    width: 100%;
+}

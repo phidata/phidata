@@ -1,0 +1,36 @@
+@charset "utf-8";
+/*
+<div class="loading1">
+  <div class="animation">
+	<div class="part1">
+	  <span class="s1"></span>
+	  <span class="s3"></span>
+	  <span class="s5"></span>
+	  <span class="s7"></span>
+	</div>
+	<div class="part2">
+	  <span class="s2"></span>
+	  <span class="s4"></span>
+	  <span class="s6"></span>
+	  <span class="s8"></span>
+	</div>
+  </div>
+  <span>正在加载...</span>
+</div>
+*/
+
+.loading1{height:40px;line-height:40px;position:fixed;text-align:center;font-size:11px;color:#474747;left:0;bottom:0;width:100%;z-index:100;}
+.loading1 .animation{width:22px;height:22px;position:absolute;left:50%;margin-left:-55px;top:50%;margin-top:-11px;}
+.loading1 .animation span{position:absolute;top:0;left:50%;margin-left:-1.5px;width:3px;height:8px;background:#474747;border-radius:3px;-webkit-transform-origin:bottom;transform-origin:bottom;}
+.loading1 .animation .s1{-webkit-transform:rotate(0deg) translate(0,0);transform:rotate(0deg) translate(0,0);-webkit-animation:ld1  0.7s linear 0s infinite;animation:ld1  0.7s linear 0s infinite;}
+.loading1 .animation .s2{-webkit-transform:rotate(0deg) translate(0,0);transform:rotate(0deg) translate(0,0);-webkit-animation:ld1  0.7s linear 0.1s infinite;animation:ld1  0.7s linear 0.1s infinite;}
+.loading1 .animation .s3{-webkit-transform:rotate(90deg) translate(3px,-3px);transform:rotate(90deg) translate(3px,-3px);-webkit-animation:ld1  0.7s linear 0.2s infinite;animation:ld1  0.7s linear 0.2s infinite;}
+.loading1 .animation .s4{-webkit-transform:rotate(90deg) translate(3px,-3px);transform:rotate(90deg) translate(3px,-3px);-webkit-animation:ld1  0.7s linear 0.3s infinite;animation:ld1  0.7s linear 0.3s infinite;}
+.loading1 .animation .s5{-webkit-transform:rotate(0) translate(0,14px);transform:rotate(0) translate(0,14px);-webkit-animation:ld1  0.7s linear 0.4s infinite;animation:ld1  0.7s linear 0.4s infinite;}
+.loading1 .animation .s6{-webkit-transform:rotate(0) translate(0,14px);transform:rotate(0) translate(0,14px);-webkit-animation:ld1  0.7s linear 0.5s infinite;animation:ld1  0.7s linear 0.5s infinite;}
+.loading1 .animation .s7{-webkit-transform:rotate(-90deg) translate(-3px,-3px);transform:rotate(-90deg) translate(-3px,-3px);-webkit-animation:ld1  0.7s linear 0.6s infinite;animation:ld1  0.7s linear 0.6s infinite;}
+.loading1 .animation .s8{-webkit-transform:rotate(-90deg) translate(-3px,-3px);transform:rotate(-90deg) translate(-3px,-3px);-webkit-animation:ld1  0.7s linear 0.6s infinite;animation:ld1  0.7s linear 0.7s infinite;}
+.loading1 .animation .part1{width:100%;height:100%;position:absolute;left:0;top:0;}
+.loading1 .animation .part2{width:100%;height:100%;position:absolute;left:0;top:0;-webkit-transform:rotate(45deg);transform:rotate(45deg);}
+@-webkit-keyframes ld1{0{opacity:1;}50%{opacity:0.2;}100%{opacity:1;}}
+@keyframes ld1{0{opacity:1;}50%{opacity:0.2;}100%{opacity:1;}}
