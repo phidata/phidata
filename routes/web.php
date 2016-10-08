@@ -20,3 +20,7 @@ Route::get('phpInfo', function(){
 });
 
 Route::resource('test','user\TestController');
+
+Route::group(['prefix'=>'admin','namespace'=>'admin'],function(){
+    Route::resource('account','AccountController');
+});
