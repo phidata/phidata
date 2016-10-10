@@ -6,12 +6,12 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\UserAccount;
+use App\User;
 
 class AccountController extends Controller
 {
     public function index(){
-        $accounts = UserAccount::get();
+        $accounts = User::get();
         return view('admin.account.index',['accounts'=>$accounts]);
     }
 
@@ -20,7 +20,7 @@ class AccountController extends Controller
     }
 
     public function store(Request $request){
-        $account = new UserAccount;
+        $account = new User;
         $account->name = $request->name;
         $account->password = md5($request->password);
         $account->status = 1;
