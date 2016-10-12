@@ -15,8 +15,21 @@ Route::get('/', function(){
     return view('welcome');
 });
 
-Route::get('phpInfo', function(){
-    echo phpinfo();
+//用户认证的一系列路由：登录，注册，登出...
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
+
+Route::group(['middleware'=>'auth'],function(){
+    
 });
 
-Route::resource('test','user\TestController');
+////系统管理模块
+//Route::group(['prefix'=>'admin','namespace'=>'admin'],function(){
+//
+//    //账号管理
+//    Route::resource('account','AccountController');
+//});
+
+
+
