@@ -280,7 +280,8 @@ class ComposerStaticInitae6e81acc1799d04ac794b8c8ffff8c8
     public static $classMap = array (
         'CreatePasswordResetsTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
         'CreateTest' => __DIR__ . '/../..' . '/database/migrations/2016_09_27_025545_create_test.php',
-        'CreateUserAccount' => __DIR__ . '/../..' . '/database/migrations/2016_10_07_072411_create_user_account.php',
+        'CreateUserPoint' => __DIR__ . '/../..' . '/database/migrations/2016_10_12_110200_create_user_point.php',
+        'CreateUserPointRecord' => __DIR__ . '/../..' . '/database/migrations/2016_10_12_111200_create_user_point_record.php',
         'CreateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_000000_create_users_table.php',
         'DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeds/DatabaseSeeder.php',
         'File_Iterator' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Iterator.php',
@@ -724,7 +725,6 @@ class ComposerStaticInitae6e81acc1799d04ac794b8c8ffff8c8
         'PHP_Token_XOR_EQUAL' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
         'PHP_Token_YIELD' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
         'PHP_Token_YIELD_FROM' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
-        'RenameUser' => __DIR__ . '/../..' . '/database/migrations/2016_10_09_072437_rename_user.php',
         'SebastianBergmann\\CodeCoverage\\CodeCoverage' => __DIR__ . '/..' . '/phpunit/php-code-coverage/src/CodeCoverage.php',
         'SebastianBergmann\\CodeCoverage\\CoveredCodeNotExecutedException' => __DIR__ . '/..' . '/phpunit/php-code-coverage/src/Exception/CoveredCodeNotExecutedException.php',
         'SebastianBergmann\\CodeCoverage\\Driver\\Driver' => __DIR__ . '/..' . '/phpunit/php-code-coverage/src/Driver/Driver.php',
