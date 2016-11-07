@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUserPoint extends Migration
+class CreateGoodsCategory extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,16 @@ class CreateUserPoint extends Migration
      */
     public function up()
     {
-        Schema::create('user_point',function(Blueprint $table){
+        Schema::create('goods_category',function(Blueprint $table){
             $table->increments('id');
-            $table->integer('user_id')->index()->unsigned();
-            $table->integer('amount')->unsigned();
-            $table->string('password');
+            $table->integer('parent_id')->index()->unsigned();
+            $table->string('name');
             $table->timestamps();
+        });
 
-            $table->foreign('user_id')
-                ->references('id')->on('users')
+        Schema::table('goods_category',function($table){
+            $table->foreign('parent_id')
+                ->references('id')->on('goods_category')
                 ->onDelete('restrict')
                 ->onUpdate('cascade');
         });
@@ -34,6 +35,6 @@ class CreateUserPoint extends Migration
      */
     public function down()
     {
-        Schema::drop('user_point');
+        //
     }
 }
