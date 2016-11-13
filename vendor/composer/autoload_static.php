@@ -278,6 +278,11 @@ class ComposerStaticInitae6e81acc1799d04ac794b8c8ffff8c8
     );
 
     public static $classMap = array (
+        'CreateApplication' => __DIR__ . '/../..' . '/database/migrations/2016_11_13_112355_create_application.php',
+        'CreateApplicationDataPackage' => __DIR__ . '/../..' . '/database/migrations/2016_11_13_112343_create_application_data_package.php',
+        'CreateDataPackage' => __DIR__ . '/../..' . '/database/migrations/2016_11_13_111428_create_data_package.php',
+        'CreateGoods' => __DIR__ . '/../..' . '/database/migrations/2016_11_07_073846_create_goods.php',
+        'CreateGoodsCategory' => __DIR__ . '/../..' . '/database/migrations/2016_10_21_003514_create_goods_category.php',
         'CreatePasswordResetsTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
         'CreateTest' => __DIR__ . '/../..' . '/database/migrations/2016_09_27_025545_create_test.php',
         'CreateUserPoint' => __DIR__ . '/../..' . '/database/migrations/2016_10_12_110200_create_user_point.php',
@@ -355,6 +360,7 @@ class ComposerStaticInitae6e81acc1799d04ac794b8c8ffff8c8
         'Hamcrest\\Type\\IsString' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Type/IsString.php',
         'Hamcrest\\Util' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Util.php',
         'Hamcrest\\Xml\\HasXPath' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Xml/HasXPath.php',
+        'Order' => __DIR__ . '/../..' . '/database/migrations/2016_11_13_112515_order.php',
         'PHPUnit\\Framework\\TestCase' => __DIR__ . '/..' . '/phpunit/phpunit/src/ForwardCompatibility/TestCase.php',
         'PHPUnit_Exception' => __DIR__ . '/..' . '/phpunit/phpunit/src/Exception.php',
         'PHPUnit_Extensions_GroupTestSuite' => __DIR__ . '/..' . '/phpunit/phpunit/src/Extensions/GroupTestSuite.php',

@@ -18,6 +18,7 @@ class CreateUserPointRecord extends Migration
             $table->integer('user_id')->index()->unsigned();
             $table->integer('amount');
             $table->string('consumption');
+            $table->timestamps();
 
             $table->foreign('user_id')
                 ->references('id')->on('users')

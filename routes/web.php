@@ -18,10 +18,16 @@ Route::get('/', function(){
 //用户认证的一系列路由：登录，注册，登出...
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
+
 
 Route::group(['middleware'=>'auth'],function(){
-    
+    Route::get('/home', 'HomeController@index');
+//    Route::resource('point','system\PointController@index');
+    Route::resource('point','PointController');
+    Route::resource('category','CategoryController');
+    Route::get('category/create', 'CategoryController@create');
+    Route::get('category/delete/{id}', 'CategoryController@delete');
+
 });
 
 ////系统管理模块

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUserPoint extends Migration
+class CreateApplication extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,12 @@ class CreateUserPoint extends Migration
      */
     public function up()
     {
-        Schema::create('user_point',function(Blueprint $table){
+        Schema::create('application',function(Blueprint $table){
             $table->increments('id');
+            $table->integer('status');
+            $table->string('reject_reason');
+            $table->integer('type');
             $table->integer('user_id')->index()->unsigned();
-            $table->integer('amount')->unsigned();
-            $table->string('password');
             $table->timestamps();
 
             $table->foreign('user_id')
@@ -34,6 +35,6 @@ class CreateUserPoint extends Migration
      */
     public function down()
     {
-        Schema::drop('user_point');
+        Schema::drop('application');
     }
 }
