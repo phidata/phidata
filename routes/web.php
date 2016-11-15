@@ -19,11 +19,12 @@ Route::get('/', function(){
 Auth::routes();
 
 
+Route::resource('point','PointController');
+Route::resource('order','OrderController');
 
 Route::group(['middleware'=>'auth'],function(){
     Route::get('/home', 'HomeController@index');
 //    Route::resource('point','system\PointController@index');
-    Route::resource('point','PointController');
     Route::resource('category','CategoryController');
     Route::get('category/create', 'CategoryController@create');
     Route::get('category/delete/{id}', 'CategoryController@delete');

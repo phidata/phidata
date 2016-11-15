@@ -9,7 +9,7 @@
                         <i class="fa icon-docs font-green-sharp"></i>
                         <span class="caption-subject font-green-sharp bold uppercase">LL Good Y</span>
                         <span class="caption-helper">
-                            积分账户
+                            积分账单
                         </span>
                     </div>
                     <div class="actions">
@@ -19,21 +19,22 @@
                     <table class="table table-striped table-bordered table-hover dataTable no-footer">
                         <thead class="flip-content">
                         <tr style="border-bottom: 1px solid #e7ecf1;">
-                            <th class="numeric">账户余额</th>
+                            <th class="numeric">时间</th>
+                            <th class="numeric">金额</th>
+                            <th class="numeric">项目</th>
                             <th width="30%" class="numeric">操作</th>
                         </tr>
                         </thead>
                         <tbody>
 
-                        @foreach($points as $point)
+                        @foreach($records as $record)
                             <tr>
-                                <td>{{ $point->amount }}</td>
+                                <td>{{ $record->created_at }}</td>
+                                <td>{{ $record->amount }}</td>
+                                <td>{{ $record->consumption }}</td>
                                 <td>
                                     <a href='' class="btn btn-xs blue">
                                         <i class="fa fa-file-o"></i> 充值
-                                    </a>
-                                    <a href=""   class="btn btn-xs green">
-                                        <i class="fa fa-file-o"></i> 查看账单
                                     </a>
                                 </td>
                             </tr>

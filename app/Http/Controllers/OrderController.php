@@ -5,10 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use App\UserPoint;
-use App\UserPointRecord;
 
-class PointController extends Controller
+class OrderController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +15,7 @@ class PointController extends Controller
      */
     public function index()
     {
-        $records = UserPointRecord::all();
-        return view('point/index',['records'=> $records]);
+        
     }
 
     /**
@@ -86,5 +83,4 @@ class PointController extends Controller
     {
         //
     }
-
 }
