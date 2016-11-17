@@ -19,8 +19,7 @@ Route::get('/', function(){
 Auth::routes();
 
 
-Route::resource('point','PointController');
-Route::resource('order','OrderController');
+
 
 Route::group(['middleware'=>'auth'],function(){
     Route::get('/home', 'HomeController@index');
@@ -28,7 +27,9 @@ Route::group(['middleware'=>'auth'],function(){
     Route::resource('category','CategoryController');
     Route::get('category/create', 'CategoryController@create');
     Route::get('category/delete/{id}', 'CategoryController@delete');
-
+    Route::resource('point','PointController');
+    Route::resource('order','OrderController');
+    Route::post('order/generate','OrderController@generate');
 });
 
 ////系统管理模块
