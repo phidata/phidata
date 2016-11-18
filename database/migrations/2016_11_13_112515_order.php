@@ -19,7 +19,6 @@ class Order extends Migration
             $table->integer('user_id')->index()->unsigned();
             $table->integer('price')->unsigned();
             $table->timestamps();
-
             $table->foreign('goods_id')
                 ->references('id')->on('goods')
                 ->onDelete('restrict')

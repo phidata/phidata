@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Goods;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\UserPoint as Point;
 
 class OrderController extends Controller
 {
@@ -15,7 +17,7 @@ class OrderController extends Controller
      */
     public function index()
     {
-        
+
     }
 
     /**
@@ -82,5 +84,24 @@ class OrderController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function generate(Request $request){
+        $goods = Goods::find($request->goodsId);
+        if($goods){
+            $user = \Auth::user();
+            if($user){
+                $point = Point::find($user->id);
+                if(bcrypt($request->password)==$point->password){
+                    Point::change(-($goods->price),'购买商品--'.$goods->name);
+                    Order::generate($goods->id);
+                    return redirect('')->withInfo('成功购买商品！');
+                }
+            }else{
+                return redirect('login')->withInfo('请先登录！');
+            }
+        }else{
+            return redirect('')->withInfo('不存在该产品');
+        }
     }
 }

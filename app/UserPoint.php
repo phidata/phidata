@@ -23,6 +23,9 @@ class UserPoint extends Model
             if(!is_null($point)){
                 try{
                     $point->amount += $amount;
+                    if($point->amount<0){
+                        return 'BalanceNotEnough';
+                    }
                     $record = new \App\UserPointRecord;
                     $record->amount = $amount;
                     $record->user_id = $user->id;
@@ -30,19 +33,18 @@ class UserPoint extends Model
 
                     $record->save();
                     $point->save();
-                    $info = 'success';
+                    return 'success';
                 }
                 catch (\Exception $e){
-                    $info = 'sqlError';
+                    return 'sqlError';
                 }
             }
             else{
-                $info = 'invalidPointAccount';
+                return 'invalidPointAccount';
             }
         }
         else{
-            $info = 'noLogin';
+            return 'noLogin';
         }
-        return $info;
     }
 }
