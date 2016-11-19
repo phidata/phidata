@@ -8,7 +8,7 @@ class Order extends Model
 {
     protected $table='order';
 
-    static function generate($goodsId){
+    protected static function generate($goodsId){
         $user = \Auth::user();
         if($user) {
             $goods = \Goods::find($goodsId);

@@ -17,7 +17,7 @@ class OrderController extends Controller
      */
     public function index()
     {
-
+        //
     }
 
     /**
@@ -93,10 +93,15 @@ class OrderController extends Controller
             if($user){
                 $point = Point::find($user->id);
                 if(bcrypt($request->password)==$point->password){
-                    Point::change(-($goods->price),'购买商品--'.$goods->name);
-                    Order::generate($goods->id);
-                    return redirect('')->withInfo('成功购买商品！');
+                    $pointInfo = Point::change(-($goods->price),'购买商品--'.$goods->name);
+                    if($pointInfo == 'success'){
+                        $orderInfo = Order::generate($goods->id);
+                        if($orderInfo){
+                            return redirect('')->withInfo('成功购买商品！');
+                        }
+                    }
                 }
+                return redirect()->back()->withInfo('购买失败！');
             }else{
                 return redirect('login')->withInfo('请先登录！');
             }
