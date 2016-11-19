@@ -55,6 +55,9 @@ Route::group(['middleware'=>'auth'],function(){
     Route::resource('Apply', 'ApplycationController');
     Route::post('Apply/update','ApplycationController@update' );
 
+    //商品首页
+    Route::get('dataPackage/index','DataPackageController@index');
+
 });
 
 

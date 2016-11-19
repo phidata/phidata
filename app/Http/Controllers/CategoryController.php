@@ -27,13 +27,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-<<<<<<< HEAD
         return view('goodsCategory.create');
-=======
-//        return view('goodsCategory.create');
-        $category = GoodsCategory::all();
-        return view('goodsCategory.goodsCategory',['categorys'=> $category]);
->>>>>>> 3ab496c7fd4f5367f055b7dd768a3c9af196f46e
     }
 
     /**
@@ -55,10 +49,7 @@ class CategoryController extends Controller
         }
     }
 
-<<<<<<< HEAD
-=======
 
->>>>>>> 3ab496c7fd4f5367f055b7dd768a3c9af196f46e
     /**
      * Display the specified resource.
      *
@@ -67,12 +58,8 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-<<<<<<< HEAD
-        //
-=======
         $category = GoodsCategory::all();
         return view('goodsCategory.goodsCategory',['categorys'=> $category]);
->>>>>>> 3ab496c7fd4f5367f055b7dd768a3c9af196f46e
     }
 
     /**
@@ -81,13 +68,7 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-<<<<<<< HEAD
-    public function edit($id)
-    {
-        //
-    }
 
-=======
     public function edit($id){
         //
     }
@@ -105,7 +86,6 @@ class CategoryController extends Controller
         return redirect('category')->withInfo('成功修改商品分类！');
     }
 
->>>>>>> 3ab496c7fd4f5367f055b7dd768a3c9af196f46e
     /**
      * Update the specified resource in storage.
      *
@@ -118,14 +98,6 @@ class CategoryController extends Controller
         //
     }
 
-<<<<<<< HEAD
-=======
-    public function showpage() {
-        $category = GoodsCategory::all();
-        return view('goodsCategory.goodsCategory',['categorys'=> $category]);
-    }
-
->>>>>>> 3ab496c7fd4f5367f055b7dd768a3c9af196f46e
     /**
      * Remove the specified resource from storage.
      *
@@ -136,13 +108,8 @@ class CategoryController extends Controller
     {
         //
     }
-<<<<<<< HEAD
 
-    public function delete($id)
-    {
-=======
     public function delete($id) {
->>>>>>> 3ab496c7fd4f5367f055b7dd768a3c9af196f46e
         $category = GoodsCategory::find($id);
         $category->delete();
         return redirect('category')->withInfo('成功删除商品分类！');

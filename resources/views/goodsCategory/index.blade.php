@@ -39,7 +39,7 @@
                             <th class="numeric">名称</th>
                             {{--<th class="numeric"></th>--}}
                             {{--<th class="numeric">住址</th>--}}
-                            {{--<th width="30%" class="numeric">操作</th>--}}
+                            <th width="30%" class="numeric">操作</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -61,11 +61,8 @@
                                     {{--<a type="button" class="btn default btn-xs red">--}}
                                     {{--<i class="fa fa-eraser">审批驳回</i> </a>--}}
 
-<<<<<<< HEAD
-                                    <a href=""   class="btn btn-xs green">
-=======
+
                                     <a href="{{ action('CategoryController@change',$category->id) }}"   class="btn btn-xs green">
->>>>>>> 3ab496c7fd4f5367f055b7dd768a3c9af196f46e
                                         <i class="fa fa-trash"></i> 修改
                                     </a>
                                 </td>
@@ -78,62 +75,6 @@
             </div>
         </div>
     </div>
-
-
-    <!-- /.modal -->
-    <div class="modal fade" id="ensure" tabindex="-1" role="dialog"
-         aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title" id="myModalLabel">
-                        区域代理商审核
-                    </h4>
-                </div>
-                <div class="modal-body">
-                    确认通过该区域代理商申请?
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default"
-                            data-dismiss="modal">取消
-                    </button>
-                    <a id="approve" type="button" href='#' class="btn btn-primary" >
-                        确认
-                    </a>
-                </div>
-            </div><!-- /.modal-content -->
-        </div>
-    </div><!-- /.modal -->
-
-    <!-- /.modal -->
-    <div class="modal fade" id="reject" tabindex="-1" role="dialog"
-         aria-labelledby="myModalLabel" aria-hidden="false">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title" id="myModalLabel">
-                        区域代理商审核
-                    </h4>
-                </div>
-                <div class="modal-body">
-                    <form id="reason" action="#" >
-                        <div class="row">
-                            <h5 style="float:left;margin-left:20px;margin-top:5px;margin-right:5px">请填写驳回理由:</h5>
-                            <div align="center"style="float:left"><input name="reason" type="text" class="col-md-12 form-control" style="width:400px;height:25px;"/></div>
-                        </div>
-
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default"
-                                    data-dismiss="modal">取消
-                            </button>
-                            <button type="submit" class="btn btn-primary" >
-                                确认
-                            </button>
-                        </div>
-                    </form>
-                </div><!-- /.modal-content -->
-            </div>
-        </div><!-- /.modal -->
 @endsection
 
 

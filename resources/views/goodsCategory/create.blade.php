@@ -30,12 +30,7 @@
                     </div>
                 </div>
             </form>
-<<<<<<< HEAD
-=======
-
->>>>>>> 3ab496c7fd4f5367f055b7dd768a3c9af196f46e
             <!-- END FORM-->
         </div>
     </div>
-
 @stop
