@@ -17,8 +17,13 @@ class PointController extends Controller
      */
     public function index()
     {
+<<<<<<< HEAD
         $records = UserPointRecord::all();
         return view('point/index',['records'=> $records]);
+=======
+        $points = UserPoint::all();
+        return view('point/index',['points'=> $points]);
+>>>>>>> 3ab496c7fd4f5367f055b7dd768a3c9af196f46e
     }
 
     /**

@@ -15,18 +15,28 @@ Route::get('/', function(){
     return view('welcome');
 });
 
+Route::get('test', function(){
+    return view('test');
+});
+
+
+
 
 //用户认证的一系列路由：登录，注册，登出...
 Auth::routes();
 
 Route::group(['middleware'=>'auth'],function(){
     Route::get('/home', 'HomeController@index');
-//    Route::resource('point','system\PointController@index');
-    Route::resource('category','CategoryController');
 
+    //商品分类管理
+    Route::resource('category','CategoryController');
     Route::get('category/create', 'CategoryController@create');
     Route::get('category/delete/{id}', 'CategoryController@delete');
+    Route::get('category/change/{id}','CategoryController@change');
+    Route::post('category/modify/{id}', 'CategoryController@modify');
+    Route::get('category/showpage','CategoryController@showPage');
 
+    //个人中心
     Route::get('user/index','UserController@index');
     Route::get('user/userUpdate','UserController@userUpdate');
     Route::get('user/store','UserController@userStore');
@@ -34,18 +44,20 @@ Route::group(['middleware'=>'auth'],function(){
     Route::get('user/upload','UserController@upload');
     Route::get('user/category/index','UserCategoryController@index');
     Route::resource('user','UserController');
+
+    //积分管理
     Route::resource('point','PointController');
+
+    //订单管理
     Route::resource('order','OrderController');
     Route::post('order/generate','OrderController@generate');
 
+    //上传审核
+    Route::resource('Apply', 'ApplycationController');
+    Route::post('Apply/update','ApplycationController@update' );
+
 });
 
-////系统管理模块
-//Route::group(['prefix'=>'admin','namespace'=>'admin'],function(){
-//
-//    //账号管理
-//    Route::resource('account','AccountController');
-//});
 
 
 

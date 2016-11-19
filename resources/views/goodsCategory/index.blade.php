@@ -61,7 +61,11 @@
                                     {{--<a type="button" class="btn default btn-xs red">--}}
                                     {{--<i class="fa fa-eraser">审批驳回</i> </a>--}}
 
+<<<<<<< HEAD
                                     <a href=""   class="btn btn-xs green">
+=======
+                                    <a href="{{ action('CategoryController@change',$category->id) }}"   class="btn btn-xs green">
+>>>>>>> 3ab496c7fd4f5367f055b7dd768a3c9af196f46e
                                         <i class="fa fa-trash"></i> 修改
                                     </a>
                                 </td>

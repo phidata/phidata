@@ -35,6 +35,10 @@ class CreateGoodsCategory extends Migration
      */
     public function down()
     {
+<<<<<<< HEAD
         Schema::drop('goods_category');
+=======
+        //
+>>>>>>> 3ab496c7fd4f5367f055b7dd768a3c9af196f46e
     }
 }
