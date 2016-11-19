@@ -21,10 +21,10 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($Orders as $Oder)
+                        @foreach($Orders as $Order)
                         <tr>
-                            <td>{{ $Order->name }}</td>
-                            <td>{{ $Order->price}}</td>
+                            <td>{{ $Order->goods->name }}</td>
+                            <td>{{ $Order->goods->price}}</td>
                             {{--<td>--}}
                                 {{--<a href="http://localhost:81/user/logout" class="btn btn-xs blue">--}}
                                     {{--<i class="fa fa-file-o"></i>--}}

@@ -15,8 +15,8 @@ Route::get('/', function(){
     return view('welcome');
 });
 
-Route::get('test', function(){
-    return view('test');
+Route::get('homePage', function(){
+    return view('homePage');
 });
 
 
@@ -40,9 +40,8 @@ Route::group(['middleware'=>'auth'],function(){
     Route::get('user/index','UserController@index');
     Route::get('user/userUpdate','UserController@userUpdate');
     Route::get('user/store','UserController@userStore');
-    Route::get('user/logout','UserController@logout');
     Route::get('user/upload','UserController@upload');
-    Route::get('user/category/index','UserCategoryController@index');
+    Route::get('user/myGoods','UserController@myGoods');
     Route::resource('user','UserController');
 
     //积分管理

@@ -1,4 +1,3 @@
-
 @extends('layouts.system')
 @section('content')
     <div class="portlet light bordered">

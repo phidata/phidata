@@ -6,6 +6,7 @@ use App\application;
 use App\DataPackage;
 use Illuminate\Http\Request;
 use App\User;
+use App\Order;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Redirect;
 
@@ -56,17 +57,13 @@ class UserController extends Controller
             return redirect()->back()->withErrors($e->getMessage());
         }
     }
-    public function logout()
-    {
-        Auth::logout();
-        return Redirect::to('/login');
-    }
+
     public function upload()
     {
-        $id=\Auth::id();
+        $id=\Auth::user()->id;
         $dataPackages = DataPackage::where('owner_id',$id)->get();
         foreach ($dataPackages as $dataPackage){
-            $zhongjian = \App\application_data_package::where('data_package_id',$dataPackage->id)->get();
+            $zhongjian = \App\application_data_package::where('data_package_id',$dataPackage->id)->first();
             $application = application::find($zhongjian->application_id);
             $dataPackage->application = $application;
     }
@@ -78,6 +75,19 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+
+    public function myGoods()
+    {
+        $id=\Auth::id();
+        $orders = Order::where('user_id',$id)->get();
+        foreach ($orders as $order){
+            $goods = \App\Goods::find($order->id);
+            $order->goods=$goods;
+        }
+        return view('User/order', ['Orders' => $orders]);
+    }
+
     public function show($id)
     {
         //
