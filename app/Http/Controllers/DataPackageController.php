@@ -24,9 +24,10 @@ class DataPackageController extends Controller
 //        return view('dataPackage.detail',['detail'=> $data_detail]);
 //    }
 
-    public function detail()
+    public function detail($id)
     {
-        return view('dataPackage.detail');
+        $data_package=DataPackage::find($id);
+        return view('dataPackage.detail',['detail'=>$data_package]);
     }
 
    

@@ -15,4 +15,10 @@ class DataPackage extends Model
     public function application_data_package(){
         return  $this->hasOne('App\application_data_package','data_package_id','id');
     }
+
+        public function user()
+    {
+        return $this->belongsTo('App\User','owner_id');
+    }
+
 }

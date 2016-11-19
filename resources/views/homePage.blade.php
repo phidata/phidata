@@ -27,7 +27,7 @@
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" >
                     <ul class="nav navbar-nav" >
                         <li class="active">
-                            <a href="#" style="color: #000000" >数据分享</a>
+                            <a href="{{action('DataPackageController@index')}}" style="color: #000000;" >数据分享</a>
                         </li>
                         <li>
                             <a href="#" style="color: #000000">数据API</a>

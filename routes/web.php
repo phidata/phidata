@@ -14,18 +14,20 @@
 Route::get('/', function(){
     return view('welcome');
 });
+Route::get('test', function(){
+    return view('test');
+});
+
 
 Route::get('homePage', function(){
     return view('homePage');
 });
 
-
-
-
 //用户认证的一系列路由：登录，注册，登出...
 Auth::routes();
 
 Route::group(['middleware'=>'auth'],function(){
+
     Route::get('/home', 'HomeController@index');
 
     //商品分类管理
@@ -55,8 +57,15 @@ Route::group(['middleware'=>'auth'],function(){
     Route::resource('Apply', 'ApplycationController');
     Route::post('Apply/update','ApplycationController@update' );
 
-    //商品首页
+    //商品首页列表
     Route::get('dataPackage/index','DataPackageController@index');
+
+    //商品详情查看
+    Route::get('dataPackage/detail/{id}','DataPackageController@detail');
+
+
+
+
 
 });
 
