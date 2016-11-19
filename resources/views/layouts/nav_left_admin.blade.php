@@ -125,11 +125,11 @@
                         </a>
                         <ul class="sub-menu">
                             <li class="nav-item {{(Request::segment(2) === 'category' && Request::segment(3) === 'create' ) ? 'active' : null }}">
-                                <a href="#" class="nav-link ">
+                                <a href="{{ action('CategoryController@create')}}" class="nav-link ">
                                     <i class="icon-pencil"></i> 添加商品分类</a>
                             </li>
                             <li class="nav-item {{ (Request::segment(2) === 'category' && Request::segment(3) != 'create' ) ? 'active' : null }}">
-                                <a href="#" class="nav-link ">
+                                <a href="{{ action('CategoryController@showPage')}}" class="nav-link ">
                                     <i class="icon-eye"></i> 查看商品分类列表</a>
                             </li>
                         </ul>
