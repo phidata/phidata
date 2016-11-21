@@ -47,6 +47,8 @@ Route::group(['middleware'=>'auth'],function(){
     Route::resource('user','UserController');
 
     //积分管理
+    Route::get('point/changePassword','PointController@changePassword');
+    Route::post('point/modify','PointController@modify');
     Route::resource('point','PointController');
 
     //订单管理

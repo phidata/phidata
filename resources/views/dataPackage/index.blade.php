@@ -48,8 +48,8 @@
 
                         @foreach($goods as $good)
 
-                               <tr>--
-                                <td> <a href="{{url('dataPackage/detail/'.$good->data_package->id)}}">{{ $good->name }}</a></td>
+                               <tr>
+                                <td> <a href="{{url('dataPackage/detail/'.$good->id)}}">{{ $good->name }}</a></td>
                                 <td>{{ $good->good_category->name }} </td>
                                 <td>{{ $good->data_package->size }}</td>
                                 <td>{{ $good->data_package->user->name }}</td>

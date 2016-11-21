@@ -11,7 +11,7 @@ class Order extends Model
     protected static function generate($goodsId){
         $user = \Auth::user();
         if($user) {
-            $goods = \Goods::find($goodsId);
+            $goods = \App\Goods::find($goodsId);
             if ($goods) {
                 try {
                     $order = new Order;

@@ -36,6 +36,9 @@
                                     <a href='' class="btn btn-xs blue">
                                         <i class="fa fa-file-o"></i> 充值
                                     </a>
+                                    <a href="{{ action('PointController@changePassword') }}" class="btn btn-xs red">
+                                        <i class="fa fa-file-o"></i> 修改支付密码
+                                    </a>
                                 </td>
                             </tr>
                         @endforeach

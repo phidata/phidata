@@ -45,7 +45,8 @@
             $('#model').modal({
             keyboard: true
             });
-            $('form').attr('action','order/generate/'+goods_id);
+            $('form').attr('action','/order/generate/'+goods_id);
+            {{--$('form').attr('action',{{ action('OrderController@generate') }} + '/'+ goods_id);--}}
         });
     }
 </script>

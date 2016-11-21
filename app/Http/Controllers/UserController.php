@@ -82,7 +82,7 @@ class UserController extends Controller
         $id=\Auth::id();
         $orders = Order::where('user_id',$id)->get();
         foreach ($orders as $order){
-            $goods = \App\Goods::find($order->id);
+            $goods = \App\Goods::find($order->goods_id);
             $order->goods=$goods;
         }
         return view('User/order', ['Orders' => $orders]);
