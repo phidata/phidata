@@ -51,7 +51,7 @@ Route::group(['middleware'=>'auth'],function(){
 
     //订单管理
     Route::resource('order','OrderController');
-    Route::post('order/generate','OrderController@generate');
+    Route::post('order/generate/{id}','OrderController@generate');
 
     //上传审核
     Route::resource('Apply', 'ApplycationController');

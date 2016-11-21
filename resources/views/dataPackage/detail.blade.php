@@ -38,7 +38,7 @@
                                                 </thead>
                                                 <tbody>
                                                 <tr>
-                                                    <td>ID</td>
+                                                    <td>名称</td>
                                                     <td>{{ $detail->name }}</td>
                                                 </tr>
                                                 <tr>
@@ -55,7 +55,7 @@
                                             </table>
 
                                         </div>
-                                        <p align="center"><a href="#" class="btn btn-primary" role="button">购买</a> </p>
+                                        <p align="center"><a onclick="showModel({{ $goodsId }})" class="btn btn-primary" role="button">购买</a> </p>
                                     </div>
                                 </div>
                             </div>
@@ -65,8 +65,9 @@
             </div>
         </div>
     </div>
-
-@stop
+</div>
+@include('layouts.payPassword')
+@endsection
 
 
 
