@@ -36,14 +36,13 @@ class PointController extends Controller
         $user = \Auth::user();
         $point = Point::where('user_id',$user->id)->first();
 
-//        //验证旧支付密码
-//        if(bcrypt($request->oldPassword)!= $point->password){
-//            return redirect()->back()->withInfo('旧密码错误！');
-//        }
+        //验证旧支付密码
+        if(! password_verify($request->oldPassword,$point->password)){
+            return redirect()->back()->withInfo('旧密码错误！');
+        }
 
         try{
-//            $point->password = bcrypt($request->password);
-            $point->password = $request->password;
+            $point->password = bcrypt($request->password);
             $point->save();
             return redirect()->back()->withInfo('成功修改支付密码！');
         }catch (\Exception $e){

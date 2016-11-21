@@ -12,12 +12,12 @@
             <form action="{{ action('PointController@modify') }}" method="POST"  enctype="multipart/form-data" class="form-horizontal">
                 {!! csrf_field() !!}
                 <div class="form-body">
-                    {{--<div class="form-group">--}}
-                        {{--<label class="col-md-3 control-label">您的旧密码为</label>--}}
-                        {{--<div class="col-md-4">--}}
-                            {{--<input type="password" name="oldPassword" id="oldPassword" class="form-control" placeholder="" required="required" maxlength="15"  />--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">您的旧密码为</label>
+                        <div class="col-md-4">
+                            <input type="password" name="oldPassword" id="oldPassword" class="form-control" placeholder="" required="required" maxlength="15"  />
+                        </div>
+                    </div>
                     <div class="form-group">
                         <label class="col-md-3 control-label">您的新密码为</label>
                         <div class="col-md-4">

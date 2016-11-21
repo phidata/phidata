@@ -95,8 +95,7 @@ class OrderController extends Controller
 
         //验证支付密码
         $point = Point::where('user_id',$user->id)->first();
-//        if($point->password != bcrypt($request->password)){
-        if($point->password != $request->password){
+        if(! password_verify($request->password,$point->password)){
             return redirect()->back()->withInfo('支付密码错误！');
         }
 
