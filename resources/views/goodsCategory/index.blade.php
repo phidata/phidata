@@ -39,7 +39,8 @@
                             <th class="numeric">名称</th>
                             {{--<th class="numeric"></th>--}}
                             {{--<th class="numeric">住址</th>--}}
-                            {{--<th width="30%" class="numeric">操作</th>--}}
+
+                            <th width="30%" class="numeric">操作</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -61,7 +62,12 @@
                                     {{--<a type="button" class="btn default btn-xs red">--}}
                                     {{--<i class="fa fa-eraser">审批驳回</i> </a>--}}
 
+<<<<<<< HEAD
                                     <a href=""   class="btn btn-xs green">
+=======
+
+                                    <a href="{{ action('CategoryController@change',$category->id) }}"   class="btn btn-xs green">
+>>>>>>> a4a1f3e5e931f2fc15bc9360a3aedee945a9f3f5
                                         <i class="fa fa-trash"></i> 修改
                                     </a>
                                 </td>
@@ -74,6 +80,7 @@
             </div>
         </div>
     </div>
+<<<<<<< HEAD
 
 
     <!-- /.modal -->
@@ -130,6 +137,8 @@
                 </div><!-- /.modal-content -->
             </div>
         </div><!-- /.modal -->
+=======
+>>>>>>> a4a1f3e5e931f2fc15bc9360a3aedee945a9f3f5
 @endsection
 
 

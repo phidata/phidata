@@ -18,6 +18,9 @@ class CreateGoods extends Migration
             $table->string('name');
             $table->string('type');
             $table->integer('goods_category_id')->index()->unsigned();
+
+            $table->integer('data_package_id')->index()->unsigned();
+
             $table->integer('price')->unsigned();
             $table->integer('status')->unsigned();
             $table->timestamps();
@@ -26,6 +29,12 @@ class CreateGoods extends Migration
                 ->references('id')->on('goods_category')
                 ->onDelete('restrict')
                 ->onUpdate('cascade');
+
+            $table->foreign('data_package_id')
+                ->references('id')->on('data_package')
+                ->onDelete('restrict')
+                ->onUpdate('cascade');
+
         });
     }
 

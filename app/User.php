@@ -27,4 +27,12 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+    /**
+     * 获取用户可上传的数据包
+     */
+
+    public function data_package()
+    {
+        return $this->hasMany('App\DataPackage','owner_id');
+    }
 }

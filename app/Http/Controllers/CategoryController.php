@@ -49,6 +49,7 @@ class CategoryController extends Controller
         }
     }
 
+
     /**
      * Display the specified resource.
      *
@@ -57,7 +58,10 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        //
+
+        $category = GoodsCategory::all();
+        return view('goodsCategory.goodsCategory',['categorys'=> $category]);
+
     }
 
     /**
@@ -66,10 +70,25 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
+
+
+    public function edit($id){
         //
     }
+
+    public function change($id) {
+        $category = GoodsCategory::find($id);
+        return view('goodsCategory.edit',['category'=> $category]);
+    }
+
+    public function modify(Request $request, $id)
+    {
+        $category = GoodsCategory::find($id);
+        $category->name = $request->name;
+        $category->save();
+        return redirect('category')->withInfo('成功修改商品分类！');
+    }
+
 
     /**
      * Update the specified resource in storage.
@@ -94,8 +113,8 @@ class CategoryController extends Controller
         //
     }
 
-    public function delete($id)
-    {
+
+    public function delete($id) {
         $category = GoodsCategory::find($id);
         $category->delete();
         return redirect('category')->withInfo('成功删除商品分类！');

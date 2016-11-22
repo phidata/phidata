@@ -21,10 +21,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($Orders as $Oder)
-                        <tr>
-                            <td>{{ $Order->name }}</td>
-                            <td>{{ $Order->price}}</td>
+
                             {{--<td>--}}
                                 {{--<a href="http://localhost:81/user/logout" class="btn btn-xs blue">--}}
                                     {{--<i class="fa fa-file-o"></i>--}}
@@ -34,6 +31,11 @@
                                     {{--<i class="fa fa-trash"></i>--}}
                                     {{--修改密码--}}
                                 {{--</a>--}}
+
+                        @foreach($Orders as $Order)
+                        <tr>
+                            <td>{{ $Order->goods->name }}</td>
+                            <td>{{ $Order->goods->price}}</td>
                         </tr>
                         @endforeach
                         </tbody>

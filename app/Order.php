@@ -8,10 +8,10 @@ class Order extends Model
 {
     protected $table='order';
 
-    static function generate($goodsId){
+    protected static function generate($goodsId){
         $user = \Auth::user();
         if($user) {
-            $goods = \Goods::find($goodsId);
+            $goods = \App\Goods::find($goodsId);
             if ($goods) {
                 try {
                     $order = new Order;
@@ -27,6 +27,7 @@ class Order extends Model
         }
         return 0;
     }
+
     public function Goods()
     {
         return $this->belongsTo('Goods','goods_id');
