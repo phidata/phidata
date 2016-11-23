@@ -16,7 +16,10 @@ class UserPoint extends Model
         return $this->hasOne('App\UserPointRecord','user_id','user_id');
     }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> a4a1f3e5e931f2fc15bc9360a3aedee945a9f3f5
     public static function change($amount,$consumption){
         $user = \Auth::user();
         if($user){
@@ -46,6 +49,7 @@ class UserPoint extends Model
         }
         else{
             return 'noLogin';
+<<<<<<< HEAD
         }}
 
     public static function consume($id,$amount,$consumption){
@@ -64,5 +68,8 @@ class UserPoint extends Model
             }
         }
 
+=======
+        }
+>>>>>>> a4a1f3e5e931f2fc15bc9360a3aedee945a9f3f5
     }
 }

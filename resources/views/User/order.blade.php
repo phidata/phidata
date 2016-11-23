@@ -25,15 +25,6 @@
                         <tr>
                             <td>{{ $Order->goods->name }}</td>
                             <td>{{ $Order->goods->price}}</td>
-                            {{--<td>--}}
-                                {{--<a href="http://localhost:81/user/logout" class="btn btn-xs blue">--}}
-                                    {{--<i class="fa fa-file-o"></i>--}}
-                                    {{--登出--}}
-                                {{--</a>--}}
-                                {{--<a href="http://localhost:81/user/userUpdate"   class="btn btn-xs green">--}}
-                                    {{--<i class="fa fa-trash"></i>--}}
-                                    {{--修改密码--}}
-                                {{--</a>--}}
                         </tr>
                         @endforeach
                         </tbody>

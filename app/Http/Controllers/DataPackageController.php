@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\data_package;
 use App\Goods;
 use Illuminate\Http\Request;
 use App\DataPackage;
 use App\GoodsCategory;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 
 class DataPackageController extends Controller
 {
@@ -26,9 +28,11 @@ class DataPackageController extends Controller
 
     public function detail($id)
     {
-        $data_package=DataPackage::find($id);
-        return view('dataPackage.detail',['detail'=>$data_package]);
+        $goods=Goods::find($id);
+        return view('dataPackage.detail',['goodsId'=>$id, 'detail'=>$goods->data_package]);
     }
+
+    
 
    
 }

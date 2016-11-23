@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\UserPoint as Point;
+use App\Order;
 
 class OrderController extends Controller
 {
@@ -86,27 +87,38 @@ class OrderController extends Controller
         //
     }
 
-    public function generate(Request $request){
-        $goods = Goods::find($request->goodsId);
-        if($goods){
-            $user = \Auth::user();
-            if($user){
-                $point = Point::find($user->id);
-                if(bcrypt($request->password)==$point->password){
-                    $pointInfo = Point::change(-($goods->price),'购买商品--'.$goods->name);
-                    if($pointInfo == 'success'){
-                        $orderInfo = Order::generate($goods->id);
-                        if($orderInfo){
-                            return redirect('')->withInfo('成功购买商品！');
-                        }
-                    }
-                }
-                return redirect()->back()->withInfo('购买失败！');
-            }else{
-                return redirect('login')->withInfo('请先登录！');
-            }
-        }else{
-            return redirect('')->withInfo('不存在该产品');
+    public function generate(Request $request,$goodsId){
+        $user = \Auth::user();
+        if(!$user){
+            return redirect('login')->withInfo('请先登录！');
         }
+
+        //验证支付密码
+        $point = Point::where('user_id',$user->id)->first();
+        if(! password_verify($request->password,$point->password)){
+            return redirect()->back()->withInfo('支付密码错误！');
+        }
+
+        $goods = Goods::find($goodsId);
+        if(!$goods) {
+            return redirect()->back()->withInfo('不存在该产品');
+        }
+
+        //判断是否已经拥有此商品
+        $order = Order::where('user_id',$user->id)->where('goods_id',$goodsId)->first();
+        if($order){
+            return redirect()->back()->withInfo('您已经拥有此商品');
+        }
+
+        $pointInfo = Point::change(-($goods->price),'购买商品--'.$goods->name);
+        if($pointInfo != 'success'){
+            return redirect()->back()->withInfo($pointInfo);
+        }
+
+        $orderInfo = Order::generate($goods->id);
+        if(!$orderInfo){
+            return redirect()->back()->withInfo('购买商品失败！');
+        }
+        return redirect('user/myGoods')->withInfo('成功购买商品！');
     }
 }
