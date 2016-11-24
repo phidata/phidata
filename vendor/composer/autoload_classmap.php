@@ -6,13 +6,15 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'CreateApplication' => $baseDir . '/database/migrations/2016_11_13_112355_create_application.php',
+    'Create' => $baseDir . '/database/migrations/2016_10_12_170116_create.php',
+    'CreateApplication' => $baseDir . '/database/migrations/2016_11_13_112341_create_application.php',
     'CreateApplicationDataPackage' => $baseDir . '/database/migrations/2016_11_13_112343_create_application_data_package.php',
     'CreateDataPackage' => $baseDir . '/database/migrations/2016_11_13_111428_create_data_package.php',
     'CreateGoods' => $baseDir . '/database/migrations/2016_11_07_073846_create_goods.php',
     'CreateGoodsCategory' => $baseDir . '/database/migrations/2016_10_21_003514_create_goods_category.php',
     'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
     'CreateTest' => $baseDir . '/database/migrations/2016_09_27_025545_create_test.php',
+    'CreateUserInformation' => $baseDir . '/database/migrations/2016_11_22_133948_create_user_information.php',
     'CreateUserPoint' => $baseDir . '/database/migrations/2016_10_12_110200_create_user_point.php',
     'CreateUserPointRecord' => $baseDir . '/database/migrations/2016_10_12_111200_create_user_point_record.php',
     'CreateUsersTable' => $baseDir . '/database/migrations/2014_10_12_000000_create_users_table.php',
@@ -540,4 +542,5 @@ return array(
     'SebastianBergmann\\Version' => $vendorDir . '/sebastian/version/src/Version.php',
     'TestCase' => $baseDir . '/tests/TestCase.php',
     'Text_Template' => $vendorDir . '/phpunit/php-text-template/src/Template.php',
+    'User' => $baseDir . '/database/migrations/2016_10_12_165856_user.php',
 );

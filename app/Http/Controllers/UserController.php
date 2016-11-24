@@ -95,6 +95,8 @@ class UserController extends Controller
         foreach ($orders as $order){
             $goods = \App\Goods::find($order->goods_id);
             $order->goods=$goods;
+            $datapackage = \App\DataPackage::find($order->goods->data_package_id);
+            $order->goods->datapackage=$datapackage;
         }
         return view('User/order', ['Orders' => $orders]);
     }

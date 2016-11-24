@@ -70,19 +70,23 @@ Route::group(['middleware'=>'auth'],function(){
     Route::post('category/modify/{id}', 'CategoryController@modify');
     Route::get('category/showpage','CategoryController@showPage');
 
+    //消息模块
+    Route::get('user/message','UserMessageController@index');
+    Route::get('user/message/send','UserMessageController@send');
     //个人中心
     Route::get('user/index','UserController@index');
     Route::get('user/userUpdate','UserController@userUpdate');
     Route::get('user/store','UserController@userStore');
     Route::get('user/upload','UserController@upload');
     Route::get('user/myGoods','UserController@myGoods');
+    Route::get('user/myApi','UserController@myApi');
     Route::resource('user','UserController');
 
+    Route::get('user/message/send','UserMessageController@send');
     //积分管理
     Route::get('point/changePassword','PointController@changePassword');
     Route::post('point/modify','PointController@modify');
     Route::resource('point','PointController');
-
     //订单管理
     Route::resource('order','OrderController');
     Route::post('order/generate/{id}','OrderController@generate');
