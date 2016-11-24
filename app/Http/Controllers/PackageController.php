@@ -21,7 +21,8 @@ class PackageController extends Controller
      */
     public function index()
     {
-//        die(file_get_contents('E:\phiknowledge\php\phidata\public\1111.txt'));
+        $goods = Goods::find(1);
+        dump($goods->data_package());
     }
 
     /**
@@ -105,6 +106,7 @@ class PackageController extends Controller
         if(!$goods){
             return redirect()->back()->withInfo('该商品不存在！');
         }
+
 
 //        $package
 //        $package = data_package::find($goods->);
