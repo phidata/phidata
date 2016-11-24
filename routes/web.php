@@ -70,6 +70,24 @@ Route::group(['middleware'=>'auth'],function(){
 
 
 });
+//API制作
+Route::get('API/api', function(){
+    return view('API.API_info');
+});
+Route::post('API/test', 'api_infoController@store_rar');
+Route::get('API/index','api_infoController@index' );
+Route::get('API/info', function(){
+    return view('API.info_select');
+});
+Route::post('API/info_select','api_infoController@select' );
+Route::get('API/info_show',function(){
+    return view('API.info_show');
+});
+
+//Route::get('API/add/{id}', function($id){
+//    echo $id;
+//});
+Route::get('API/add/{id}','api_infoController@add' );
 
 
 
