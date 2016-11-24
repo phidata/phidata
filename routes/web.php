@@ -65,6 +65,10 @@ Route::group(['middleware'=>'auth'],function(){
     //商品详情查看
     Route::get('dataPackage/detail/{id}','DataPackageController@detail');
 
+    //数据包管理
+    Route::resource('package', 'PackageController');
+    
+
 
 
 

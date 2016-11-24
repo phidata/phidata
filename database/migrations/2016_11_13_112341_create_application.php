@@ -16,7 +16,7 @@ class CreateApplication extends Migration
         Schema::create('application',function(Blueprint $table){
             $table->increments('id');
             $table->integer('status');
-            $table->string('reject_reason');
+            $table->string('reject_reason')->nullable();
             $table->integer('type');
             $table->integer('user_id')->index()->unsigned();
             $table->timestamps();
