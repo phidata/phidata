@@ -19,10 +19,7 @@ class Order extends Migration
             $table->integer('user_id')->index()->unsigned();
             $table->integer('price')->unsigned();
             $table->timestamps();
-<<<<<<< HEAD
-=======
 
->>>>>>> 3ab496c7fd4f5367f055b7dd768a3c9af196f46e
             $table->foreign('goods_id')
                 ->references('id')->on('goods')
                 ->onDelete('restrict')

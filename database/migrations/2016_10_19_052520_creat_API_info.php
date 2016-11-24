@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateGoodsCategory extends Migration
+class CreatAPIInfo extends Migration
 {
     /**
      * Run the migrations.
@@ -13,18 +13,14 @@ class CreateGoodsCategory extends Migration
      */
     public function up()
     {
-        Schema::create('goods_category',function(Blueprint $table){
+        Schema::create('api_info', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('parent_id')->index()->unsigned();
             $table->string('name');
+            $table->string('description');
+            $table->integer('num')->unsigned();
+            $table->string('URL');
+            $table->rememberToken();
             $table->timestamps();
-        });
-
-        Schema::table('goods_category',function($table){
-            $table->foreign('parent_id')
-                ->references('id')->on('goods_category')
-                ->onDelete('restrict')
-                ->onUpdate('cascade');
         });
     }
 
@@ -35,6 +31,6 @@ class CreateGoodsCategory extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('api_info');
     }
 }

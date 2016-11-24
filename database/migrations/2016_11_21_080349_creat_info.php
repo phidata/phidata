@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Create extends Migration
+class CreatInfo extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,13 @@ class Create extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('apiinfo',function(Blueprint $table){
+            $table->increments('id');
+            $table->integer('info_id');
+            $table->string('adress');
+            $table->date('time');
+            $table->timestamps();
+        });
     }
 
     /**
