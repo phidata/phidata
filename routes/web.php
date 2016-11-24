@@ -26,6 +26,18 @@ Route::get('homePage', function(){
 //用户认证的一系列路由：登录，注册，登出...
 Auth::routes();
 
+//数据包商品首页列表
+Route::get('dataPackage/index','DataPackageController@index');
+
+//数据包详情查看
+Route::get('dataPackage/detail/{id}','DataPackageController@detail');
+
+//搜索数据包
+Route::post('dataPackage/search','SearchController@dp_search');
+
+//API商品首页列表
+//Route::get('dataPackage/index','DataPackageController@index');
+
 Route::group(['middleware'=>'auth'],function(){
 
     Route::get('/home', 'HomeController@index');
@@ -47,28 +59,29 @@ Route::group(['middleware'=>'auth'],function(){
     Route::resource('user','UserController');
 
     //积分管理
+
     Route::get('point/changePassword','PointController@changePassword');
     Route::post('point/modify','PointController@modify');
     Route::resource('point','PointController');
 
     //订单管理
     Route::resource('order','OrderController');
+    Route::post('order/generate','OrderController@generate');
     Route::post('order/generate/{id}','OrderController@generate');
 
     //上传审核
     Route::resource('Apply', 'ApplycationController');
     Route::post('Apply/update','ApplycationController@update' );
 
-    //商品首页列表
-    Route::get('dataPackage/index','DataPackageController@index');
-
-    //商品详情查看
-    Route::get('dataPackage/detail/{id}','DataPackageController@detail');
 
 
+    //数据包管理
+    Route::resource('package', 'PackageController');
+    
 
 
 
+<<<<<<< HEAD
 });
 //API制作
 Route::get('API/api', function(){
@@ -88,7 +101,10 @@ Route::get('API/info_show',function(){
 //    echo $id;
 //});
 Route::get('API/add/{id}','api_infoController@add' );
+=======
+>>>>>>> origin/master
 
 
+});
 
 

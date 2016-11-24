@@ -24,8 +24,12 @@
     <nav class="navbar navbar-default navbar-static-top">
         <div class="container">
             <div class="navbar-header">
+<<<<<<< HEAD
+
+=======
                 @include('common.errors')
                 @include('common.info')
+>>>>>>> a4a1f3e5e931f2fc15bc9360a3aedee945a9f3f5
                 <!-- Collapsed Hamburger -->
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
                     <span class="sr-only">Toggle Navigation</span>
