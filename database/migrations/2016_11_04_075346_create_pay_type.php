@@ -20,13 +20,9 @@ class CreatePayType extends Migration
             $table->integer('price')->unsigned();
             $table->rememberToken();
             $table->timestamps();
-        });
-        Schema::table('pay_type', function ($table) {
-            $table->unsignedInteger('api_info_id');
             $table->foreign('api_info_id')->references('id')->on('api_info')
                   ->onDelete('restrict')
                   ->onUpdate('cascade');
-            $table->unsignedInteger('goods_id');
             $table->foreign('goods_id')->references('id')->on('goods')
                  ->onDelete('restrict')
                  ->onUpdate('cascade');
@@ -42,6 +38,6 @@ class CreatePayType extends Migration
      */
     public function down()
     {
-        Schema::drop('pay_type');
+        Schema::drop('api_goods');
     }
 }

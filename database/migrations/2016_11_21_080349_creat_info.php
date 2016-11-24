@@ -13,7 +13,7 @@ class CreatInfo extends Migration
      */
     public function up()
     {
-        Schema::create('info',function(Blueprint $table){
+        Schema::create('apiinfo',function(Blueprint $table){
             $table->increments('id');
             $table->integer('info_id');
             $table->string('adress');

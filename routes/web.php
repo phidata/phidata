@@ -81,7 +81,7 @@ Route::group(['middleware'=>'auth'],function(){
 
 
 
-<<<<<<< HEAD
+
 });
 //API制作
 Route::get('API/api', function(){
@@ -101,10 +101,6 @@ Route::get('API/info_show',function(){
 //    echo $id;
 //});
 Route::get('API/add/{id}','api_infoController@add' );
-=======
->>>>>>> origin/master
 
-
-});
 
 
