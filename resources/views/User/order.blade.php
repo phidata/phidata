@@ -34,6 +34,7 @@
                         </thead>
                         <tbody>
 
+
                             {{--<td>--}}
                                 {{--<a href="http://localhost:81/user/logout" class="btn btn-xs blue">--}}
                                     {{--<i class="fa fa-file-o"></i>--}}
@@ -43,6 +44,7 @@
                                     {{--<i class="fa fa-trash"></i>--}}
                                     {{--修改密码--}}
                                 {{--</a>--}}
+
 
                         @foreach($Orders as $Order)
                         <tr>

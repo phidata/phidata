@@ -7,9 +7,9 @@
                 <div class="portlet-title">
                     <div class="caption">
                         <i class="fa icon-docs font-green-sharp"></i>
-                        <span class="caption-subject font-green-sharp bold uppercase">Phidata</span>
+                        <span class="caption-subject font-green-sharp bold uppercase">LL Good Y</span>
                         <span class="caption-helper">
-                            数据包查询
+                            API制作
                         </span>
                     </div>
                     <div class="actions">
@@ -19,11 +19,10 @@
                     <div class="portlet-body flip-scroll">
                         <div class="row" style="margin:20px;">
                             <div class="pull-right">
-                                <form action="{{ action('SearchController@dp_search') }}" method="POST"  enctype="multipart/form-data" class="form-horizontal">
-                                    {!! csrf_field() !!}
+                                <form method="GET" action="#" >
                                     <div class="input-icon" style="display:inline-block">
                                         <i class="icon-magnifier" style="margin-top: 9px;"></i>
-                                        <input name="key" type="text" class="form-control input-inline input-small input-sm" placeholder="关键词">
+                                        <input name="search" type="text" class="form-control input-inline input-small input-sm" placeholder="关键词">
                                     </div>
                                     <button type="submit" style="margin-left: -4px;" class="table-group-action-input form-control input-inline input-sm btn btn-sm green">搜索</button>
 
@@ -35,30 +34,36 @@
                     <table class="table table-striped table-bordered table-hover dataTable no-footer">
                         <thead class="flip-content">
                         <tr style="border-bottom: 1px solid #e7ecf1;">
-                            <th class="numeric"> 商品名 </th>
-                            <th class="numeric"> 数据类别 </th>
-                            <th class="numeric">数据包大小</th>
-                            <th class="numeric">上传人</th>
-                            <th class="numeric">上传时间</th>
+                            <th class="numeric"> ID </th>
+                            <th class="numeric"> 名称 </th>
+                            <th class="numeric"> 类型 </th>
+                            <th class="numeric">操作</th>
                             {{--<th class="numeric"></th>--}}
                             {{--<th class="numeric">住址</th>--}}
                             {{--<th width="30%" class="numeric">操作</th>--}}
                         </tr>
                         </thead>
                         <tbody>
+                        @foreach($flights as $flight)
+                            <tr>
+                                <td>{{ $flight->id }}</td>
 
-                        @foreach($goods as $good)
-
-                               <tr>
-                                <td> <a href="{{url('dataPackage/detail/'.$good->id)}}">{{ $good->name }}</a></td>
-                                <td>{{ $good->good_category->name }} </td>
-                                <td>{{ $good->data_package->size }}</td>
-                                <td>{{ $good->data_package->user->name }}</td>
-                                <td>{{ $good->updated_at }}</td>
-                               </tr>
-
+                                {{--// <td>{{ $application-> }}</td>--}}
+                                <td>{{ $flight->name}}</td>
+                                <td>{{ $flight->categrory_id}}</td>
+                                {{--<td>{{ $category->address }}</td>--}}
+                                <td>
+                                    <a href="add/{{ $flight->id }}"class="btn btn-xs blue">
+                                    <i class="fa fa-file-o"></i> 制作
+                                    </a>
+                                    {{--<a href="{{ action('ApplycationController@show',$application->id) }}" class="btn btn-xs blue">--}}
+                                        {{--<i class="fa fa-file-o"></i> 制作--}}
+                                    {{--</a>--}}
+                                    {{--<a type="button" class="btn default btn-xs red">--}}
+                                    {{--<i class="fa fa-eraser">审批驳回</i> </a>--}}
+                                </td>
+                            </tr>
                         @endforeach
-
                         </tbody>
                     </table>
                 </div>
@@ -66,8 +71,7 @@
         </div>
     </div>
 
-@stop
-
+@endsection
 
 
 

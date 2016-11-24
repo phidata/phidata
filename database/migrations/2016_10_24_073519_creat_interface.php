@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateApplication extends Migration
+class CreatInterface extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,17 @@ class CreateApplication extends Migration
      */
     public function up()
     {
-        Schema::create('application',function(Blueprint $table){
+        Schema::create('interface', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('status');
-            $table->string('reject_reason')->nullable();
-            $table->integer('type');
-            $table->integer('user_id')->index()->unsigned();
+            $table->integer('api_id');
+            $table->string('request_way');
+            $table->string('interface_add');
+            $table->string('exam_add');
+            $table->string('return_format');
+            $table->rememberToken();
             $table->timestamps();
-
-            $table->foreign('user_id')
-                ->references('id')->on('users')
+            $table->foreign('api_id')
+                ->references('id')->on('api_info')
                 ->onDelete('restrict')
                 ->onUpdate('cascade');
         });
@@ -35,6 +36,6 @@ class CreateApplication extends Migration
      */
     public function down()
     {
-        Schema::drop('application');
+        Schema::drop('interface');
     }
 }

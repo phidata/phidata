@@ -8,10 +8,8 @@ class GoodsCategory extends Model
 {
     protected $table ='goods_category';
 
-    /**
-     * 获取某类别的商品
-     */
     
+
 
     /**
      * 获取指定某类的所有数据包
@@ -20,5 +18,6 @@ class GoodsCategory extends Model
     {
         return $this->hasManyThrough('App\Goods', 'App\DataPackage','goods_category_id','goods_id');
     }
+
 
 }

@@ -7,7 +7,10 @@ use App\DataPackage;
 use Illuminate\Http\Request;
 use App\User;
 
+
 use App\Order;
+
+
 
 use App\Http\Requests;
 use Illuminate\Support\Facades\Redirect;
@@ -59,12 +62,6 @@ class UserController extends Controller
             return redirect()->back()->withErrors($e->getMessage());
         }
     }
-
-//    public function logout()
-//    {
-//        Auth::logout();
-//        return Redirect::to('/login');
-//    }
 
 
     public function upload()

@@ -20,6 +20,7 @@ Route::get('test', function(){
 
 
 
+
 ////用户认证的一系列路由：登录，注册，登出...
 //Auth::routes();
 //
@@ -55,8 +56,23 @@ Route::get('homePage', function(){
     return view('homePage');
 });
 
+
+
 //用户认证的一系列路由：登录，注册，登出...
 Auth::routes();
+
+//数据包商品首页列表
+Route::get('dataPackage/index','DataPackageController@index');
+
+//数据包详情查看
+Route::get('dataPackage/detail/{id}','DataPackageController@detail');
+
+//搜索数据包
+Route::post('dataPackage/search','SearchController@dp_search');
+
+
+//API商品首页列表
+//Route::get('dataPackage/index','DataPackageController@index');
 
 Route::group(['middleware'=>'auth'],function(){
 
@@ -84,30 +100,51 @@ Route::group(['middleware'=>'auth'],function(){
 
     Route::get('user/message/send','UserMessageController@send');
     //积分管理
+
     Route::get('point/changePassword','PointController@changePassword');
     Route::post('point/modify','PointController@modify');
     Route::resource('point','PointController');
     //订单管理
     Route::resource('order','OrderController');
+    Route::post('order/generate','OrderController@generate');
     Route::post('order/generate/{id}','OrderController@generate');
 
     //上传审核
     Route::resource('Apply', 'ApplycationController');
     Route::post('Apply/update','ApplycationController@update' );
 
-    //商品首页列表
-    Route::get('dataPackage/index','DataPackageController@index');
 
-    //商品详情查看
-    Route::get('dataPackage/detail/{id}','DataPackageController@detail');
 
+    //数据包管理
+    Route::resource('package', 'PackageController');
+    
 
 
 
 
 });
+//API制作
+Route::get('API/api', function(){
+    return view('API.API_info');
+});
+Route::post('API/test', 'api_infoController@store_rar');
+Route::get('API/index','api_infoController@index' );
+Route::get('API/info', function(){
+    return view('API.info_select');
+});
+Route::post('API/info_select','api_infoController@select' );
+Route::get('API/info_show',function(){
+    return view('API.info_show');
+});
+
+//Route::get('API/add/{id}', function($id){
+//    echo $id;
+//});
+Route::get('API/add/{id}','api_infoController@add' );
 
 
 
+
+//});
 
 

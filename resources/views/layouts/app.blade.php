@@ -24,8 +24,13 @@
     <nav class="navbar navbar-default navbar-static-top">
         <div class="container">
             <div class="navbar-header">
+
                 @include('common.errors')
                 @include('common.info')
+
+
+                {{--@include('common.errors')--}}
+                {{--@include('common.info')--}}
 
                 <!-- Collapsed Hamburger -->
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
