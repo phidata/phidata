@@ -21,8 +21,8 @@ class PackageController extends Controller
      */
     public function index()
     {
-        $goods = Goods::find(1);
-        dump($goods->data_package());
+//        $goods = Goods::find(1);
+//        dump($goods->data_package());
     }
 
     /**
@@ -107,11 +107,31 @@ class PackageController extends Controller
             return redirect()->back()->withInfo('该商品不存在！');
         }
 
+        $package = DataPackage::find($goods->data_package->data_package_id);
+        if(!$package){
+            return redirect()->back()->withInfo('该数据包不存在！');
+        }
 
-//        $package
-//        $package = data_package::find($goods->);
-//        $filePath = 'dataPackage'
-//        return response()->download($filePath);
+        $exists = \Storage::exists('dataPackage/'.$package->url);
+        if(!$exists){
+            return redirect()->back()->withInfo('该文件已丢失！');
+        }
+        $filePath = '/storage/app/dataPackage/'.$package->url;
+        return response()->download(realpath(base_path($filePath)));
+    }
+
+    public function adminDown($packageId){
+        $package = DataPackage::find($packageId);
+        if(!$package){
+            return redirect()->back()->withInfo('此数据不存在！');
+        }
+
+        $filePath = '/storage/app/dataPackage/'.$package->url;
+        $exists = \Storage::exists('dataPackage/'.$package->url);
+        if(!$exists){
+            return redirect()->back()->withInfo('该文件已丢失！');
+        }
+        return response()->download(realpath(base_path($filePath)));
     }
 
     /**

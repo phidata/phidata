@@ -77,7 +77,8 @@ Route::group(['middleware'=>'auth'],function(){
 
     //数据包管理
     Route::resource('package', 'PackageController');
-    Route::get('package/{id}', 'PackageController@down');
+    Route::get('package/userDown/{id}', 'PackageController@userDown');
+    Route::get('package/adminDown/{id}', 'PackageController@adminDown');
 
 
 
