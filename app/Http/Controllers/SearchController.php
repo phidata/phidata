@@ -18,9 +18,10 @@ class SearchController extends Controller
     public function dp_search(Request $request)
     {
         $key=$request->key;
-        $goods = DB::table('goods')
+        $goods = DB::table('goods_data_package')
+            ->join('goods', 'goods.id', '=', 'goods_data_package.goods_id')
             ->join('goods_category', 'goods.goods_category_id', '=', 'goods_category.id')
-            ->join('data_package', 'data_package.id', '=', 'goods.data_package_id')
+            ->join('data_package', 'data_package.id', '=', 'goods_data_package.data_package_id')
             ->join('users', 'users.id', '=', 'data_package.owner_id')
             ->where('goods_category.name','like','%' . $key . '%')
             ->orwhere('goods.name','like','%' . $key . '%')

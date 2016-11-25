@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\data_package;
 use App\Goods;
+use App\GoodsDataPackage;
 use Illuminate\Http\Request;
 use App\DataPackage;
 use App\GoodsCategory;
@@ -16,7 +17,7 @@ class DataPackageController extends Controller
     //
     public function index()
     {
-        $goods = Goods::all();
+        $goods = GoodsDataPackage::all();
         return view('dataPackage.index',['goods'=> $goods]);
     }
 

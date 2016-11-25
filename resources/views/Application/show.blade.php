@@ -34,7 +34,7 @@
                        <p>ID：{{$data_package->id}}</p>
                        <p>名称：{{$data_package->name}}</p>
                        <p>描述：{{$data_package->description}}</p>
-                       <p> <a href="{{ $data_package->url }}" class="btn btn-xs blue">
+                       <p> <a href="{{ action('PackageController@adminDown',$data_package->id) }}" class="btn btn-xs blue">
                                <i class="fa fa-file-o"></i> 下载数据包
                            </a></p>
                        <p><a href="{{ action('ApplycationController@edit',$data_package->application_data_package->application_id) }}" class="btn btn-xs blue">
