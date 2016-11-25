@@ -13,19 +13,14 @@ class CreatAPIInfo extends Migration
      */
     public function up()
     {
-        Schema::create('API_info', function (Blueprint $table) {
+        Schema::create('api_info', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
             $table->string('description');
             $table->integer('num')->unsigned();
             $table->string('URL');
-            $table->unsignedInteger('categrory_id');
             $table->rememberToken();
             $table->timestamps();
-            $table->foreign('categrory_id')
-                ->references('id')->on('goods_categrory')
-                ->onDelete('restrict')
-                ->onUpdate('cascade');
         });
     }
 

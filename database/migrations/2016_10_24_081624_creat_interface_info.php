@@ -15,7 +15,7 @@ class CreatInterfaceInfo extends Migration
     {
         Schema::create('interface_info', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('api_id');
+            $table->integer('api_id')->unsigned();
             $table->string('parameter_item');
             $table->string('parameter_name');
             $table->string('parameter_type');

@@ -70,7 +70,6 @@ class UserController extends Controller
         $dataPackages = DataPackage::where('owner_id',$id)->get();
         foreach ($dataPackages as $dataPackage){
             $zhongjian = \App\application_data_package::where('data_package_id',$dataPackage->id)->first();
-
             $application = application::find($zhongjian->application_id);
             $dataPackage->application = $application;
     }

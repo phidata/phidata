@@ -15,8 +15,8 @@ class CreateAPIDes extends Migration
     {
         Schema::create('api_des', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('api_id');
-            $table->string('API_description');
+            $table->integer('api_id')->unsigned();
+            $table->string('description');
             $table->rememberToken();
             $table->timestamps();
             $table->foreign('api_id')

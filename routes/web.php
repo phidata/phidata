@@ -117,12 +117,14 @@ Route::group(['middleware'=>'auth'],function(){
 
     //数据包管理
     Route::resource('package', 'PackageController');
-    
+    Route::get('package/{id}', 'PackageController@down');
 
 
 
 
-});
+
+\
+//});
 //API制作
 Route::get('API/api', function(){
     return view('API.API_info');
@@ -143,8 +145,6 @@ Route::get('API/info_show',function(){
 Route::get('API/add/{id}','api_infoController@add' );
 
 
-
-
-//});
+});
 
 

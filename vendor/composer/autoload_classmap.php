@@ -6,13 +6,24 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+
     'Create' => $baseDir . '/database/migrations/2016_10_12_170116_create.php',
+
+    'CreatAPIInfo' => $baseDir . '/database/migrations/2016_10_19_052520_creat_API_info.php',
+    'CreatDataInfo' => $baseDir . '/database/migrations/2016_10_24_082021_creat_data_info.php',
+    'CreatInfo' => $baseDir . '/database/migrations/2016_11_21_080349_creat_info.php',
+    'CreatInterface' => $baseDir . '/database/migrations/2016_10_24_073519_creat_interface.php',
+    'CreatInterfaceInfo' => $baseDir . '/database/migrations/2016_10_24_081624_creat_interface_info.php',
+    'CreateAPIDes' => $baseDir . '/database/migrations/2016_10_20_090549_create_api_des.php',
+
     'CreateApplication' => $baseDir . '/database/migrations/2016_11_13_112341_create_application.php',
     'CreateApplicationDataPackage' => $baseDir . '/database/migrations/2016_11_13_112343_create_application_data_package.php',
     'CreateDataPackage' => $baseDir . '/database/migrations/2016_11_13_111428_create_data_package.php',
     'CreateGoods' => $baseDir . '/database/migrations/2016_11_07_073846_create_goods.php',
     'CreateGoodsCategory' => $baseDir . '/database/migrations/2016_10_21_003514_create_goods_category.php',
+    'CreateGoodsDataPackage' => $baseDir . '/database/migrations/2016_11_24_152840_create_goods_data_package.php',
     'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
+    'CreatePayType' => $baseDir . '/database/migrations/2016_11_04_075346_create_pay_type.php',
     'CreateTest' => $baseDir . '/database/migrations/2016_09_27_025545_create_test.php',
     'CreateUserInformation' => $baseDir . '/database/migrations/2016_11_22_133948_create_user_information.php',
     'CreateUserPoint' => $baseDir . '/database/migrations/2016_10_12_110200_create_user_point.php',

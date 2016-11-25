@@ -278,13 +278,24 @@ class ComposerStaticInitae6e81acc1799d04ac794b8c8ffff8c8
     );
 
     public static $classMap = array (
+
         'Create' => __DIR__ . '/../..' . '/database/migrations/2016_10_12_170116_create.php',
+
+        'CreatAPIInfo' => __DIR__ . '/../..' . '/database/migrations/2016_10_19_052520_creat_API_info.php',
+        'CreatDataInfo' => __DIR__ . '/../..' . '/database/migrations/2016_10_24_082021_creat_data_info.php',
+        'CreatInfo' => __DIR__ . '/../..' . '/database/migrations/2016_11_21_080349_creat_info.php',
+        'CreatInterface' => __DIR__ . '/../..' . '/database/migrations/2016_10_24_073519_creat_interface.php',
+        'CreatInterfaceInfo' => __DIR__ . '/../..' . '/database/migrations/2016_10_24_081624_creat_interface_info.php',
+        'CreateAPIDes' => __DIR__ . '/../..' . '/database/migrations/2016_10_20_090549_create_api_des.php',
+
         'CreateApplication' => __DIR__ . '/../..' . '/database/migrations/2016_11_13_112341_create_application.php',
         'CreateApplicationDataPackage' => __DIR__ . '/../..' . '/database/migrations/2016_11_13_112343_create_application_data_package.php',
         'CreateDataPackage' => __DIR__ . '/../..' . '/database/migrations/2016_11_13_111428_create_data_package.php',
         'CreateGoods' => __DIR__ . '/../..' . '/database/migrations/2016_11_07_073846_create_goods.php',
         'CreateGoodsCategory' => __DIR__ . '/../..' . '/database/migrations/2016_10_21_003514_create_goods_category.php',
+        'CreateGoodsDataPackage' => __DIR__ . '/../..' . '/database/migrations/2016_11_24_152840_create_goods_data_package.php',
         'CreatePasswordResetsTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
+        'CreatePayType' => __DIR__ . '/../..' . '/database/migrations/2016_11_04_075346_create_pay_type.php',
         'CreateTest' => __DIR__ . '/../..' . '/database/migrations/2016_09_27_025545_create_test.php',
         'CreateUserInformation' => __DIR__ . '/../..' . '/database/migrations/2016_11_22_133948_create_user_information.php',
         'CreateUserPoint' => __DIR__ . '/../..' . '/database/migrations/2016_10_12_110200_create_user_point.php',

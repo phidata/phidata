@@ -37,6 +37,7 @@
                         </li>
                     </ul>
                     <ul>
+
                         <form action="{{ action('SearchController@dp_search') }}" method="POST"  enctype="multipart/form-data" class="form-horizontal">
                             {!! csrf_field() !!}
                             <div class="input-icon" style="display:inline-block">
@@ -44,6 +45,12 @@
                                 <input name="key" type="text" class="form-control input-inline input-small input-sm" placeholder="关键词">
                             </div>
                             <button type="submit" style="margin-left: -4px;" class="table-group-action-input form-control input-inline input-sm btn btn-sm green">搜索</button>
+
+
+                        <form class="navbar-form navbar-left" role="search">
+                            <div class="form-group">
+                                <input class="form-control" type="text" />
+                            </div> <button class="btn btn-default" type="submit">Submit</button>
 
                         </form>
                     </ul>
