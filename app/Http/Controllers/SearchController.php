@@ -27,7 +27,13 @@ class SearchController extends Controller
             ->orwhere('goods.name','like','%' . $key . '%')
             ->select('goods.name as goodsname','goods.id', 'users.name as username', 'goods_category.name as categoryname', 'data_package.size','data_package.updated_at')
             ->get();
+        if($goods->first()!=null){
         return view('dataPackage.search',['goods'=> $goods]);
+        }
+        else{
+            $user = \Auth::user();
+            return view('dataPackage.dp_request',['user'=>$user,'key'=>$key]);
+        }
     }
 
     public function all_search(Request $request)

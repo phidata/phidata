@@ -31,4 +31,6 @@ class Goods extends Model
         return $this->belongsTo('App\GoodsCategory','goods_category_id');
     }
 
+    
+
 }

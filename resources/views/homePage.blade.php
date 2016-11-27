@@ -30,7 +30,7 @@
                             <a href="{{action('DataPackageController@index')}}" style="color: #000000;" >数据分享</a>
                         </li>
                         <li>
-                            <a href="#" style="color: #000000">数据API</a>
+                            <a href="{{action('api_infoController@show_index')}}" style="color: #000000">数据API</a>
                         </li>
                         <li>
                             <a href="#"style="color: #000000">数据标定</a>

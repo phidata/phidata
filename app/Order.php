@@ -30,6 +30,6 @@ class Order extends Model
     
     public function Goods()
     {
-        return $this->belongsTo('Goods','goods_id');
+        return $this->belongsTo('App\Goods','goods_id');
     }
 }
