@@ -11,6 +11,7 @@ use App\DataPackage;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Symfony\Component\Finder\Comparator\DateComparator;
 
 class PackageController extends Controller
 {
@@ -107,7 +108,12 @@ class PackageController extends Controller
             return redirect()->back()->withInfo('该商品不存在！');
         }
 
-        $package = DataPackage::find($goods->data_package->data_package_id);
+        $goodsPackage = $goods->data_package;
+        if(!$goodsPackage){
+            return redirect()->back()->withInfo('该商品无法提供数据包下载！');
+        }
+
+        $package = DataPackage::find($goodsPackage->data_package_id);
         if(!$package){
             return redirect()->back()->withInfo('该数据包不存在！');
         }
@@ -121,6 +127,12 @@ class PackageController extends Controller
     }
 
     public function adminDown($packageId){
+        //TO DO
+//        $user = \Auth::user();
+//        if($user->type != 0){
+//            return redirect()->back()->withInfo('请使用管理员登录！');
+//        }
+
         $package = DataPackage::find($packageId);
         if(!$package){
             return redirect()->back()->withInfo('此数据不存在！');
