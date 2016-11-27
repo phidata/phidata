@@ -12,14 +12,14 @@ class Goods extends Model
     {
         return $this->hasOne('App\Order','goods_id');
     }
-
-
-
-
-
+    
     /**
      * 获取到和数据包的中间表
      */
+    public function api_goods()
+    {
+        return $this->hasOne('App\ApiGoods','goods_id');
+    }
     public function data_package()
     {
         return $this->hasOne('App\GoodsDataPackage','goods_id');
@@ -32,6 +32,8 @@ class Goods extends Model
     {
         return $this->belongsTo('App\GoodsCategory','goods_category_id');
     }
+
+
 
 
 }

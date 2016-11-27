@@ -10,9 +10,9 @@
                             <tr style="border-bottom: 1px solid #e7ecf1;">
                                 <th width="200" class="font-blue-sharp" ><a href="{{url('user')}}">个人信息</a></th>
                                 {{--<th class="numeric">密码</th>--}}
-                                <th width="200" class="font-blue-sharp"><a href="{{url('user/myGoods')}}">已购买数据包</a></th>
+                                <th width="200" class="font-blue-sharp"><a href="{{url('user/myGoods')}}">已购买商品</a></th>
                                 <th width="200" class="font-blue-sharp"><a href="{{url('user/upload')}}">上传数据包</a></th>
-                                <th width="200" class="font-blue-sharp"><a href="{{url('user/myApi')}}">拥有API</a></th>
+
                             </tr>
                         <i class="fa icon-docs font-green-sharp"></i>
                         <span class="caption-subject font-green-sharp bold uppercase">LL Good Y</span>
@@ -28,11 +28,10 @@
                         <tr style="border-bottom: 1px solid #e7ecf1;">
 
                             <th width="15%" class="numeric">商品名称</th>
-                            <th width="55%" class="numeric">描述</th>
-                            <th width="15%" class="numeric">大小</th>
+                            <th width="15%" class="numeric">商品类型</th>
                             <th width="15%" class="numeric">价格</th>
+                            <th width="15%" class="numeric">商品描述</th>
                             <th width="30%" class="numeric">操作</th>
-
                         </tr>
                         </thead>
                         <tbody>
@@ -48,18 +47,22 @@
                                     {{--修改密码--}}
                                 {{--</a>--}}
 
-
                         @foreach($Orders as $Order)
                         <tr>
+                            @if($Order->goods->type=="数据包")
                             <td>{{ $Order->goods->name }}</td>
-                            <td>{{ $Order->goods->datapackage->description}}</td>
-                            <td>{{ $Order->goods->size}}</td>
+                            <td>{{ $Order->goods->type}}</td>
                             <td>{{ $Order->goods->price}}</td>
-                            <td>
-                                <a href="{{ action('PackageController@userDown',$Order->goods->id) }}" class="btn btn-xs blue">
-                                    <i class="fa fa-file-o"></i> 下载
-                                </a>
-                            </td>
+                            <td>{{ $Order->goods->data_package->data_package->description}}<td>
+                                {{--<a href="{{ action('PackageController@userDown',$Order->goods->id) }}" class="btn btn-xs blue">--}}
+                                    {{--<i class="fa fa-file-o"></i> 下载--}}
+                                {{--</a>--}}
+                            {{--</td>--}}
+                            @else<td>{{ $Order->goods->name }}</td>
+                                <td>{{ $Order->goods->type}}</td>
+                                <td>{{ $Order->goods->price}}</td>
+                                <td>{{ $Order->goods->api_goods->api_info->description}}<td>
+                            @endif
                         </tr>
                         @endforeach
                         </tbody>
