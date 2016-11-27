@@ -15,7 +15,7 @@ class CreatDataInfo extends Migration
     {
         Schema::create('data_info', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('api_id');
+            $table->integer('api_id')->unsigned();
             $table->string('item_return');
             $table->string('item_name');
             $table->string('item_exam');

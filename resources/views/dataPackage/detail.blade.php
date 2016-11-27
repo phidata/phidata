@@ -39,15 +39,15 @@
                                                 <tbody>
                                                 <tr>
                                                     <td>名称</td>
-                                                    <td>{{ $detail->name }}</td>
+                                                    <td>{{ $detail->goods->name }}</td>
                                                 </tr>
                                                 <tr>
                                                     <td>用户</td>
-                                                    <td>{{ $detail->size }}</td>
+                                                    <td>{{ $detail->data_package->size }}</td>
                                                 </tr>
                                                 <tr>
                                                     <td>Email</td>
-                                                    <td>{{ $detail->price }}</td>
+                                                    <td>{{ $detail->goods->price }}</td>
                                                 </tr>
 
 

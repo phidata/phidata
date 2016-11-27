@@ -15,7 +15,7 @@ class CreatInterface extends Migration
     {
         Schema::create('interface', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('api_id');
+            $table->integer('api_id')->unsigned();
             $table->string('request_way');
             $table->string('interface_add');
             $table->string('exam_add');

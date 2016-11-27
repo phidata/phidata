@@ -77,7 +77,10 @@ Route::group(['middleware'=>'auth'],function(){
 
     //数据包管理
     Route::resource('package', 'PackageController');
-    
+    Route::get('package/userDown/{id}', 'PackageController@userDown');
+    Route::get('package/adminDown/{id}', 'PackageController@adminDown');
+
+
 
 
 
@@ -102,8 +105,5 @@ Route::get('API/info_show',function(){
 //});
 Route::get('API/add/{id}','api_infoController@add' );
 
-
-
-//});
 
 
