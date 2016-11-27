@@ -58,8 +58,10 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
+
         $category = GoodsCategory::all();
         return view('goodsCategory.goodsCategory',['categorys'=> $category]);
+
     }
 
     /**
@@ -68,6 +70,7 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
 
     public function edit($id){
         //
@@ -85,6 +88,7 @@ class CategoryController extends Controller
         $category->save();
         return redirect('category')->withInfo('成功修改商品分类！');
     }
+
 
     /**
      * Update the specified resource in storage.
@@ -108,6 +112,7 @@ class CategoryController extends Controller
     {
         //
     }
+
 
     public function delete($id) {
         $category = GoodsCategory::find($id);

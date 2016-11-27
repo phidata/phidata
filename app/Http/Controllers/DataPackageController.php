@@ -33,6 +33,7 @@ class DataPackageController extends Controller
         return view('dataPackage.detail',['goodsId'=>$id, 'detail'=>$goods->data_package]);
     }
 
+
     
 
    

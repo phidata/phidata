@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateGoodsCategory extends Migration
+class CreateUserInformation extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,16 @@ class CreateGoodsCategory extends Migration
      */
     public function up()
     {
-        Schema::create('goods_category',function(Blueprint $table){
+        Schema::create('user_message', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('parent_id')->index()->unsigned();
-            $table->string('name');
+            $table->integer('user_id')->index()->unsigned();
+            $table->string('message');
+            $table->integer('Stype')->defaut(1);
+            $table->integer('Rtype');
+            $table->string('email');
             $table->timestamps();
-        });
-
-        Schema::table('goods_category',function($table){
-            $table->foreign('parent_id')
-                ->references('id')->on('goods_category')
+            $table->foreign('user_id')
+                ->references('id')->on('users')
                 ->onDelete('restrict')
                 ->onUpdate('cascade');
         });
@@ -35,9 +35,6 @@ class CreateGoodsCategory extends Migration
      */
     public function down()
     {
-
-
-        Schema::drop('goods_category');
-        
+        Schema::drop('user_information');
     }
 }

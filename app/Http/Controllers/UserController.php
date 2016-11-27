@@ -3,10 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\application;
+use App\GoodsDataPackage;
 use App\DataPackage;
 use Illuminate\Http\Request;
 use App\User;
+
+
 use App\Order;
+
+
+
 use App\Http\Requests;
 use Illuminate\Support\Facades\Redirect;
 
@@ -57,7 +63,8 @@ class UserController extends Controller
             return redirect()->back()->withErrors($e->getMessage());
         }
     }
-
+    
+        
     public function upload()
     {
         $id=\Auth::user()->id;
@@ -77,16 +84,32 @@ class UserController extends Controller
      */
 
 
+
     public function myGoods()
     {
         $id=\Auth::id();
-        $orders = Order::where('user_id',$id)->get();
-        foreach ($orders as $order){
-            $goods = \App\Goods::find($order->goods_id);
-            $order->goods=$goods;
-        }
+        $orders = \App\Order::where('user_id',$id)->get();
+//        foreach ($orders as $order)
+//        {
+//            $goodsDataPackage=\App\GoodsDataPackage::where('goods_id',$order->Goods->id)->first();
+//            $order->Goods->goodsDataPackage=$goodsDataPackage;
+//        }
+//        echo $orders;
+//        die();
+        
+//        $id=\Auth::id();
+//        $orders = Order::where('user_id',$id)->get();
+//        foreach ($orders as $order){
+//            $goods = \App\Goods::find($order->goods_id);
+//            $order->goods=$goods;
+//            $goodsDataPackage = \App\GoodsDataPackage::where('data_package_id',$order->goods->id)->first();
+//            $order->goods->goodsDataPackage=$goodsDataPackage;
+//            $dataPackage =\App\DataPackage::find($order->goods->goodsDataPackage->data_package_id);
+//            $order->goods->goodsDataPackage->dataPackage==$dataPackage;
+//        }
         return view('User/order', ['Orders' => $orders]);
     }
+
 
     public function show($id)
     {

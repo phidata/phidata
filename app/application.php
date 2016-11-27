@@ -8,6 +8,7 @@ class application extends Model
 {
     protected $table ='application';
 
+
     public function applicationDataPackage(){
         return $this->hasOne('application_data_package','application_id');
     }
@@ -16,4 +17,5 @@ class application extends Model
     {
         return $this->hasOne('App\application_data_package','application_id','id');
     }
+
 }

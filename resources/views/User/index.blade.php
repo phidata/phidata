@@ -6,21 +6,31 @@
             <div class="portlet light">
                 <div class="portlet-title">
                     <div class="caption">
+                        <table width="800" class="table table-striped table-hover dataTable no-footer">
+                            <thead class="flip-content">
+                            <tr style="border-bottom: 1px solid #e7ecf1;">
+                                <th width="200" class="font-blue-sharp" ><a href="{{url('user')}}">个人信息</a></th>
+                                {{--<th class="numeric">密码</th>--}}
+                                <th width="200" class="font-blue-sharp"><a href="{{url('user/myGoods')}}">已购买商品</a></th>
+                                <th width="200" class="font-blue-sharp"><a href="{{url('user/upload')}}">上传数据包</a></th>
+
+                            </tr>
                         <i class="fa icon-docs font-green-sharp"></i>
                         <span class="caption-subject font-green-sharp bold uppercase">LL Good Y</span>
                         <span class="caption-helper">
-                            账户信息
+                            账户中心
                         </span>
-                    </div>
+
                     <div class="actions">
                     </div>
+                            <br/>
                     <table class="table table-striped table-bordered table-hover dataTable no-footer">
                         <thead class="flip-content">
                         <tr style="border-bottom: 1px solid #e7ecf1;">
-                            <th class="numeric">用户名</th>
+                            <th width="25%" class="numeric">用户名</th>
                             {{--<th class="numeric">密码</th>--}}
-                            <th width="30%" class="numeric">电子邮箱</th>
-                            <th width="30%" class="numeric">操作</th>
+                            <th width="50%" class="numeric">电子邮箱</th>
+                            <th width="25%" class="numeric">操作</th>
                         </tr>
                         </thead>
                         <tbody>
