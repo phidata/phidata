@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 use App\data_package;
+use App\DataPackage;
+use App\Goods;
+use App\GoodsDataPackage;
 use App\users;
 use App\application;
 use App\application_data_package;
@@ -19,21 +22,13 @@ class ApplycationController extends Controller
      */
     public function index()
     {
-//        die("12");
         $application = application::where('status',2)->get();
         foreach($application as $result)
         {
             $result=$result->application_data_package;
             $id=$result->data_package_id;
             $result->data_package_name=data_package::find($id)->name;
-           // echo $result->data_package_name;
-           //echo $result->data_package_id;//application_data_package->data_package_id;
         }
-     // $application = application::all();
-       // $application = users::first();
-       // echo $application;
-      // $applications=$application->hasgrate;
-       // die($application);
         return view('Application.index',['applications'=>  $application]);
     }
 
@@ -74,8 +69,11 @@ class ApplycationController extends Controller
      */
     public function show($id)
     {
-        $request=data_package::find($id);
-        $request->application_data_package;
+        $appl = application::find($id);
+        if(!$appl){
+            return redirect()->back()->withInfo('该申请不存在！');
+        }
+        $request=data_package::find($appl->application_data_package->data_package_id);
         return view('Application.show',['data_package'=>  $request]);
 
     }
@@ -88,9 +86,32 @@ class ApplycationController extends Controller
      */
     public function edit($id)
     {
-        $result=application::find($id);
-        $result->status=1;
-        $result->save();
+        \DB::beginTransaction();
+        try {
+            $result = application::find($id);
+            $result->status = 1;
+            $result->save();
+
+            $package = DataPackage::find($result->application_data_package->data_package_id);
+            $goods = new Goods;
+            $goods->name = $package->name;
+            $goods->price = $package->price;
+            $goods->type = 'package';
+            $goods->status = 1;
+            $goods->goods_category_id = 1;  //TO DO
+            $goods->save();
+
+            $goodsDataPackage = new GoodsDataPackage;
+            $goodsDataPackage->data_package_id = $package->id;
+            $goodsDataPackage->goods_id = $goods->id;
+            $goodsDataPackage->save();
+
+            \DB::commit();
+            return redirect('Apply')->withInfo('成功通过审核！');
+        }catch (\Exception $e){
+            \DB::rollback();
+        }
+
     }
 
     /**
