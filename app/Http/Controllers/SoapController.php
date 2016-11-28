@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
+require_once ("lib/nusoap.php");
+
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-require_once ("lib/nusoap.php");
 
 class SoapController extends Controller
 {

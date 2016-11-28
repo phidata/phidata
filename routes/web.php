@@ -104,7 +104,7 @@ Route::get('API/info_show',function(){
 //});
 Route::get('API/add/{id}','api_infoController@add' );
 
-
+//soap web service
 Route::post('soap','SoapController@index');
 
 
