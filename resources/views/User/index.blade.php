@@ -47,7 +47,7 @@
                                 <td>
                                     <a href="{{url('user/userUpdate')}}"   class="btn btn-xs green">
                                         修改密码
-                                    </a>
+                                    </a></td>
                             </tr>
                         </tbody>
                     </table>

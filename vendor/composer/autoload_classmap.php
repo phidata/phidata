@@ -6,16 +6,14 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-
-    'Create' => $baseDir . '/database/migrations/2016_10_12_170116_create.php',
-
     'CreatAPIInfo' => $baseDir . '/database/migrations/2016_10_19_052520_creat_API_info.php',
     'CreatDataInfo' => $baseDir . '/database/migrations/2016_10_24_082021_creat_data_info.php',
     'CreatInfo' => $baseDir . '/database/migrations/2016_11_21_080349_creat_info.php',
     'CreatInterface' => $baseDir . '/database/migrations/2016_10_24_073519_creat_interface.php',
     'CreatInterfaceInfo' => $baseDir . '/database/migrations/2016_10_24_081624_creat_interface_info.php',
+    'CreatMessage' => $baseDir . '/database/migrations/2016_11_28_111203_creat_message.php',
+    'CreatUserMessage' => $baseDir . '/database/migrations/2016_11_28_111222_creat_user_message.php',
     'CreateAPIDes' => $baseDir . '/database/migrations/2016_10_20_090549_create_api_des.php',
-
     'CreateApplication' => $baseDir . '/database/migrations/2016_11_13_112341_create_application.php',
     'CreateApplicationDataPackage' => $baseDir . '/database/migrations/2016_11_13_112343_create_application_data_package.php',
     'CreateDataPackage' => $baseDir . '/database/migrations/2016_11_13_111428_create_data_package.php',
@@ -25,7 +23,6 @@ return array(
     'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
     'CreatePayType' => $baseDir . '/database/migrations/2016_11_04_075346_create_pay_type.php',
     'CreateTest' => $baseDir . '/database/migrations/2016_09_27_025545_create_test.php',
-    'CreateUserInformation' => $baseDir . '/database/migrations/2016_11_22_133948_create_user_information.php',
     'CreateUserPoint' => $baseDir . '/database/migrations/2016_10_12_110200_create_user_point.php',
     'CreateUserPointRecord' => $baseDir . '/database/migrations/2016_10_12_111200_create_user_point_record.php',
     'CreateUsersTable' => $baseDir . '/database/migrations/2014_10_12_000000_create_users_table.php',
@@ -553,5 +550,4 @@ return array(
     'SebastianBergmann\\Version' => $vendorDir . '/sebastian/version/src/Version.php',
     'TestCase' => $baseDir . '/tests/TestCase.php',
     'Text_Template' => $vendorDir . '/phpunit/php-text-template/src/Template.php',
-    'User' => $baseDir . '/database/migrations/2016_10_12_165856_user.php',
 );

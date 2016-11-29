@@ -63,7 +63,7 @@
                                 <td>{{ $Order->goods->price}}</td>
                                 <td>{{ $Order->goods->api_goods->api_info->description}}</td>
                                 {{--<td> <a href="{{ action('PackageController@userDown',$Order->goods->id) }}" class="btn btn-xs blue">--}}
-                                    {{--<i class="fa fa-file-o"></i> 下载--}}
+                                    {{--<i class="fa fa-file-o"></i> 使用--}}
                                 {{--</a>--}}
                             </td>
                             @endif

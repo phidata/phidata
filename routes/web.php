@@ -88,7 +88,9 @@ Route::group(['middleware'=>'auth'],function(){
 
     //消息模块
     Route::get('user/message','UserMessageController@index');
-    Route::get('user/message/send','UserMessageController@send');
+    Route::get('user/message/delete/{id}','UserMessageController@deleteMessage');
+    Route::get('user/message/create', 'UserMessageController@create');
+    Route::post('user/message/store', 'UserMessageController@store');
     //个人中心
     Route::get('user/index','UserController@index');
     Route::get('user/userUpdate','UserController@userUpdate');
@@ -97,7 +99,7 @@ Route::group(['middleware'=>'auth'],function(){
     Route::get('user/myGoods','UserController@myGoods');
     Route::resource('user','UserController');
 
-    Route::get('user/message/send','UserMessageController@send');
+    
     //积分管理
 
     Route::get('point/changePassword','PointController@changePassword');
