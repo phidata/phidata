@@ -129,10 +129,6 @@ class ApplycationController extends Controller
         $result->reject_reason=$request->reason;
         $result->save();
         return redirect('Apply')->withInfo('拒绝成功！');
-
-
-
-
     }
 
     /**

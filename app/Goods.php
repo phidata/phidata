@@ -35,5 +35,4 @@ class Goods extends Model
 
 
 
-
 }

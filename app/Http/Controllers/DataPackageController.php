@@ -19,6 +19,8 @@ class DataPackageController extends Controller
     {
         $goods = GoodsDataPackage::all();
         return view('dataPackage.index',['goods'=> $goods]);
+
+
     }
 
 //    public function detail($id)
@@ -28,6 +30,13 @@ class DataPackageController extends Controller
 //    }
 
     public function detail($id)
+    {
+        $goods=Goods::find($id);
+        return view('dataPackage.detail',['goodsId'=>$id, 'detail'=>$goods->data_package]);
+    }
+
+
+    public function dp_request($id)
     {
         $goods=Goods::find($id);
         return view('dataPackage.detail',['goodsId'=>$id, 'detail'=>$goods->data_package]);

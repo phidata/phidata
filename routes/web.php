@@ -133,7 +133,7 @@ Route::group(['middleware'=>'auth'],function(){
 //});
 
 //API制作
-Route::get('API/api', function(){
+    Route::get('API/api', function(){
     return view('API.API_info');
 });
 Route::post('API/test', 'api_infoController@store_rar');
@@ -150,6 +150,12 @@ Route::get('API/info_show',function(){
 //    echo $id;
 //});
 Route::get('API/add/{id}','api_infoController@add' );
+
+//API商品首页列表
+Route::get('API/show_index','api_infoController@show_index');
+//API详情查看
+Route::get('API/show_detail/{id}','api_infoController@detail');
+
 
 
 });
