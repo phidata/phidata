@@ -16,8 +16,10 @@ class CreateDataPackage extends Migration
         Schema::create('data_package',function(Blueprint $table){
             $table->increments('id');
             $table->string('name');
+
             $table->string('description');
             $table->integer('goods_id')->index()->unsigned();
+
             $table->integer('owner_id')->index()->unsigned();
             $table->integer('price')->unsigned();
             $table->integer('size')->unsigned();
@@ -27,10 +29,12 @@ class CreateDataPackage extends Migration
                 ->references('id')->on('users')
                 ->onDelete('restrict')
                 ->onUpdate('cascade');
+
             $table->foreign('goods_id')
                 ->references('id')->on('goods')
                 ->onDelete('restrict')
                 ->onUpdate('cascade');
+
         });
     }
 

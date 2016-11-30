@@ -30,17 +30,18 @@
                             <a href="{{action('DataPackageController@index')}}" style="color: #000000;" >数据分享</a>
                         </li>
                         <li>
-                            <a href="#" style="color: #000000">数据API</a>
+                            <a href="{{action('api_infoController@show_index')}}" style="color: #000000">数据API</a>
                         </li>
                         <li>
                             <a href="#"style="color: #000000">数据标定</a>
                         </li>
                     </ul>
                     <ul>
-                        <form class="navbar-form navbar-left" role="search">
+                        <form method="POST" class="navbar-form navbar-left" role="search" action="{{ action('SearchController@dp_search') }}" method="POST">
+                            {{--{!! csrf_field() !!}--}}
                             <div class="form-group">
-                                <input class="form-control" type="text" />
-                            </div> <button class="btn btn-default" type="submit">Submit</button>
+                                <input name="key" type="text" class="form-control input-inline input-small input-sm" placeholder="关键词">
+                            </div> <button class="btn btn-default" type="submit">搜索</button>
                         </form>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">、
@@ -115,7 +116,7 @@
                             {{--<p>The Troll's tongue in Hardanger, Norway</p>--}}
                         {{--</div>--}}
                     {{--</div>--}}
-                    <div class="ih-item circle colored effect3 top_to_bottom" style="  margin-left:auto;margin-right:auto;"><a href="#">
+                    <div class="ih-item circle colored effect3 top_to_bottom" style="  margin-left:auto;margin-right:auto;"><a href="{{action('DataPackageController@index')}}" style="color: #000000;" >
                             <div class="img"><img src="img/stu.jpg" alt="img"></div>
                             <div class="info" style="padding-top: 20px; font-family: '微软雅黑 Light';background-color: #0d638f;">
                                 <h3>数据分享</h3>
@@ -147,7 +148,7 @@
                             {{--<p>The Troll's tongue in Hardanger, Norway</p>--}}
                         {{--</div>--}}
                     {{--</div>--}}
-                    <div class="ih-item circle colored effect3 top_to_bottom" style="  margin-left:auto;margin-right:auto;"><a href="#">
+                    <div class="ih-item circle colored effect3 top_to_bottom" style="  margin-left:auto;margin-right:auto;"><a href="{{action('api_infoController@show_index')}}" style="color: #000000">
                             <div class="img"><img src="img/js.jpg" alt="img"></div>
                             <div class="info" style="padding-top: 20px; font-family: '微软雅黑 Light';background-color: #0d638f;">
                                 <h3>数据API</h3>

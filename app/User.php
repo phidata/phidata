@@ -35,4 +35,7 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\DataPackage','owner_id');
     }
+    public function user_message(){
+        return  $this->hasOne('App\UserMessage','user_id');
+    }
 }

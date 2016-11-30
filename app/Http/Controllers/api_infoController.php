@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\api_goods;
 use App\api_info;
 use App\Info;
 use Illuminate\Http\Request;
@@ -88,5 +89,16 @@ class api_infoController extends Controller
 //        $api_info->URL =  $path;
 //        $api_info->save();
 //        return redirect('API/index');
+    }
+
+    public function show_index(){
+        $goods = api_goods::all();
+        return view('API.show_index',['goods'=> $goods]);
+    }
+
+    public function detail($id)
+    {
+        $goods=api_goods::find($id);
+        return view('API.show_detail',['goodsId'=>$id, 'detail'=>$goods]);
     }
 }

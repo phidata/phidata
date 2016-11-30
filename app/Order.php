@@ -27,9 +27,9 @@ class Order extends Model
         }
         return 0;
     }
-    
-    public function Goods()
+
+    public function goods()
     {
-        return $this->belongsTo('Goods','goods_id');
+        return $this->belongsTo('App\Goods','goods_id');
     }
 }
