@@ -17,6 +17,7 @@ class CreateDpRequest extends Migration
             $table->increments('id');
             $table->string('key');
             $table->integer('user_id');
+            $table->timestamps();
         });
     }
 

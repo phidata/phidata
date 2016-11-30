@@ -107,6 +107,16 @@ class ApplycationController extends Controller
             $goodsDataPackage->save();
 
             \DB::commit();
+
+            $dp_request=DB::table('dp_request')
+                ->join('goods','goods.name','=','dp_request.key')
+                ->where('goods.name','like','%' .'dp_request.key' .'%')
+                ->select('goods.name as goodsname')
+                ->get();
+            if($dp_request->next()!=null){
+                return redirect('API/show_index')->withInfo('成功调用');
+            }
+
             return redirect('Apply')->withInfo('成功通过审核！');
         }catch (\Exception $e){
             \DB::rollback();

@@ -80,8 +80,8 @@ Route::group(['middleware'=>'auth'],function(){
     Route::get('package/userDown/{id}', 'PackageController@userDown');
     Route::get('package/adminDown/{id}', 'PackageController@adminDown');
 
-
-
+    //数据包请求
+    Route::post('dataPackage/dp_request/{key}','DataPackageController@dp_request');
 
 
 
@@ -107,6 +107,7 @@ Route::get('API/add/{id}','api_infoController@add' );
 
 //API商品首页列表
 Route::get('API/show_index','api_infoController@show_index');
+
 //API详情查看
 Route::get('API/show_detail/{id}','api_infoController@detail');
 

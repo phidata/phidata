@@ -10,7 +10,7 @@
             </div>
         </div>
         <div class="portlet-body form">
-            <form action="{{ action('CategoryController@modify',$category->id)}}"method="POST"  enctype="multipart/form-data" class="form-horizontal">
+            <form action="{{ action('CategoryController@modify',$category->id)}}" method="POST"  enctype="multipart/form-data" class="form-horizontal">
                 {!! csrf_field() !!}
                 <div class="form-body">
                     <div class="form-group">
