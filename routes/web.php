@@ -15,7 +15,9 @@ Route::get('/', function(){
     return view('welcome');
 });
 Route::get('test', function(){
-    return view('test');
+//    return view('test');
+    $result = \App\Test::inRandomOrder()->limit(10)->get();
+    return $result->toArray();
 });
 
 
@@ -104,7 +106,5 @@ Route::get('API/info_show',function(){
 //});
 Route::get('API/add/{id}','api_infoController@add' );
 
-//soap web service
-Route::post('soap','SoapController@index');
-
-
+//NuSOAP web service
+Route::post('nuSoap','SoapController@index');
