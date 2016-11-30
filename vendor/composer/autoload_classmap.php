@@ -11,6 +11,8 @@ return array(
     'CreatInfo' => $baseDir . '/database/migrations/2016_11_21_080349_creat_info.php',
     'CreatInterface' => $baseDir . '/database/migrations/2016_10_24_073519_creat_interface.php',
     'CreatInterfaceInfo' => $baseDir . '/database/migrations/2016_10_24_081624_creat_interface_info.php',
+    'CreatMessage' => $baseDir . '/database/migrations/2016_11_28_111203_creat_message.php',
+    'CreatUserMessage' => $baseDir . '/database/migrations/2016_11_28_111222_creat_user_message.php',
     'CreateAPIDes' => $baseDir . '/database/migrations/2016_10_20_090549_create_api_des.php',
     'CreateApplication' => $baseDir . '/database/migrations/2016_11_13_112341_create_application.php',
     'CreateApplicationDataPackage' => $baseDir . '/database/migrations/2016_11_13_112343_create_application_data_package.php',

@@ -19,9 +19,44 @@ Route::get('test', function(){
 });
 
 
+
+
+////用户认证的一系列路由：登录，注册，登出...
+//Auth::routes();
+//
+//Route::group(['middleware'=>'auth'],function(){
+//    Route::get('/home', 'HomeController@index');
+////    Route::resource('point','system\PointController@index');
+//    Route::resource('category','CategoryController');
+//
+//    Route::get('category/create', 'CategoryController@create');
+//    Route::get('category/delete/{id}', 'CategoryController@delete');
+//
+//    Route::get('user/index','UserController@index');
+//    Route::get('user/userUpdate','UserController@userUpdate');
+//    Route::get('user/store','UserController@userStore');
+//    Route::get('user/logout','UserController@logout');
+//    Route::get('user/upload','UserController@upload');
+//    Route::get('user/category/index','UserCategoryController@index');
+//    Route::resource('user','UserController');
+//    Route::resource('point','PointController');
+//    Route::resource('order','OrderController');
+//    Route::post('order/generate','OrderController@generate');
+//
+//});
+
+////系统管理模块
+//Route::group(['prefix'=>'admin','namespace'=>'admin'],function(){
+//
+//    //账号管理
+//    Route::resource('account','AccountController');
+//});
+
 Route::get('homePage', function(){
     return view('homePage');
 });
+
+
 
 //用户认证的一系列路由：登录，注册，登出...
 Auth::routes();
@@ -35,8 +70,6 @@ Route::get('dataPackage/detail/{id}','DataPackageController@detail');
 //搜索数据包
 Route::post('dataPackage/search','SearchController@dp_search');
 
-//API商品首页列表
-//Route::get('dataPackage/index','DataPackageController@index');
 
 Route::group(['middleware'=>'auth'],function(){
 
@@ -49,6 +82,12 @@ Route::group(['middleware'=>'auth'],function(){
     Route::get('category/change/{id}','CategoryController@change');
     Route::post('category/modify/{id}', 'CategoryController@modify');
     Route::get('category/showpage','CategoryController@showPage');
+
+    //消息模块
+    Route::get('user/message','UserMessageController@index');
+    Route::get('user/message/delete/{id}','UserMessageController@deleteMessage');
+    Route::get('user/message/create', 'UserMessageController@create');
+    Route::post('user/message/store', 'UserMessageController@store');
 
     //个人中心
     Route::get('user/index','UserController@index');
@@ -74,7 +113,6 @@ Route::group(['middleware'=>'auth'],function(){
     Route::post('Apply/update','ApplycationController@update' );
 
 
-
     //数据包管理
     Route::resource('package', 'PackageController');
     Route::get('package/userDown/{id}', 'PackageController@userDown');
@@ -84,21 +122,21 @@ Route::group(['middleware'=>'auth'],function(){
     Route::post('dataPackage/dp_request/{key}','DataPackageController@dp_request');
 
 
-
-});
-//API制作
+    //API制作
     Route::get('API/api', function(){
     return view('API.API_info');
-});
-Route::post('API/test', 'api_infoController@store_rar');
-Route::get('API/index','api_infoController@index' );
-Route::get('API/info', function(){
-    return view('API.info_select');
-});
-Route::post('API/info_select','api_infoController@select' );
-Route::get('API/info_show',function(){
-    return view('API.info_show');
-});
+    });
+
+    Route::post('API/test', 'api_infoController@store_rar');
+    Route::get('API/index','api_infoController@index' );
+    Route::get('API/info', function(){
+        return view('API.info_select');
+    });
+
+    Route::post('API/info_select','api_infoController@select' );
+    Route::get('API/info_show',function(){
+        return view('API.info_show');
+    });
 
 //Route::get('API/add/{id}', function($id){
 //    echo $id;
@@ -112,5 +150,7 @@ Route::get('API/show_index','api_infoController@show_index');
 Route::get('API/show_detail/{id}','api_infoController@detail');
 
 
+
+});
 
 

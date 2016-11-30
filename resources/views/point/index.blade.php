@@ -38,6 +38,8 @@
                                         <i class="fa fa-file-o"></i> 充值
                                     </a>
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
 
                         @foreach($points as $point)
                             <tr>
@@ -46,6 +48,7 @@
                                     <a href=""   class="btn btn-xs green">
                                         <i class="fa fa-file-o"></i> 查看账单
 =======
+>>>>>>> 4e094e8fac4bef95d29d52a373f6e3456a2d9f7a
                                     <a href="{{ action('PointController@changePassword') }}" class="btn btn-xs red">
                                         <i class="fa fa-file-o"></i> 修改支付密码
 >>>>>>> a4a1f3e5e931f2fc15bc9360a3aedee945a9f3f5
@@ -59,6 +62,68 @@
             </div>
         </div>
     </div>
+<<<<<<< HEAD
+<<<<<<< HEAD
+
+
+    <!-- /.modal -->
+    <div class="modal fade" id="ensure" tabindex="-1" role="dialog"
+         aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">
+                        区域代理商审核
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    确认通过该区域代理商申请?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default"
+                            data-dismiss="modal">取消
+                    </button>
+                    <a id="approve" type="button" href='#' class="btn btn-primary" >
+                        确认
+                    </a>
+                </div>
+            </div><!-- /.modal-content -->
+        </div>
+    </div><!-- /.modal -->
+
+    <!-- /.modal -->
+    <div class="modal fade" id="reject" tabindex="-1" role="dialog"
+         aria-labelledby="myModalLabel" aria-hidden="false">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">
+                        区域代理商审核
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <form id="reason" action="#" >
+                        <div class="row">
+                            <h5 style="float:left;margin-left:20px;margin-top:5px;margin-right:5px">请填写驳回理由:</h5>
+                            <div align="center"style="float:left"><input name="reason" type="text" class="col-md-12 form-control" style="width:400px;height:25px;"/></div>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default"
+                                    data-dismiss="modal">取消
+                            </button>
+                            <button type="submit" class="btn btn-primary" >
+                                确认
+                            </button>
+                        </div>
+                    </form>
+                </div><!-- /.modal-content -->
+            </div>
+        </div><!-- /.modal -->
+=======
+>>>>>>> a4a1f3e5e931f2fc15bc9360a3aedee945a9f3f5
+=======
+>>>>>>> 4e094e8fac4bef95d29d52a373f6e3456a2d9f7a
 @endsection
 
 

@@ -8,6 +8,7 @@ class DataPackage extends Model
 {
     protected $table='data_package';
 
+
     public function applicationDataPackage(){
         return $this->hasOne('application_data_package','data_package_id');
     }
@@ -20,5 +21,6 @@ class DataPackage extends Model
     {
         return $this->belongsTo('App\User','owner_id');
     }
+
 
 }

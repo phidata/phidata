@@ -35,8 +35,9 @@ class DataPackageController extends Controller
         $goods=Goods::find($id);
         return view('dataPackage.detail',['goodsId'=>$id, 'detail'=>$goods->data_package]);
     }
-
+    
     public function dp_request($key)
+
     {
         $User = \Auth::user();
         $dp_request=new Dp_request();
@@ -50,6 +51,7 @@ class DataPackageController extends Controller
             return redirect()->back()->withErrors($e->getMessage());
         }
     }
+
 
     
 

@@ -283,6 +283,8 @@ class ComposerStaticInitae6e81acc1799d04ac794b8c8ffff8c8
         'CreatInfo' => __DIR__ . '/../..' . '/database/migrations/2016_11_21_080349_creat_info.php',
         'CreatInterface' => __DIR__ . '/../..' . '/database/migrations/2016_10_24_073519_creat_interface.php',
         'CreatInterfaceInfo' => __DIR__ . '/../..' . '/database/migrations/2016_10_24_081624_creat_interface_info.php',
+        'CreatMessage' => __DIR__ . '/../..' . '/database/migrations/2016_11_28_111203_creat_message.php',
+        'CreatUserMessage' => __DIR__ . '/../..' . '/database/migrations/2016_11_28_111222_creat_user_message.php',
         'CreateAPIDes' => __DIR__ . '/../..' . '/database/migrations/2016_10_20_090549_create_api_des.php',
         'CreateApplication' => __DIR__ . '/../..' . '/database/migrations/2016_11_13_112341_create_application.php',
         'CreateApplicationDataPackage' => __DIR__ . '/../..' . '/database/migrations/2016_11_13_112343_create_application_data_package.php',

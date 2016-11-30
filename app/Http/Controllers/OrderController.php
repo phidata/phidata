@@ -7,7 +7,11 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\UserPoint as Point;
+
+
+
 use App\Order;
+
 
 class OrderController extends Controller
 {
@@ -18,7 +22,9 @@ class OrderController extends Controller
      */
     public function index()
     {
+
         //
+
     }
 
     /**
@@ -87,6 +93,7 @@ class OrderController extends Controller
         //
     }
 
+
     public function generate(Request $request,$goodsId){
         $user = \Auth::user();
         if(!$user){
@@ -120,5 +127,6 @@ class OrderController extends Controller
             return redirect()->back()->withInfo('购买商品失败！');
         }
         return redirect('user/myGoods')->withInfo('成功购买商品！');
+
     }
 }

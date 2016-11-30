@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+
 use App\UserPoint as Point;
+
 use App\UserPointRecord;
 
 class PointController extends Controller
@@ -17,8 +19,10 @@ class PointController extends Controller
      */
     public function index()
     {
+
         $user = \Auth::user();
         $records = UserPointRecord::where('user_id',$user->id)->get();
+
         return view('point/index',['records'=> $records]);
     }
 
@@ -27,6 +31,7 @@ class PointController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
 
     public function changePassword(){
         return view('point.edit');
@@ -49,6 +54,7 @@ class PointController extends Controller
             return redirect()->back()->withInfo('修改支付密码失败！');
         }
     }
+
 
     public function create()
     {
