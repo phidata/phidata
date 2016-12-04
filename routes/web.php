@@ -98,6 +98,7 @@ Route::group(['middleware'=>'auth'],function(){
     Route::get('user/store','UserController@userStore');
     Route::get('user/upload','UserController@upload');
     Route::get('user/myGoods','UserController@myGoods');
+    Route::get('user/myTasks','UserController@myTasks');
     Route::resource('user','UserController');
 
     //积分管理
