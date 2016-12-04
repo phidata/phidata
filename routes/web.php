@@ -73,6 +73,7 @@ Route::get('dataPackage/detail/{id}','DataPackageController@detail');
 Route::post('dataPackage/search','SearchController@dp_search');
 
 
+
 Route::group(['middleware'=>'auth'],function(){
 
     Route::get('/home', 'HomeController@index');
@@ -97,6 +98,7 @@ Route::group(['middleware'=>'auth'],function(){
     Route::get('user/store','UserController@userStore');
     Route::get('user/upload','UserController@upload');
     Route::get('user/myGoods','UserController@myGoods');
+    Route::get('user/myTasks','UserController@myTasks');
     Route::resource('user','UserController');
     //数据标定判定标准答案
     Route::get('checkAnswer','CheckAnswerController@checkAnswer');
@@ -153,8 +155,25 @@ Route::get('API/show_index','api_infoController@show_index');
 Route::get('API/show_detail/{id}','api_infoController@detail');
 
 //NuSOAP web service
-    Route::post('nuSoap','SoapController@index');
+    Route::post('nuSoap','SoapController@index');//
 
 });
+
+//数据标定模块
+Route::get('Rating/add',function(){
+    return view('Rating.add_rating');
+});
+Route::post('Rating/add_task', 'Rating_taskController@add');
+
+Route::get('Rating/question/{id}', 'Rating_taskController@answer');
+Route::post('Rating/question/add_answer', 'Rating_taskController@answer_question');
+Route::get('Rating/tiao/',function(){
+    return view('Rating.tiao');
+});
+Route::get('Rating/index', 'Rating_taskController@index');
+Route::get('Rating/store/{id}', 'Rating_taskController@store');
+
+//标定任务首页列表
+Route::get('Rating/showIndex','Rating_taskController@showIndex');
 
 
