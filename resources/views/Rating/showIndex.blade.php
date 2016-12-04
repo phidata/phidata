@@ -35,7 +35,7 @@
                     <div>
                         @foreach($tasks as $task)
 
-                            <div id="div" style="height: 100%;width: 100%;background-color: #9ae3e9" onclick="javasecipt:location.href='{{url('Rating/question/'.$task->id)}}'" >
+                            <div id="div" style="height: 100%;width: 100%;background-color: #9ae3e9" onclick="javasecipt:location.href='{{url('Rating/show_detail/'.$task->id)}}'" >
                                 <h3>{{$task->question}}</h3>
                                 <div style="float: left; height:100%;width: 25%">类别：{{$task->category_rating_task->name}}</div>
                                 <div style="float: left; height:100%;width: 25%">价格：{{$task->price}}</div><br/>

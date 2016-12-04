@@ -16,4 +16,8 @@ class Rating_task extends Model
     {
         return $this->belongsTo('App\GoodsCategory','goods_category_id');
     }
+    public function user()
+    {
+        return $this->belongsTo('App\User','owner_id');
+    }
 }

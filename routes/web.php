@@ -163,7 +163,8 @@ Route::get('Rating/add',function(){
 });
 Route::post('Rating/add_task', 'Rating_taskController@add');
 
-Route::get('Rating/question/{id}', 'Rating_taskController@answer');
+
+Route::post('Rating/question/{id}', 'Rating_taskController@answer');
 Route::post('Rating/question/add_answer', 'Rating_taskController@answer_question');
 Route::get('Rating/tiao/',function(){
     return view('Rating.tiao');
@@ -173,5 +174,7 @@ Route::get('Rating/store/{id}', 'Rating_taskController@store');
 
 //标定任务首页列表
 Route::get('Rating/showIndex','Rating_taskController@showIndex');
+//标定任务详情查看
+Route::get('Rating/show_detail/{id}','Rating_taskController@detail');
 
 
