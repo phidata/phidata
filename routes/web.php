@@ -15,7 +15,9 @@ Route::get('/', function(){
     return view('welcome');
 });
 Route::get('test', function(){
-    return view('test');
+//    return view('test');
+    $result = \App\Test::inRandomOrder()->limit(10)->get();
+    return $result->toArray();
 });
 
 
@@ -71,9 +73,6 @@ Route::get('dataPackage/detail/{id}','DataPackageController@detail');
 Route::post('dataPackage/search','SearchController@dp_search');
 
 
-//API商品首页列表
-//Route::get('dataPackage/index','DataPackageController@index');
-
 Route::group(['middleware'=>'auth'],function(){
 
     Route::get('/home', 'HomeController@index');
@@ -91,6 +90,7 @@ Route::group(['middleware'=>'auth'],function(){
     Route::get('user/message/delete/{id}','UserMessageController@deleteMessage');
     Route::get('user/message/create', 'UserMessageController@create');
     Route::post('user/message/store', 'UserMessageController@store');
+
     //个人中心
     Route::get('user/index','UserController@index');
     Route::get('user/userUpdate','UserController@userUpdate');
@@ -99,12 +99,12 @@ Route::group(['middleware'=>'auth'],function(){
     Route::get('user/myGoods','UserController@myGoods');
     Route::resource('user','UserController');
 
-    
     //积分管理
 
     Route::get('point/changePassword','PointController@changePassword');
     Route::post('point/modify','PointController@modify');
     Route::resource('point','PointController');
+
     //订单管理
     Route::resource('order','OrderController');
     Route::post('order/generate','OrderController@generate');
@@ -115,36 +115,30 @@ Route::group(['middleware'=>'auth'],function(){
     Route::post('Apply/update','ApplycationController@update' );
 
 
-
     //数据包管理
     Route::resource('package', 'PackageController');
     Route::get('package/userDown/{id}', 'PackageController@userDown');
     Route::get('package/adminDown/{id}', 'PackageController@adminDown');
 
+    //数据包请求
+    Route::post('dataPackage/dp_request/{key}','DataPackageController@dp_request');
 
 
-
-
-
-
-//});
-
-
-//});
-
-//API制作
+    //API制作
     Route::get('API/api', function(){
     return view('API.API_info');
-});
-Route::post('API/test', 'api_infoController@store_rar');
-Route::get('API/index','api_infoController@index' );
-Route::get('API/info', function(){
-    return view('API.info_select');
-});
-Route::post('API/info_select','api_infoController@select' );
-Route::get('API/info_show',function(){
-    return view('API.info_show');
-});
+    });
+
+    Route::post('API/test', 'api_infoController@store_rar');
+    Route::get('API/index','api_infoController@index' );
+    Route::get('API/info', function(){
+        return view('API.info_select');
+    });
+
+    Route::post('API/info_select','api_infoController@select' );
+    Route::get('API/info_show',function(){
+        return view('API.info_show');
+    });
 
 //Route::get('API/add/{id}', function($id){
 //    echo $id;
@@ -153,10 +147,12 @@ Route::get('API/add/{id}','api_infoController@add' );
 
 //API商品首页列表
 Route::get('API/show_index','api_infoController@show_index');
+
 //API详情查看
 Route::get('API/show_detail/{id}','api_infoController@detail');
 
-
+//NuSOAP web service
+    Route::post('nuSoap','SoapController@index');
 
 });
 

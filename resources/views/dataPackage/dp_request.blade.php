@@ -42,8 +42,12 @@
                                     <h5 class="navbar-text">是否提交请求</h5>
                                 </div>
                                 <div align="center">
-                                    <a href="#"><button type="submit" style="margin-left: -4px;" class="table-group-action-input form-control input-inline input-sm btn btn-sm green">是，我需要</button></a>
-                                    <a><button type="submit" style="margin-left: 20px;" class="table-group-action-input form-control input-inline input-sm btn btn-sm green">不，下次吧</button></a>
+                                    <form method="post" action="{{ action('DataPackageController@dp_request',$key)}}">
+                                        {!! csrf_field() !!}
+                                        <input type="text" value="{{$user->id}}" style="visibility: hidden"  class="form-control"  />
+                                    <a ><button type="submit" style="margin-left: -4px;" class="table-group-action-input form-control input-inline input-sm btn btn-sm green">是，我需要</button></a>
+                                    <a href="{{url('/dataPackage/index')}}"><button type="button" style="margin-left: 20px;" class="table-group-action-input form-control input-inline input-sm btn btn-sm green">不，下次吧</button></a>
+                                    </form>
                                 </div>
                             </div>
                         </nav>

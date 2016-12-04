@@ -6,12 +6,16 @@ use App\DataPackage;
 use App\Goods;
 use App\GoodsDataPackage;
 use App\users;
+use DB;
+use App\Dp_request;
 use App\application;
 use App\application_data_package;
 use Illuminate\Http\Request;
 use App\grate;
+use App\UserMessage;
 
 use App\Http\Requests;
+use Illuminate\Mail\Message;
 
 class ApplycationController extends Controller
 {
@@ -105,15 +109,30 @@ class ApplycationController extends Controller
             $goodsDataPackage->data_package_id = $package->id;
             $goodsDataPackage->goods_id = $goods->id;
             $goodsDataPackage->save();
-
             \DB::commit();
-            return redirect('Apply')->withInfo('成功通过审核！');
+
+            $dp_request = DB::table('dp_request')->where('key', $goods->name)->first();
+
+
+            if($dp_request!=null){
+                dump($dp_request);
+                $user=$dp_request->user_id;
+
+                $userMessage=new UserMessage();
+                $userMessage->user_id=$user;
+                $userMessage->message_id="2";
+                try{
+                    $userMessage->save();
+                }catch (\Exception $e){
+                    die($e);
+                }
+                return redirect('Apply')->withInfo('成功通过审核！');
+            }
         }catch (\Exception $e){
             \DB::rollback();
         }
 
     }
-
     /**
      * Update the specified resource in storage.
      *
