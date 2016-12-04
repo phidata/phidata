@@ -77,20 +77,27 @@ class Rating_taskController extends Controller
         }
     }
     public function answer($id){
-        $results=Rating_question::where('rating_task_id',$id)->simplePaginate(1);
-        $ques=Rating_task::find($id);
-        $question=$ques->question;
-//        foreach($results as $result)
-//        {
-//            echo $result->url;
-//        }
-//        die();
-        return view('Rating.question',['results' => $results,'question'=>$question]);
-
+        $questions=Rating_question::where('rating_task_id',$id)->get();
+        $userId = \Auth::id();
+        foreach($questions as $question){
+            $answer = Answer::where('rating_question_id',$question->id)->where('user_id',$userId)->first();
+            if(!$answer){
+                return view('Rating.question',['question' => $question]);
+            }
+        }
+        return redirect('Rating/showIndex')->withInfo('真棒，您已完成该任务的所有题目！请选择其它任务');
     }
     public function answer_question(Request $request){
         $answer = new Answer();
-        $answer->
+        $answer->user_id = \Auth::id();
+        $answer->rating_question_id = $request->id;
+        $answer->answer = $request->answer;
+        try{
+            $answer->save();
+            return redirect()->back()->withInfo('成功提交上一题！');
+        }catch(\Exception $e){
+            return redirect()->back()->withInfo('提交上一题失败！');
+        }
     }
     public function index(){
         $results=Favor_rating_task::where('status',1)->where('user_id',1)->get();
