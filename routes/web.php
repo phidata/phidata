@@ -165,7 +165,7 @@ Route::get('Rating/add',function(){
 Route::post('Rating/add_task', 'Rating_taskController@add');
 
 
-Route::post('Rating/question/{id}', 'Rating_taskController@answer');
+Route::get('Rating/question/{id}', 'Rating_taskController@answer');
 Route::post('Rating/question/add_answer', 'Rating_taskController@answer_question');
 Route::get('Rating/tiao/',function(){
     return view('Rating.tiao');
