@@ -22,6 +22,12 @@ class Rating_taskController extends Controller
         return view('Rating.showIndex',['tasks'=> $task]);
     }
 
+    public function detail($id)
+    {
+        $task=Rating_task::find($id);
+        return view('Rating.show_detail',['taskId'=>$id, 'detail'=>$task]);
+    }
+
     public function add(Request $request){
         $file = $request->file('file');
         $clientName = $file -> getClientOriginalName();

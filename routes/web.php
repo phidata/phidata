@@ -99,7 +99,8 @@ Route::group(['middleware'=>'auth'],function(){
     Route::get('user/upload','UserController@upload');
     Route::get('user/myGoods','UserController@myGoods');
     Route::resource('user','UserController');
-
+    //数据标定判定标准答案
+    Route::get('checkAnswer','CheckAnswerController@checkAnswer');
     //积分管理
 
     Route::get('point/changePassword','PointController@changePassword');
@@ -163,7 +164,8 @@ Route::get('Rating/add',function(){
 });
 Route::post('Rating/add_task', 'Rating_taskController@add');
 
-Route::get('Rating/question/{id}', 'Rating_taskController@answer');
+
+Route::post('Rating/question/{id}', 'Rating_taskController@answer');
 Route::post('Rating/question/add_answer', 'Rating_taskController@answer_question');
 Route::get('Rating/tiao/',function(){
     return view('Rating.tiao');
@@ -174,5 +176,7 @@ Route::get('Rating/favor/{id}','Rating_taskController@favor');
 
 //标定任务首页列表
 Route::get('Rating/showIndex','Rating_taskController@showIndex');
+//标定任务详情查看
+Route::get('Rating/show_detail/{id}','Rating_taskController@detail');
 
 
