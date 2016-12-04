@@ -9,11 +9,10 @@
                             <thead class="flip-content">
                             <tr style="border-bottom: 1px solid #e7ecf1;">
                                 <th width="200" class="font-blue-sharp" ><a href="{{url('user')}}">个人信息</a></th>
-                                {{--<th class="numeric">密码</th>--}}
                                 <th width="200" class="font-blue-sharp"><a href="{{url('user/myGoods')}}">已购买商品</a></th>
                                 <th width="200" class="font-blue-sharp"><a href="{{url('user/upload')}}">上传数据包</a></th>
-
-                            </tr>
+                                <th width="200" class="font-blue-sharp"><a href="{{url('user/message')}}">消息查看</a></th>
+                            </tr></table>
                         <i class="fa icon-docs font-green-sharp"></i>
                         <span class="caption-subject font-green-sharp bold uppercase">LL Good Y</span>
                         <span class="caption-helper">
