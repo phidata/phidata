@@ -7,8 +7,6 @@ use App\GoodsDataPackage;
 use App\DataPackage;
 use Illuminate\Http\Request;
 use App\User;
-
-
 use App\Order;
 
 
@@ -109,7 +107,6 @@ class UserController extends Controller
 //        }
         return view('User/order', ['Orders' => $orders]);
     }
-
 
     public function show($id)
     {
