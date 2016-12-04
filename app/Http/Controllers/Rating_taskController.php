@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Favor_rating_task;
 use App\Rating_question;
 use App\Rating_task;
+use App\Rating_answer as Answer;
+use App\FavorRatingTask as Favor;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -80,14 +82,9 @@ class Rating_taskController extends Controller
         return view('Rating.question',['results' => $results,'question'=>$question]);
 
     }
-    public  function  answer_question(Request $request){
-        $url=$request->url;
-        die();
-//        echo $url;
-//        die();
-        return view('Rating.tiao');
-
-//        return view('Rating.tiao',['$url' => $url]);
+    public function answer_question(Request $request){
+        $answer = new Answer();
+        $answer->
     }
     public function index(){
         $results=Favor_rating_task::where('status',1)->where('user_id',1)->get();
@@ -113,6 +110,28 @@ class Rating_taskController extends Controller
         $result=Favor_rating_task::find($id);
         $result->status=2;
         $result->save();
+    }
+
+    public function favor($id){
+        $userId = \Auth::id();
+        $favor = Favor::where('user_id',$userId)->where('rating_task_id',$id)->get();
+        if($favor){
+            return redirect()->back()->withInfo('您已收藏过该任务！');
+        }
+
+        $favor = new Favor();
+        $favor->rating_task_id = $id;
+        $favor->user_id = $userId;
+        try{
+            $favor->save();
+            return redirect()->back()->withInfo('收藏成功！');
+        }catch(\Exception $e){
+            return redirect()->back()->withInfo('收藏失败！');
+        }
+    }
+
+    public function save(Request $request){
+        
     }
 
 }
