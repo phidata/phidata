@@ -98,7 +98,8 @@ Route::group(['middleware'=>'auth'],function(){
     Route::get('user/upload','UserController@upload');
     Route::get('user/myGoods','UserController@myGoods');
     Route::resource('user','UserController');
-
+    //数据标定判定标准答案
+    Route::get('checkAnswer','CheckAnswerController@checkAnswer');
     //积分管理
 
     Route::get('point/changePassword','PointController@changePassword');
