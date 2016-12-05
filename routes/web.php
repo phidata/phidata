@@ -167,9 +167,6 @@ Route::post('Rating/add_task', 'Rating_taskController@add');
 
 Route::get('Rating/question/{id}', 'Rating_taskController@answer');
 Route::post('Rating/question/add_answer', 'Rating_taskController@answer_question');
-Route::get('Rating/tiao/',function(){
-    return view('Rating.tiao');
-});
 Route::get('Rating/index', 'Rating_taskController@index');
 Route::get('Rating/store/{id}', 'Rating_taskController@store');
 Route::get('Rating/favor/{id}','Rating_taskController@favor');
