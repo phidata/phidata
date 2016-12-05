@@ -121,4 +121,20 @@ class Rating_taskController extends Controller
         $result->save();
     }
 
+    public function rt_search(){
+        return view('Rating.unsearch');
+    }
+
+    public function result($id)
+    {
+
+//        $tasks = DB::table('rating_question')
+//            ->select('rating_question.url as url','rating_question.answer as answer')
+//            ->get();
+        $tasks=Rating_question::where('rating_task_id',$id);
+        dump($tasks);
+        die();
+        return view('Rating.result',['tasks'=> $tasks]);
+    }
+
 }

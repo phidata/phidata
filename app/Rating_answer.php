@@ -11,4 +11,9 @@ class Rating_answer extends Model
     {
         return $this->belongsTo('App\Rating_question','rating_question_id','id');
     }
+
+    public function user()
+    {
+        return $this->belongsTo('App\User','user_id');
+    }
 }

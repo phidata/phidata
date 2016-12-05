@@ -19,7 +19,7 @@
                     <div class="portlet-body flip-scroll">
                         <div class="row" style="margin:20px;">
                             <div class="pull-right">
-                                <form action="{{ action('SearchController@dp_search') }}" method="POST"  enctype="multipart/form-data" class="form-horizontal">
+                                <form action="{{ action('SearchController@rt_search') }}" method="POST"  enctype="multipart/form-data" class="form-horizontal">
                                     {!! csrf_field() !!}
                                     <div class="input-icon" style="display:inline-block">
                                         <i class="icon-magnifier" style="margin-top: 9px;"></i>

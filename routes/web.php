@@ -125,6 +125,7 @@ Route::group(['middleware'=>'auth'],function(){
 
     //数据包请求
     Route::post('dataPackage/dp_request/{key}','DataPackageController@dp_request');
+    
 
 
     //API制作
@@ -151,8 +152,14 @@ Route::get('API/add/{id}','api_infoController@add' );
 //API商品首页列表
 Route::get('API/show_index','api_infoController@show_index');
 
+
 //API详情查看
 Route::get('API/show_detail/{id}','api_infoController@detail');
+
+//搜索API
+Route::post('API/search','SearchController@api_search');
+//搜索API未找到
+Route::get('API/unsearch','api_infoController@api_search');
 
 //NuSOAP web service
     Route::post('nuSoap','SoapController@index');//
@@ -178,5 +185,13 @@ Route::get('Rating/store/{id}', 'Rating_taskController@store');
 Route::get('Rating/showIndex','Rating_taskController@showIndex');
 //标定任务详情查看
 Route::get('Rating/show_detail/{id}','Rating_taskController@detail');
+//搜索标定任务
+Route::post('Rating/showIndex','SearchController@rt_search');
+//搜索标定未找到任务
+Route::get('Rating/unsearch','Rating_taskController@rt_search');
+//标定结果显示
+Route::get('Rating/result','Rating_taskController@result');
+
+
 
 

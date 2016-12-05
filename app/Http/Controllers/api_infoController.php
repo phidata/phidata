@@ -101,4 +101,8 @@ class api_infoController extends Controller
         $goods=api_goods::find($id);
         return view('API.show_detail',['goodsId'=>$id, 'detail'=>$goods]);
     }
+
+    public function api_search(){
+        return view('API.unsearch');
+    }
 }
