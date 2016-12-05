@@ -9,7 +9,7 @@
                         <i class="fa icon-docs font-green-sharp"></i>
                         <span class="caption-subject font-green-sharp bold uppercase">Phidata</span>
                         <span class="caption-helper">
-                            API列表
+                            标定任务查询
                         </span>
                     </div>
                     <div class="actions">
@@ -19,7 +19,7 @@
                     <div class="portlet-body flip-scroll">
                         <div class="row" style="margin:20px;">
                             <div class="pull-right">
-                                <form action="{{ action('SearchController@api_search') }}" method="POST"  enctype="multipart/form-data" class="form-horizontal">
+                                <form action="{{ action('SearchController@rt_search') }}" method="POST"  enctype="multipart/form-data" class="form-horizontal">
                                     {!! csrf_field() !!}
                                     <div class="input-icon" style="display:inline-block">
                                         <i class="icon-magnifier" style="margin-top: 9px;"></i>
@@ -31,14 +31,16 @@
                             </div>
                         </div>
                     </div>
-                    <div>
-                        @foreach($goods as $good)
 
-                            <div id="div" style="height: 100%;width: 100%;background-color: #9ae3e9" onclick="javasecipt:location.href='{{url('API/show_detail/'.$good->api_info->id)}}'">
-                                <h3>{{$good->api_info->name}}</h3>
-                                <div style="float: left; height:100%;width: 25%">类别：{{$good->goods->type}}</div>
-                                <div style="float: left; height:100%;width: 25%">价格：{{$good->price}}</div><br/>
-                                <div style="float: left; height:100%;width: 25%">描述：{{$good->api_info->description}}</div><br/>
+                    <div>
+                        @foreach($tasks as $task)
+
+                            <div id="div" style="height: 100%;width: 100%;background-color: #9ae3e9" onclick="javasecipt:location.href='{{url('Rating/show_detail/'.$task->id)}}'" >
+                                <h3>{{$task->question}}</h3>
+                                <div style="float: left; height:100%;width: 25%">类别：{{$task->name}}</div>
+                                <div style="float: left; height:100%;width: 25%">价格：{{$task->price}}</div><br/>
+                                <div style="float: left; height:100%;width: 25%">描述：{{$task->description}}</div><br/>
+                                <div style="float: left; height:100%;width: 25%">请求者：{{$task->username}}</div><br/>
 
                             </div>
                             <div style="height: 20px;width: 100%; hidden:hidden"></div>

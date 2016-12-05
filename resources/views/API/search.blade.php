@@ -9,7 +9,7 @@
                         <i class="fa icon-docs font-green-sharp"></i>
                         <span class="caption-subject font-green-sharp bold uppercase">Phidata</span>
                         <span class="caption-helper">
-                            API列表
+                            标定任务查询
                         </span>
                     </div>
                     <div class="actions">
@@ -31,14 +31,15 @@
                             </div>
                         </div>
                     </div>
+
                     <div>
                         @foreach($goods as $good)
 
-                            <div id="div" style="height: 100%;width: 100%;background-color: #9ae3e9" onclick="javasecipt:location.href='{{url('API/show_detail/'.$good->api_info->id)}}'">
-                                <h3>{{$good->api_info->name}}</h3>
-                                <div style="float: left; height:100%;width: 25%">类别：{{$good->goods->type}}</div>
+                            <div id="div" style="height: 100%;width: 100%;background-color: #9ae3e9" onclick="javasecipt:location.href='{{url('API/show_detail/'.$good->id)}}'">
+                                <h3>{{$good->name}}</h3>
+                                <div style="float: left; height:100%;width: 25%">类别：{{$good->category}}</div>
                                 <div style="float: left; height:100%;width: 25%">价格：{{$good->price}}</div><br/>
-                                <div style="float: left; height:100%;width: 25%">描述：{{$good->api_info->description}}</div><br/>
+                                <div style="float: left; height:100%;width: 25%">描述：{{$good->description}}</div><br/>
 
                             </div>
                             <div style="height: 20px;width: 100%; hidden:hidden"></div>
