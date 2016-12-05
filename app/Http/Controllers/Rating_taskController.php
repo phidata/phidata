@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Favor_rating_task;
 use App\Rating_question;
 use App\Rating_task;
+use App\Rating_answer as Answer;
+use App\FavorRatingTask as Favor;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -75,25 +77,27 @@ class Rating_taskController extends Controller
         }
     }
     public function answer($id){
-        $results=Rating_question::where('rating_task_id',$id)->simplePaginate(1);
-        $ques=Rating_task::find($id);
-        $question=$ques->question;
-//        foreach($results as $result)
-//        {
-//            echo $result->url;
-//        }
-//        die();
-        return view('Rating.question',['results' => $results,'question'=>$question]);
-
+        $questions=Rating_question::where('rating_task_id',$id)->get();
+        $userId = \Auth::id();
+        foreach($questions as $question){
+            $answer = Answer::where('rating_question_id',$question->id)->where('user_id',$userId)->first();
+            if(!$answer){
+                return view('Rating.question',['question' => $question]);
+            }
+        }
+        return redirect('Rating/showIndex')->withInfo('真棒，您已完成该任务的所有题目！请选择其它任务');
     }
-    public  function  answer_question(Request $request){
-        $url=$request->url;
-        die();
-//        echo $url;
-//        die();
-        return view('Rating.tiao');
-
-//        return view('Rating.tiao',['$url' => $url]);
+    public function answer_question(Request $request){
+        $answer = new Answer();
+        $answer->user_id = \Auth::id();
+        $answer->rating_question_id = $request->id;
+        $answer->answer = $request->answer;
+        try{
+            $answer->save();
+            return redirect()->back()->withInfo('成功提交上一题！');
+        }catch(\Exception $e){
+            return redirect()->back()->withInfo('提交上一题失败！');
+        }
     }
     public function index(){
         $results=Favor_rating_task::where('status',1)->where('user_id',1)->get();
@@ -134,7 +138,31 @@ class Rating_taskController extends Controller
         $tasks=Rating_question::where('rating_task_id',$id);
         dump($tasks);
         die();
-        return view('Rating.result',['tasks'=> $tasks]);
+        return view('Rating.result',['tasks'=> $tasks]);}
+
+    public function favor($id){
+        $userId = \Auth::id();
+        $favor = Favor::where('user_id',$userId)->where('rating_task_id',$id)->get();
+        if($favor){
+            return redirect()->back()->withInfo('您已收藏过该任务！');
+        }
+
+        $favor = new Favor();
+        $favor->rating_task_id = $id;
+        $favor->user_id = $userId;
+        try{
+            $favor->save();
+            return redirect()->back()->withInfo('收藏成功！');
+        }catch(\Exception $e){
+            return redirect()->back()->withInfo('收藏失败！');
+        }
     }
+
+        public function save(Request $request){
+
+
+        }
+
+
 
 }

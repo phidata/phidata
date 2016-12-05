@@ -98,7 +98,6 @@ Route::group(['middleware'=>'auth'],function(){
     Route::get('user/store','UserController@userStore');
     Route::get('user/upload','UserController@upload');
     Route::get('user/myGoods','UserController@myGoods');
-    Route::get('user/myTasks','UserController@myTasks');
     Route::resource('user','UserController');
     //数据标定判定标准答案
     Route::get('checkAnswer','CheckAnswerController@checkAnswer');
@@ -180,6 +179,7 @@ Route::get('Rating/tiao/',function(){
 });
 Route::get('Rating/index', 'Rating_taskController@index');
 Route::get('Rating/store/{id}', 'Rating_taskController@store');
+Route::get('Rating/favor/{id}','Rating_taskController@favor');
 
 //标定任务首页列表
 Route::get('Rating/showIndex','Rating_taskController@showIndex');
