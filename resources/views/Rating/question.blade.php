@@ -12,6 +12,9 @@
                             数据标定
                         </span>
                     </div>
+                    <div class="actions">
+                        <a href="{{ url("Rating/showIndex") }}"><button>数据标定任务列表</button></a>
+                    </div>
                     <div class=container">
                        <div > <img src="../../{{$question->url}}" alt="{{$question->url}}"></div>
                             <form action="{{ action("Rating_taskController@answer_question") }}" method="post" enctype="multipart/form-data">

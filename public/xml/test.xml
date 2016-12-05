@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<infos>
+	<info>
+   		<info_id>123456789</info_id>
+   		<adress>北京市海淀区魏公村投递点1</adress>
+   		<time>2016-11-21 14:52:23</time>
+	</info><info>
+   		<info_id>123456789</info_id>
+   		<adress>天津市海淀区魏公村投递点2</adress>
+   		<time>2016-11-21 14:52:23</time>
+	</info><info>
+   		<info_id>123456789</info_id>
+   		<adress>北京市海淀区魏公村投递点3</adress>
+   		<time>2016-11-21 14:52:23</time>
+	</info><info>
+   		<info_id>123456789</info_id>
+   		<adress>北京市海淀区魏公村投递点4</adress>
+   		<time>2016-11-21 14:52:23</time>
+	</info><info>
+   		<info_id>123456789</info_id>
+   		<adress>北京市海淀区魏公村投递点5</adress>
+   		<time>2016-11-21 14:52:23</time>
+	</info><info>
+   		<info_id>123456789</info_id>
+   		<adress>北京市海淀区魏公村投递点6</adress>
+   		<time>2016-11-21 14:52:23</time>
+	</info><info>
+   		<info_id>123456789</info_id>
+   		<adress>北京市海淀区魏公村投递点7</adress>
+   		<time>2016-11-21 14:52:23</time>
+	</info>
+   <info>
+         <info_id>2220160595</info_id>
+         <adress>北京市海淀区魏公村投递点1</adress>
+         <time>2016-11-21 14:52:23</time>
+   </info><info>
+         <info_id>2220160595</info_id>
+         <adress>天津市海淀区魏公村投递点2</adress>
+         <time>2016-11-21 14:52:23</time>
+   </info><info>
+         <info_id>2220160595</info_id>
+         <adress>北京市海淀区魏公村投递点3</adress>
+         <time>2016-11-21 14:52:23</time>
+   </info><info>
+         <info_id>2220160594</info_id>
+         <adress>北京市海淀区魏公村投递点4</adress>
+         <time>2016-11-21 14:52:23</time>
+   </info><info>
+         <info_id>2220160594</info_id>
+         <adress>北京市海淀区魏公村投递点5</adress>
+         <time>2016-11-21 14:52:23</time>
+   </info><info>
+         <info_id>2220160594</info_id>
+         <adress>北京市海淀区魏公村投递点6</adress>
+         <time>2016-11-21 14:52:23</time>
+   </info><info>
+         <info_id>2220160594</info_id>
+         <adress>北京市海淀区魏公村投递点7</adress>
+         <time>2016-11-21 14:52:23</time>
+   </info>
+</infos>

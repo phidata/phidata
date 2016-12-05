@@ -17,6 +17,9 @@ class UserMessageController extends Controller
     {
             $id=\Auth::user()->id;
             $UserMessages=UserMessage::where('user_id',$id)->get();
+            if(!$UserMessages){
+                return redirect()->back()->withInfo('您尚未上传过数据包');
+            }
             return view('User/message', ['UserMessages' => $UserMessages]);
     }
     public function deleteMessage($id) {

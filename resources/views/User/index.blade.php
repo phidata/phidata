@@ -10,9 +10,11 @@
                             <thead class="flip-content">
                             <tr style="border-bottom: 1px solid #e7ecf1;">
                                 <th width="200" class="font-blue-sharp" ><a href="{{url('user')}}">个人信息</a></th>
-                                {{--<th class="numeric">密码</th>--}}
                                 <th width="200" class="font-blue-sharp"><a href="{{url('user/myGoods')}}">已购买商品</a></th>
                                 <th width="200" class="font-blue-sharp"><a href="{{url('user/upload')}}">上传数据包</a></th>
+                                <th width="200" class="font-blue-sharp"><a href="{{url('Rating/index')}}">已收藏标定任务</a></th>
+                                <th width="200" class="font-blue-sharp"><a href="{{url('Rating/point')}}">标定任务所得积分</a></th>
+                                <th width="200" class="font-blue-sharp"><a href="{{action('Rating_taskController@result',$User->id)}}">消息查看</a></th>
                                 <th width="200" class="font-blue-sharp"><a href="{{url('user/message')}}">消息查看</a></th>
                             </tr></table>
                         <i class="fa icon-docs font-green-sharp"></i>

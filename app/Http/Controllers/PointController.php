@@ -42,9 +42,9 @@ class PointController extends Controller
         $point = Point::where('user_id',$user->id)->first();
 
         //验证旧支付密码
-        if(! password_verify($request->oldPassword,$point->password)){
-            return redirect()->back()->withInfo('旧密码错误！');
-        }
+//        if(! password_verify($request->oldPassword,$point->password)){
+//            return redirect()->back()->withInfo('旧密码错误！');
+//        }
 
         try{
             $point->password = bcrypt($request->password);

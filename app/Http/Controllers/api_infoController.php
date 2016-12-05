@@ -16,16 +16,16 @@ class api_infoController extends Controller
     {
             $file = $request->file('photo');
             $clientName = $file -> getClientOriginalName();
-            echo $clientName;
-            die();
+//            echo $clientName;
+//            die();
 
             $path = $file -> move(public_path().'\xml', $clientName);
         $api_info = new api_info;
         $api_info->name = $request->name;
         $api_info->description = $request->description;
         $api_info->wor=1;
-        $api_info->update_id = $request->update_type;
-        $api_info->categrory_id = $request->API_categrory;
+//        $api_info->update_id = $request->update_type;
+        $api_info->type = $request->API_categrory;
         $api_info->URL =  $path;
         $api_info->save();
         return redirect('API/index');

@@ -18,8 +18,9 @@
                     <i class="fa icon-docs font-green-sharp"></i>
                     <span class="caption-subject font-green-sharp bold uppercase">LL Good Y</span>
                         <span class="caption-helper">
-                            上传列表
+                            已上传商品列表
                         </span>
+                    <a href="{{action("PackageController@create")}}"><button>我要上传数据包</button></a>
                 </div>
                 <div class="actions">
                 </div>
@@ -41,19 +42,6 @@
                     @foreach($dataPackages as $dataPackage)
                     <tr>
                         <td>{{ $dataPackage->name }}</td>
-
-
-                        {{--<td>--}}
-                            {{--<a href="http://localhost:81/user/logout" class="btn btn-xs blue">--}}
-                                {{--<i class="fa fa-file-o"></i>--}}
-                                {{--登出--}}
-                            {{--</a>--}}
-                            {{--<a href="http://localhost:81/user/userUpdate"   class="btn btn-xs green">--}}
-                                {{--<i class="fa fa-trash"></i>--}}
-                                {{--修改密码--}}
-                            {{--</a>--}}
-
-
                         <td>{{ $dataPackage->description }}</td>
                         <td>{{ $dataPackage->size }}</td>
                         <td>{{ $dataPackage->price }}</td>
