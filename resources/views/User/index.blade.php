@@ -14,6 +14,7 @@
                                 <th width="200" class="font-blue-sharp"><a href="{{url('user/myGoods')}}">已购买商品</a></th>
                                 <th width="200" class="font-blue-sharp"><a href="{{url('user/upload')}}">上传数据包</a></th>
                                 <th width="200" class="font-blue-sharp"><a href="{{url('user/message')}}">消息查看</a></th>
+                                <th width="200" class="font-blue-sharp"><a href="{{action('Rating_taskController@result',$User->id)}}">答案查询</a></th>
                             </tr></table>
                         <i class="fa icon-docs font-green-sharp"></i>
                         <span class="caption-subject font-green-sharp bold uppercase">LL Good Y</span>

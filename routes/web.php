@@ -190,7 +190,9 @@ Route::post('Rating/showIndex','SearchController@rt_search');
 //搜索标定未找到任务
 Route::get('Rating/unsearch','Rating_taskController@rt_search');
 //标定结果显示
-Route::get('Rating/result','Rating_taskController@result');
+Route::get('Rating/result/{id}','Rating_taskController@result');
+//查看结果
+Route::get('Rating/result_check/{id}', 'Rating_taskController@result_down');
 
 
 
