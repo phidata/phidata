@@ -76,135 +76,18 @@ License: You must have a valid license purchased only from themeforest(the above
         <!-- BEGIN PAGE ACTIONS -->
         <!-- DOC: Remove "hide" class to enable the page header actions -->
 
-        <!--
-        <div class="page-actions">
-            <div class="btn-group">
-                <button type="button" class="btn red-haze btn-sm dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                    <span class="hidden-sm hidden-xs">Actions&nbsp;</span>
-                    <i class="fa fa-angle-down"></i>
-                </button>
-                <ul class="dropdown-menu" role="menu">
-                    <li>
-                        <a href="javascript:;">
-                            <i class="icon-docs"></i> New Post </a>
-                    </li>
-                    <li>
-                        <a href="javascript:;">
-                            <i class="icon-tag"></i> New Comment </a>
-                    </li>
-                    <li>
-                        <a href="javascript:;">
-                            <i class="icon-share"></i> Share </a>
-                    </li>
-                    <li class="divider"> </li>
-                    <li>
-                        <a href="javascript:;">
-                            <i class="icon-flag"></i> Comments
-                            <span class="badge badge-success">4</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="javascript:;">
-                            <i class="icon-users"></i> Feedbacks
-                            <span class="badge badge-danger">2</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            -->
+
 
     </div>
     <!-- END PAGE ACTIONS -->
     <!-- BEGIN PAGE TOP -->
     <div class="page-top">
-        <!-- BEGIN HEADER SEARCH BOX -->
-        <!-- DOC: Apply "search-form-expanded" right after the "search-form" class to have half expanded search box -->
-        {{--<form class="search-form" action="#" method="GET">--}}
-        {{--<div class="input-group">--}}
-        {{--<input type="text" class="form-control input-sm" placeholder="Search..." name="query">--}}
-        {{--<span class="input-group-btn">--}}
-        {{--<a href="javascript:;" class="btn submit">--}}
-        {{--<i class="icon-magnifier"></i>--}}
-        {{--</a>--}}
-        {{--</span>--}}
-        {{--</div>--}}
-        {{--</form>--}}
                 <!-- END HEADER SEARCH BOX -->
         <!-- BEGIN TOP NAVIGATION MENU -->
         <div class="top-menu">
             <ul class="nav navbar-nav pull-right">
                 <li class="separator hide"> </li>
-                <!-- BEGIN USER LOGIN DROPDOWN -->
-                <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
-                {{--@if(!(--}}
-                {{--\Auth::admin()->guest()--}}
-                {{--&& \Auth::agent()->guest()--}}
-                {{--&& \Auth::recycler()->guest()--}}
-                {{--&& \Auth::commonuser()->guest()--}}
-                {{--))--}}
-                {{--<li class="dropdown dropdown-user dropdown-dark">--}}
-                {{--<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">--}}
-                {{--<span class="username username-hide-on-mobile">--}}
-                {{--@if(!(\Auth::admin()->guest()))--}}
-                {{--{{ \Auth::admin()->get()->name }}--}}
-                {{--@elseif(!(\Auth::agent()->guest()))--}}
-                {{--{{ \Auth::agent()->get()->name }}--}}
-                {{--@elseif(!(\Auth::recycler()->guest()))--}}
-                {{--{{ \Auth::recycler()->get()->name }}--}}
-                {{--@elseif(!(\Auth::commonuser()->guest()))--}}
-                {{--{{ \Auth::commonuser()->get()->name }}--}}
-                {{--@endif--}}
-                {{--</span>--}}
-                {{--<!-- DOC: Do not remove below empty space(&nbsp;) as its purposely used -->--}}
-                {{--<img alt="" class="img-circle" src="{{ URL::asset('assets/img/avatar9.jpg') }}" /> </a>--}}
-                {{--<ul class="dropdown-menu dropdown-menu-default">--}}
-                {{--<!-- <li>--}}
-                {{--<a href="#">--}}
-                {{--<i class="icon-user"></i> My Profile </a>--}}
-                {{--</li>--}}
-                {{--<li>--}}
-                {{--<a href="#">--}}
-                {{--<i class="icon-calendar"></i> My Calendar </a>--}}
-                {{--</li>--}}
-                {{--<li>--}}
-                {{--<a href="#">--}}
-                {{--<i class="icon-envelope-open"></i> My Inbox--}}
-                {{--<span class="badge badge-danger"> 3 </span>--}}
-                {{--</a>--}}
-                {{--</li>--}}
-                {{--<li>--}}
-                {{--<a href="#">--}}
-                {{--<i class="icon-rocket"></i> My Tasks--}}
-                {{--<span class="badge badge-success"> 7 </span>--}}
-                {{--</a>--}}
-                {{--</li>--}}
-                {{--<li class="divider"> </li>--}}
-                {{--<li>--}}
-                {{--<a href="#">--}}
-                {{--<i class="icon-lock"></i> Lock Screen </a>--}}
-                {{--</li> -->--}}
-                {{--<li>--}}
 
-                {{--<a href="{{ URL('/auth/logout') }}">--}}
-
-                {{--<i class="icon-logout"></i> 注销 </a>--}}
-                {{--</li>--}}
-                {{--</ul>--}}
-                {{--</li>--}}
-                {{--@else--}}
-                {{--<li class="dropdown dropdown-quick-sidebar-toggler">--}}
-                {{--<a href="/auth/login" class="dropdown-toggle">--}}
-                {{--<i class="icon-key"></i>登录/注册--}}
-                {{--</a>--}}
-                {{--</li>--}}
-
-                {{--@endif--}}
-                        <!-- END USER LOGIN DROPDOWN -->
-                <!-- BEGIN QUICK SIDEBAR TOGGLER -->
-                {{--<li class="dropdown dropdown-extended quick-sidebar-toggler">--}}
-                {{--<span class="sr-only">Toggle Quick Sidebar</span>--}}
-                {{--<i class="icon-logout"></i>--}}
-                {{--</li>--}}
                         <!-- END QUICK SIDEBAR TOGGLER -->
             </ul>
         </div>

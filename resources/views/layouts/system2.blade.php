@@ -51,177 +51,67 @@ License: You must have a valid license purchased only from themeforest(the above
         <link href="{{ URL::asset('assets/css/custom.min.css') }}" rel="stylesheet" type="text/css" />
         <link href="{{ URL::asset('assets/css/select2.min.css') }}" rel="stylesheet" type="text/css" />
 
+
         <!-- END THEME LAYOUT STYLES -->
         <link rel="shortcut icon" href="{{ URL::asset('favicon.ico') }} " /> </head>
     <!-- END HEAD -->
     <script src="{{ URL::asset('assets/scripts/jquery.min.js') }}" type="text/javascript"></script>
 
     <body class="page-container-bg-solid page-header-fixed page-sidebar-closed-hide-logo">
-        <!-- BEGIN HEADER -->
-        <div class="page-header navbar navbar-fixed-top">
-            <!-- BEGIN HEADER INNER -->
-            <div class="page-header-inner ">
-                <!-- BEGIN LOGO -->
-                <div class="page-logo">
-                    <a href="/">
-                        <img src="{{ URL::asset('assets/img/logo-light.png') }}" alt="logo" class="logo-default" /> </a>
-                    <div class="menu-toggler sidebar-toggler">
-                        <!-- DOC: Remove the above "hide" to enable the sidebar toggler button on header -->
-                    </div>
-                </div>
-                <!-- END LOGO -->
-                <!-- BEGIN RESPONSIVE MENU TOGGLER -->
-                <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse"> </a>
-                <!-- END RESPONSIVE MENU TOGGLER -->
-                <!-- BEGIN PAGE ACTIONS -->
-                <!-- DOC: Remove "hide" class to enable the page header actions -->
-
-                <!--
-                <div class="page-actions">
-                    <div class="btn-group">
-                        <button type="button" class="btn red-haze btn-sm dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                            <span class="hidden-sm hidden-xs">Actions&nbsp;</span>
-                            <i class="fa fa-angle-down"></i>
-                        </button>
-                        <ul class="dropdown-menu" role="menu">
-                            <li>
-                                <a href="javascript:;">
-                                    <i class="icon-docs"></i> New Post </a>
-                            </li>
-                            <li>
-                                <a href="javascript:;">
-                                    <i class="icon-tag"></i> New Comment </a>
-                            </li>
-                            <li>
-                                <a href="javascript:;">
-                                    <i class="icon-share"></i> Share </a>
-                            </li>
-                            <li class="divider"> </li>
-                            <li>
-                                <a href="javascript:;">
-                                    <i class="icon-flag"></i> Comments
-                                    <span class="badge badge-success">4</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="javascript:;">
-                                    <i class="icon-users"></i> Feedbacks
-                                    <span class="badge badge-danger">2</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    -->
-
-                </div>
-                <!-- END PAGE ACTIONS -->
-                <!-- BEGIN PAGE TOP -->
-                <div class="page-top">
-                    <!-- BEGIN HEADER SEARCH BOX -->
-                    <!-- DOC: Apply "search-form-expanded" right after the "search-form" class to have half expanded search box -->
-                    {{--<form class="search-form" action="#" method="GET">--}}
-                        {{--<div class="input-group">--}}
-                            {{--<input type="text" class="form-control input-sm" placeholder="Search..." name="query">--}}
-                            {{--<span class="input-group-btn">--}}
-                                {{--<a href="javascript:;" class="btn submit">--}}
-                                    {{--<i class="icon-magnifier"></i>--}}
-                                {{--</a>--}}
-                            {{--</span>--}}
-                        {{--</div>--}}
-                    {{--</form>--}}
-                    <!-- END HEADER SEARCH BOX -->
-                    <!-- BEGIN TOP NAVIGATION MENU -->
-                    <div class="top-menu">
-                        <ul class="nav navbar-nav pull-right">
-                            <li class="separator hide"> </li>
-                            <!-- BEGIN USER LOGIN DROPDOWN -->
-                            <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
-                            {{--@if(!(--}}
-                                {{--\Auth::admin()->guest()--}}
-                                {{--&& \Auth::agent()->guest()--}}
-                                {{--&& \Auth::recycler()->guest()--}}
-                                {{--&& \Auth::commonuser()->guest()--}}
-                                {{--))--}}
-                            {{--<li class="dropdown dropdown-user dropdown-dark">--}}
-                                {{--<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">--}}
-                                    {{--<span class="username username-hide-on-mobile">--}}
-                                        {{--@if(!(\Auth::admin()->guest()))--}}
-                                            {{--{{ \Auth::admin()->get()->name }}--}}
-                                        {{--@elseif(!(\Auth::agent()->guest()))--}}
-                                            {{--{{ \Auth::agent()->get()->name }}--}}
-                                        {{--@elseif(!(\Auth::recycler()->guest()))--}}
-                                            {{--{{ \Auth::recycler()->get()->name }}--}}
-                                        {{--@elseif(!(\Auth::commonuser()->guest()))--}}
-                                            {{--{{ \Auth::commonuser()->get()->name }}--}}
-                                        {{--@endif--}}
-                                    {{--</span>--}}
-                                    {{--<!-- DOC: Do not remove below empty space(&nbsp;) as its purposely used -->--}}
-                                    {{--<img alt="" class="img-circle" src="{{ URL::asset('assets/img/avatar9.jpg') }}" /> </a>--}}
-                                {{--<ul class="dropdown-menu dropdown-menu-default">--}}
-                                    {{--<!-- <li>--}}
-                                        {{--<a href="#">--}}
-                                            {{--<i class="icon-user"></i> My Profile </a>--}}
-                                    {{--</li>--}}
-                                    {{--<li>--}}
-                                        {{--<a href="#">--}}
-                                            {{--<i class="icon-calendar"></i> My Calendar </a>--}}
-                                    {{--</li>--}}
-                                    {{--<li>--}}
-                                        {{--<a href="#">--}}
-                                            {{--<i class="icon-envelope-open"></i> My Inbox--}}
-                                            {{--<span class="badge badge-danger"> 3 </span>--}}
-                                        {{--</a>--}}
-                                    {{--</li>--}}
-                                    {{--<li>--}}
-                                        {{--<a href="#">--}}
-                                            {{--<i class="icon-rocket"></i> My Tasks--}}
-                                            {{--<span class="badge badge-success"> 7 </span>--}}
-                                        {{--</a>--}}
-                                    {{--</li>--}}
-                                    {{--<li class="divider"> </li>--}}
-                                    {{--<li>--}}
-                                        {{--<a href="#">--}}
-                                            {{--<i class="icon-lock"></i> Lock Screen </a>--}}
-                                    {{--</li> -->--}}
-                                    {{--<li>--}}
-
-                                        {{--<a href="{{ URL('/auth/logout') }}">--}}
-
-                                            {{--<i class="icon-logout"></i> 注销 </a>--}}
-                                    {{--</li>--}}
-                                {{--</ul>--}}
-                            {{--</li>--}}
-                            {{--@else--}}
-                                {{--<li class="dropdown dropdown-quick-sidebar-toggler">--}}
-                                    {{--<a href="/auth/login" class="dropdown-toggle">--}}
-                                        {{--<i class="icon-key"></i>登录/注册--}}
-                                    {{--</a>--}}
-                                {{--</li>--}}
-
-                            {{--@endif--}}
-                            <!-- END USER LOGIN DROPDOWN -->
-                            <!-- BEGIN QUICK SIDEBAR TOGGLER -->
-                            {{--<li class="dropdown dropdown-extended quick-sidebar-toggler">--}}
-                                {{--<span class="sr-only">Toggle Quick Sidebar</span>--}}
-                                {{--<i class="icon-logout"></i>--}}
-                            {{--</li>--}}
-                            <!-- END QUICK SIDEBAR TOGGLER -->
-                        </ul>
-                    </div>
-                    <!-- END TOP NAVIGATION MENU -->
-
-                </div>
-                <!-- END PAGE TOP -->
-            </div>
-            <!-- END HEADER INNER -->
-        </div>
         <!-- END HEADER -->
         <!-- BEGIN HEADER & CONTENT DIVIDER -->
-        <div class="clearfix"> </div>
+        <div class="clearfix" > </div>
         <!-- END HEADER & CONTENT DIVIDER -->
         <!-- BEGIN CONTAINER -->
-        <div class="page-container">
+        <div class="page-container" style="padding-left:100px;" >
             <!-- BEGIN SIDEBAR -->
+            <div class="row clearfix">
+                <div class="col-md-12 column" style="padding-top:20px">
+                    <div class="navbar-header" style="padding-right: 20px">
+                        <img class="img-circle" src="../../img/logo1.png" width="50px" height="50px"/>
+                    </div>
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" >
+                        <ul class="nav navbar-nav" >
+                            <li class="active">
+                                <a href="{{action('DataPackageController@index')}}" style="color: #000000;" >数据分享</a>
+                            </li>
+                            <li>
+                                <a href="{{action('api_infoController@show_index')}}" style="color: #000000">数据API</a>
+                            </li>
+                            <li>
+                                <a href="{{action('Rating_taskController@showIndex')}}" style="color: #000000">数据标定</a>
+                            </li>
+                        </ul>
+                        <ul>
+                            <form method="POST" class="navbar-form navbar-left" role="search" action="{{ action('SearchController@dp_search') }}" method="POST">
+                                {{--{!! csrf_field() !!}--}}
+                                <div class="form-group">
+                                    <input name="key" type="text" class="form-control input-inline input-small input-sm" placeholder="关键词">
+                                </div> <button class="btn btn-default" type="submit">搜索</button>
+                            </form>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                <a href="{{action("UserController@index")}}"><img class="img-circle" src="../../img/user.png" width="22px" height="25px"/></a>
+                            </li>
+                            @if(\Auth::user())
+                                <li>
+                                    <a href="{{ url('user/logout') }}">
+                                        登出
+                                    </a>
+                                </li>
+                            @else
+                                <li style="padding-left:20px ">
+                                    <a href="{{ url("login") }}">登录</a>
+                                </li>
+                                <li>
+                                    <a href="{{ url("register") }}">注册</a>
+                                </li>
+                            @endif
+                        </ul>
+                    </div>
+                </div>
+            </div>
 
 
             {{--@if($curDomain =='admin')--}}
@@ -240,7 +130,7 @@ License: You must have a valid license purchased only from themeforest(the above
                 <!-- BEGIN CONTENT BODY -->
                 <div class="page-content">
                     <!-- BEGIN PAGE HEAD-->
-                    <div class="page-head">
+                    <div class="page-head" >
                         <!-- BEGIN PAGE TITLE -->
                         <!-- END PAGE TITLE -->
                         <!-- BEGIN PAGE TOOLBAR -->
@@ -278,9 +168,9 @@ License: You must have a valid license purchased only from themeforest(the above
         </div>
         <!-- END CONTAINER -->
         <!-- BEGIN FOOTER -->
-        <div class="page-footer">
-            <div class="page-footer-inner"> 2016 &copy; LL Good Y.
-                <a href="" title="Phidata" target="_blank">Phidata!</a>
+        <div class="page-footer" style="color: white">
+             2016 &copy; LL Good Y.
+                Phidata!
             </div>
             <div class="scroll-to-top">
                 <i class="icon-arrow-up"></i>

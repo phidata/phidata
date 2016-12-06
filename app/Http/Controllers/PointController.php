@@ -50,7 +50,7 @@ class PointController extends Controller
         try{
             $point->password = bcrypt($request->password);
             $point->save();
-            return redirect()->back()->withInfo('成功修改支付密码！');
+            return redirect('user')->withInfo('成功修改支付密码！');
         }catch (\Exception $e){
             return redirect()->back()->withInfo('修改支付密码失败！');
         }
@@ -66,7 +66,7 @@ class PointController extends Controller
     {
         $record=\App\UserPointRecord::find($id);
         $record->delete();
-        return redirect()->back()->withInfo('成狗删除该记录');
+        return redirect()->back()->withInfo('成功隐藏该记录');
     }
     public function create()
     {

@@ -1,4 +1,4 @@
-@extends('layouts.system')
+@extends('layouts.userCenter')
 
 @section('content')
     <div class="row">
@@ -35,8 +35,7 @@
                         <nav class="navbar navbar-default" role="navigation">
                             <div class="container-fluid">
 
-<<<<<<< HEAD
-=======
+
                                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-4">
                                     <h3 class="navbar-text">您发布的标定任务已生成结果文件</h3>
                                 </div>
@@ -49,7 +48,7 @@
                             </div>
                         </nav>
                     </div>
->>>>>>> ff8e5a903d76c304430e9bb54ce1ea0aedfe1071
+
 
                 </div>
             </div>

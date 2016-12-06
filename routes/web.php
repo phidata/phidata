@@ -64,6 +64,7 @@ Route::group(['middleware'=>'auth'],function(){
     Route::get('user/store','UserController@userStore');
     Route::get('user/upload','UserController@upload');
     Route::get('user/myGoods','UserController@myGoods');
+    Route::get('user/logout','UserController@logout');
     Route::resource('user','UserController');
     //数据标定判定标准答案
     Route::get('checkAnswer','CheckAnswerController@checkAnswer');
@@ -77,7 +78,7 @@ Route::group(['middleware'=>'auth'],function(){
 
     //订单管理
     Route::resource('order','OrderController');
-    Route::post('order/generate','OrderController@generate');
+//    Route::post('order/generate','OrderController@generate');
     Route::post('order/generate/{id}','OrderController@generate');
 
     //上传审核

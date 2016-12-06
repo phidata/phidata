@@ -41,7 +41,7 @@
                                 <td>{{ $record->created_at}}</td>
                                 <td>
                                     <a href="{{ action('PointController@deleteRecord',$record->id) }}" class="btn btn-xs red">
-                                        <i class="fa fa-file-o"></i> 删除该消费记录</a>
+                                        <i class="fa fa-file-o"></i> 隐藏该消费记录</a>
                                 </td>
                             </tr>
                             @endforeach

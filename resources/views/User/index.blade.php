@@ -22,7 +22,7 @@
                             <th width="10%" class="numeric">用户名</th>
                             {{--<th class="numeric">密码</th>--}}
                             <th width="40%" class="numeric">电子邮箱</th>
-                            <th width="10%" class="numeric">积分</th>
+                            <th width="10%" class="numeric">积分余额</th>
                             <th width="40%" class="numeric">操作</th>
                         </tr>
                         </thead>

@@ -48,12 +48,20 @@
                         <li>
                             <a href="{{action("UserController@index")}}"><img class="img-circle" src="img/user.png" width="22px" height="25px"/></a>
                         </li>
-                        <li style="padding-left:20px ">
-                            <a href="#">登录</a>
-                        </li>
-                        <li>
-                            <a href="#">注册</a>
-                        </li>
+                            @if(\Auth::user())
+                                <li>
+                                <a href="{{ url('user/logout') }}">
+                                    登出
+                                </a>
+                                </li>
+                                @else
+                            <li style="padding-left:20px ">
+                                <a href="{{ url("login") }}">登录</a>
+                            </li>
+                            <li>
+                                <a href="{{ url("register") }}">注册</a>
+                            </li>
+                        @endif
                     </ul>
                 </div>
             </div>

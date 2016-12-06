@@ -58,7 +58,7 @@ function testDB($id){
 //}
 
 function api($apiName,$verifyCode,$mode='size',$size=10){
-        $verifyCode = \App\ApiVerifycode::where('verifycode',$verifyCode)->get();
+        $verifyCode = \App\ApiVerifycode::where('verifycode',$verifyCode)->first();
         if(!$verifyCode){
                 return "wrong verifycode!";
         }

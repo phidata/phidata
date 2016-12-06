@@ -90,7 +90,7 @@ class ApplycationController extends Controller
      */
     public function edit($id)
     {
-        \DB::beginTransaction();
+//        \DB::beginTransaction();
         try {
             $result = application::find($id);
             $result->status = 1;
@@ -109,27 +109,29 @@ class ApplycationController extends Controller
             $goodsDataPackage->data_package_id = $package->id;
             $goodsDataPackage->goods_id = $goods->id;
             $goodsDataPackage->save();
-            \DB::commit();
+//            die('here');
 
+//            \DB::commit();
             $dp_request = DB::table('dp_request')->where('key', $goods->name)->first();
-
-
+//            dump($dp_request);die();
             if($dp_request!=null){
-                dump($dp_request);
+
                 $user=$dp_request->user_id;
 
                 $userMessage=new UserMessage();
                 $userMessage->user_id=$user;
-                $userMessage->message_id="2";
+                $userMessage->message_id="1";
+
                 try{
                     $userMessage->save();
                 }catch (\Exception $e){
-                    die($e);
+                    return redirect()->back()->withInfo('数据请求匹配失败');
                 }
                 return redirect('Apply')->withInfo('成功通过审核！');
             }
+
         }catch (\Exception $e){
-            \DB::rollback();
+//            \DB::rollback();
         }
 
     }

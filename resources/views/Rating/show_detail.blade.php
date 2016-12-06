@@ -1,4 +1,4 @@
-@extends('layouts.system')
+@extends('layouts.blank')
 
 @section('content')
     <div class="row">
