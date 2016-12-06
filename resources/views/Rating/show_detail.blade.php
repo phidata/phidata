@@ -52,8 +52,7 @@
                                         </div>
                                         <div align="center">
                                                 <a href="{{action('Rating_taskController@answer',$detail->id)}}"><button style="margin-left: -4px;" class="table-group-action-input form-control input-inline input-sm btn btn-sm green">帮助他标定</button></a>
-                                                <a href="#"><button type="button" style="margin-left: 20px;" class="table-group-action-input form-control input-inline input-sm btn btn-sm green">收藏该任务</button></a>
-
+                                                <a href="{{action('Rating_taskController@favor',$detail->id)}}"><button type="button" style="margin-left: 20px;" class="table-group-action-input form-control input-inline input-sm btn btn-sm green">收藏该任务</button></a>
                                         </div>
                                     </div>
                                 </div>

@@ -45,7 +45,6 @@
                             <div style="height: 20px;width: 100%; hidden:hidden"></div>
 
                         @endforeach
-
                     </div>
                 </div>
             </div>

@@ -69,6 +69,7 @@ class UserController extends Controller
         
     public function upload()
     {
+        $User=\Auth::user();
         $id=\Auth::user()->id;
         $dataPackages = DataPackage::where('owner_id',$id)->get();
         foreach ($dataPackages as $dataPackage){
@@ -76,7 +77,7 @@ class UserController extends Controller
             $application = application::find($zhongjian->application_id);
             $dataPackage->application = $application;
     }
-    return view('User.upload',['dataPackages'=> $dataPackages]);
+    return view('User.upload',['dataPackages'=> $dataPackages],['User'=>$User]);
 }
     /**
      * Display the specified resource.
@@ -89,13 +90,14 @@ class UserController extends Controller
 
     public function myGoods()
     {
+        $User = \Auth::user();
         $id=\Auth::id();
         $orders = \App\Order::where('user_id',$id)->get();
 //        var_dump($orders);die();
         if(!$orders){
             return redirect('user/index')->withInfo("您尚未购买任何商品");
         }
-        return view('User/order', ['Orders' => $orders]);
+        return view('User/order', ['Orders' => $orders],['User' => $User]);
     }
 
     public function show($id)

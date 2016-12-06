@@ -11,16 +11,17 @@ use App\FavorRatingTask as Favor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\View;
+use Illuminate\Support\Facades\App;
 
 class Rating_taskController extends Controller
 {
 
     public function showIndex()
     {
+        
         $task =Rating_task::all();
         return view('Rating.showIndex',['tasks'=> $task]);
     }
@@ -152,11 +153,12 @@ class Rating_taskController extends Controller
     }
 
     public function index(){
+        $User=\Auth::user();
         $results=Favor_rating_task::where('user_id',\Auth::id())->get();
         foreach($results as $result){
             $result=$result->rating_task;
         }
-        return view('Rating.index',['results' => $results]);
+        return view('Rating.index',['results' => $results],['User'=>$User]);
     }
 
     public function store($id){
@@ -169,15 +171,12 @@ class Rating_taskController extends Controller
         return view('Rating.unsearch');
     }
 
-  
-
     public function favor($id){
         $userId = \Auth::id();
-        $favor = Favor::where('user_id',$userId)->where('rating_task_id',$id)->get();
+        $favor = Favor::where('user_id',$userId)->where('rating_task_id',$id)->first();
         if($favor){
             return redirect()->back()->withInfo('您已收藏过该任务！');
         }
-
         $favor = new Favor();
         $favor->rating_task_id = $id;
         $favor->user_id = $userId;
@@ -188,10 +187,10 @@ class Rating_taskController extends Controller
             return redirect()->back()->withInfo('收藏失败！');
         }
     }
-    
-    public function  point(){
-        $results=Rating_answer::where('user_id',\Auth::id())->where('point','>',0)->get();
-        return view('Rating.point',['results' => $results]);
+
+    public function save(Request $request){
+
+
     }
 
     public function result($id)
@@ -205,7 +204,42 @@ class Rating_taskController extends Controller
         $php_json=json_encode($tasks);
         file_put_contents($id.'.json',$php_json);
         print_r($php_json);
-        return view('Rating.result')->withInfo('已生成文件请查收！');}
+        return view('Rating.result',['filename' => $id.'.json']);
+    }
 
+    public function result_down($filename){
+        echo($filename);
 
+        $filePath='public/'.$filename;
+
+        return response()->download(realpath(base_path($filePath)));
+    }
+
+        public function  point(){
+            $User=\Auth::user();
+            $results=Rating_answer::where('user_id',\Auth::id())->where('point','>',0)->get();
+            return view('Rating.point',['results' => $results],['User'=>$User]);
+        }
+
+        public function favorDelete($id)
+        {
+            $favor=\App\Favor_rating_task::find($id);
+            $favor->delete();
+            return redirect()->back()->withInfo('您已删除该收藏');
+
+        }
 }
+
+//    public function result($id)
+//    {
+//        $tasks = DB::table('rating_question')
+//            ->join('rating_task', 'rating_task.id', '=', 'rating_question.rating_task_id')
+//            ->join('users','rating_task.owner_id','=','users.id')
+//            ->where('users.id', $id)
+//            ->select('rating_task.question as question','rating_task.description as description','rating_question.answer as answer','rating_question.url as url')
+//            ->get();
+//        $php_json=json_encode($tasks);
+//        file_put_contents($id.'.json',$php_json);
+//        print_r($php_json);
+//        return view('Rating.result')->withInfo('已生成文件请查收！');
+//    }

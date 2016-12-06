@@ -23,7 +23,8 @@ Route::get('homePage', function(){
     return view('homePage');
 });
 
-
+//NuSOAP web service
+Route::post('nuSoap','SoapController@index');
 
 //用户认证的一系列路由：登录，注册，登出...
 Auth::routes();
@@ -136,6 +137,7 @@ Route::group(['middleware'=>'auth'],function(){
     Route::get('Rating/index', 'Rating_taskController@index');
     Route::get('Rating/store/{id}', 'Rating_taskController@store');
     Route::get('Rating/favor/{id}','Rating_taskController@favor');
+    Route::get('Rating/favor/delete/{id}','Rating_taskController@favorDelete');
     Route::get('Rating/point', 'Rating_taskController@point');
 });
 
@@ -151,8 +153,9 @@ Route::get('Rating/unsearch','Rating_taskController@rt_search');
 //标定结果显示
 Route::get('Rating/result/{id}','Rating_taskController@result');
 
+//查看结果
+Route::get('Rating/result_check/{id}', 'Rating_taskController@result_down');
 
-//NuSOAP web service
-Route::post('nuSoap','SoapController@index');
+
 
 
