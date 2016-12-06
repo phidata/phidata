@@ -9,6 +9,7 @@ use App\Http\Requests;
 use App\UserPoint as Point;
 
 use App\UserPointRecord;
+use Illuminate\Support\Facades\App;
 
 class PointController extends Controller
 {
@@ -54,8 +55,19 @@ class PointController extends Controller
             return redirect()->back()->withInfo('修改支付密码失败！');
         }
     }
+    public function pointRecord()
+    {
+        $user=\Auth::user();
+        $records=\App\UserPointRecord::where('user_id',$user->id)->get();
+        return view('point/record',['User'=> $user],['records'=> $records]);
+    }
 
-
+    public function deleteRecord($id)
+    {
+        $record=\App\UserPointRecord::find($id);
+        $record->delete();
+        return redirect()->back()->withInfo('成狗删除该记录');
+    }
     public function create()
     {
         //

@@ -131,11 +131,27 @@ class Rating_taskController extends Controller
                 {
                     $Answer->point=$price;
                     $Answer->save();
+                    $userPoint=\App\UserPoint::where('user_id',$Answer->user_id);     //保存获得的分数
+                    $userPoint=$userPoint+$Answer->point;
+                    $userPoint->save();
+                    $record=\App\UserPointRecord();//储存消费记录
+                    $record->user_id=$Answer->user_id;
+                    $record->amount=$Answer->point;
+                    $record->consumption=$Answer->rating_question->rating_task->description;
+                    $record->save();
                 }
                 else
                 {
                     $Answer->point=0;
                     $Answer->save();
+                    $userPoint=\App\UserPoint::where('user_id',$Answer->user_id);//保存获得的分数
+                    $userPoint=$userPoint+$Answer->point;
+                    $userPoint->save();
+                    $record=\App\UserPointRecord();//储存消费记录
+                    $record->user_id=$Answer->user_id;
+                    $record->amount=$Answer->point;
+                    $record->consumption=$Answer->rating_question->rating_task->description;
+                    $record->save();
                 }
             }
         }
@@ -146,6 +162,14 @@ class Rating_taskController extends Controller
             {
                 $Answer->point=0;
                 $Answer->save();
+                $userPoint=\App\UserPoint::where('user_id',$Answer->user_id);//保存获得的分数
+                $userPoint=$userPoint+$Answer->point;
+                $userPoint->save();
+                $record=\App\UserPointRecord();//储存消费记录
+                $record->user_id=$Answer->user_id;
+                $record->amount=$Answer->point;
+                $record->consumption=$Answer->rating_question->rating_task->description;
+                $record->save();
             }
 
         }
