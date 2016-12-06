@@ -13,14 +13,18 @@ $server->configureWSDL ('test'); // 打开 wsdl 支持
 类型对应值： bool->"xsd:boolean"    string->"xsd:string"
 int->"xsd:int"     float->"xsd:float"
 */
+//hello方法
+$server->register ( 'hello', // 方法名
+    array ("id" => "xsd:integer" ), // 参数，默认为 "xsd:string"
+    array ("return" => "xsd:string" ) ); // 返回值，默认为 "xsd:string"
 //testDB方法
-//$server->register ( 'testDB', // 方法名
-//    array ("id" => "xsd:integer" ), // 参数，默认为 "xsd:string"
-//    array ("return" => "xsd:string" ) ); // 返回值，默认为 "xsd:string"
+$server->register ( 'testDB', // 方法名
+    array ("id" => "xsd:integer" ), // 参数，默认为 "xsd:string"
+    array ("return" => "xsd:string" ) ); // 返回值，默认为 "xsd:string"
 
-$server->register ( 'api', // 方法名
-    array ("verifyCode" => "xsd:string","mode" => "xsd:string","size" => "xsd:int" ), // 参数，默认为 "xsd:string"
-    array ("return" => "xsd:array" ) ); // 返回值，默认为 "xsd:string"
+//$server->register ( 'api', // 方法名
+//    array ("verifyCode" => "xsd:string","mode" => "xsd:string","size" => "xsd:int" ), // 参数，默认为 "xsd:string"
+//    array ("return" => "xsd:string" ) ); // 返回值，默认为 "xsd:string"
 //isset  检测变量是否设置
 // $HTTP_RAW_POST_DATA = isset ( $HTTP_RAW_POST_DATA ) ? $HTTP_RAW_POST_DATA : '';
 // //service  处理客户端输入的数据
@@ -36,8 +40,8 @@ function hello($name) {
 }
 
 function testDB($id){
-//        $test = Test::find($id);
-        $test = Test::all();
+        $test = Test::find($id);
+//        $test = Test::all();
 //        $test = DB::table('test')->find($id);
         return $test;
 }
@@ -45,7 +49,7 @@ function testDB($id){
 function api($verifyCode='',$mode='size',$size=10){
         if($mode=='size' && $size>0 && $size<100){
                 $result = Test::inRandomOrder()->limit($size)->get();
-                return $result->toArray();
+                return $result->toString();
         }
 }
 die();

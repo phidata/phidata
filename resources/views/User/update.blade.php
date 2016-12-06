@@ -14,6 +14,12 @@
                 {!! csrf_field() !!}
                 <div class="form-body">
                     <div class="form-group">
+                        <label class="col-md-3 control-label">请确认您的旧密码</label>
+                        <div class="col-md-4">
+                            <input type="password" name="oldPassword" id="oldPassword" class="form-control" placeholder="" required="required" maxlength="15"  />
+                        </div>
+                    </div>
+                    <div class="form-group">
                         <label class="col-md-3 control-label">您的新密码为</label>
                         <div class="col-md-4">
                             <input type="password" name="password" id="password" class="form-control" placeholder="" required="required" maxlength="15"  />

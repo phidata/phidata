@@ -1,4 +1,5 @@
 @extends('layouts.system')
+
 @section('content')
     <div class="row">
         <div class="col-md-11">
@@ -15,43 +16,40 @@
                                 <th width="250" class="font-blue-sharp"><a href="{{url('Rating/point')}}">标定任务所得积分</a></th>
                                 <th width="250" class="font-blue-sharp"><a href="{{action('Rating_taskController@result',$User->id)}}">标定任务结果下载</a></th>
                                 <th width="180" class="font-blue-sharp"><a href="{{url('user/message')}}">消息查看</a></th>
-                            </tr></table>
+                            </tr>
+                        </table>
                         <i class="fa icon-docs font-green-sharp"></i>
                         <span class="caption-subject font-green-sharp bold uppercase">LL Good Y</span>
                         <span class="caption-helper">
-                            已收藏标定任务
+                           查看任务得分纪录
                         </span>
+                        <a href="{{action("Rating_taskController@showIndex")}}"><button>我要标定任务</button></a>
                     </div>
                     <div class="actions">
+
                     </div>
-                    <br/>
+
+
+
                     <table class="table table-striped table-bordered table-hover dataTable no-footer">
                         <thead class="flip-content">
                         <tr style="border-bottom: 1px solid #e7ecf1;">
-                            <th width="15%" class="numeric">名称</th>
-                            <th width="15%" class="numeric">价格</th>
-                            <th width="15%" class="numeric">价格</th>
-                            <th width="15%" class="numeric">商品描述</th>
-                            <th width="30%" class="numeric">操作</th>
+                            <th class="numeric"> ID </th>
+                            <th class="numeric">分数</th>
+                            {{--<th class="numeric"></th>--}}
+                            {{--<th class="numeric">住址</th>--}}
+                            {{--<th width="30%" class="numeric">操作</th>--}}
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($Orders as $Order)
+                        @foreach($results as $result)
+
+
                             <tr>
-                                @if($Order->goods->type=="数据包")
-                                    <td>{{ $Order->goods->name }}</td>
-                                    <td>{{ $Order->goods->type}}</td>
-                                    <td>{{ $Order->goods->price}}</td>
-                                    <td>{{ $Order->goods->data_package->data_package->description}}</td>
-                                    <td> <a href="{{ action('PackageController@userDown',$Order->goods->id) }}" class="btn btn-xs blue">
-                                            <i class="fa fa-file-o"></i> 下载
-                                        </a>
-                                    </td>
-                                @else<td>{{ $Order->goods->name }}</td>
-                                <td>{{ $Order->goods->type}}</td>
-                                <td>{{ $Order->goods->price}}</td>
-                                <td>{{ $Order->goods->api_goods->api_info->description}}</td>
-                                @endif
+                                <td>{{ $result->id }}</td>
+                                {{--// <td>{{ $application-> }}</td>--}}
+                                <td>{{ $result->point}}</td>
+                                {{--<td>{{ $category->address }}</td>--}}
                             </tr>
                         @endforeach
                         </tbody>
@@ -60,4 +58,9 @@
             </div>
         </div>
     </div>
+
 @endsection
+
+
+
+

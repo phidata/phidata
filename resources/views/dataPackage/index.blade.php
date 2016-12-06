@@ -9,7 +9,7 @@
                         <i class="fa icon-docs font-green-sharp"></i>
                         <span class="caption-subject font-green-sharp bold uppercase">Phidata</span>
                         <span class="caption-helper">
-                            数据包查询
+                            数据包列表
                         </span>
                     </div>
                     <div class="actions">

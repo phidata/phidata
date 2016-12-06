@@ -17,7 +17,7 @@ class CreateRatingAnswer extends Migration
             $table->increments('id');
             $table->integer('rating_question_id')->index()->unsigned();
             $table->integer('user_id')->index()->unsigned();
-            $table->string('answer');
+            $table->string('answer')->nullable();
             $table->integer('point');
             $table->timestamps();
 

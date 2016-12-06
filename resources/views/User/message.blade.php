@@ -8,10 +8,13 @@
                         <table width="800" class="table table-striped table-hover dataTable no-footer">
                             <thead class="flip-content">
                             <tr style="border-bottom: 1px solid #e7ecf1;">
-                                <th width="200" class="font-blue-sharp" ><a href="{{url('user')}}">个人信息</a></th>
-                                <th width="200" class="font-blue-sharp"><a href="{{url('user/myGoods')}}">已购买商品</a></th>
-                                <th width="200" class="font-blue-sharp"><a href="{{url('user/upload')}}">上传数据包</a></th>
-                                <th width="200" class="font-blue-sharp"><a href="{{url('user/message')}}">消息查看</a></th>
+                                <th width="180" class="font-blue-sharp" ><a href="{{url('user')}}">个人信息</a></th>
+                                <th width="180" class="font-blue-sharp"><a href="{{url('user/myGoods')}}">已购买商品</a></th>
+                                <th width="180" class="font-blue-sharp"><a href="{{url('user/upload')}}">上传数据包</a></th>
+                                <th width="250" class="font-blue-sharp"><a href="{{url('Rating/index')}}">已收藏标定任务</a></th>
+                                <th width="250" class="font-blue-sharp"><a href="{{url('Rating/point')}}">标定任务所得积分</a></th>
+                                <th width="250" class="font-blue-sharp"><a href="{{action('Rating_taskController@result',$User->id)}}">标定任务结果下载</a></th>
+                                <th width="180" class="font-blue-sharp"><a href="{{url('user/message')}}">消息查看</a></th>
                             </tr>
                             </table>
                             <i class="fa icon-docs font-green-sharp"></i>
@@ -19,6 +22,7 @@
                         <span class="caption-helper">
                             消息查看
                         </span>
+                        <a href="{{action("UserMessageController@create")}}"><button>我要发送消息</button></a>
                     </div>
                     <div class="actions">
                     </div>

@@ -47,52 +47,13 @@ class CheckAnswerController extends Controller
        if ($ratingQuestion->count==3)                                    //如果答题人数超过答题上线，则一定不存在标准答案，每个人都不得分
             {
                 $userRatingAnswers=\App\Rating_answer::where('rating_question_id',$userRatingAnswer->rating_question_id)->get();
-//                if ($ratingQuestion->answer!=NULL)                     //如果标答不为空
-//                {
-//                    foreach ($userRatingAnswers as $Answer)             //与标答相同则得分，不同不得分
-//                    {
-//                        if($Answer->answer==$ratingQuestion->answer)
-//                        {
-//                            $Answer->point==$price;
-//                            $Answer->save();
-//                        }
-//                        else
-//                        {
-//                            $Answer->point==0;
-//                            $Answer->save();
-//                        }
-//                    }
-//                }
-//                else                                                   //如果标答为空，那么所有人不得分
-//                {
                     foreach ($userRatingAnswers as $Answer)
                     {
                         $Answer->point==0;
                         $Answer->save();
                     }
 
-//                }
             }
    }
-//    public function giveUsersPoint(Request $request)
-//    {
-//        $ratingQuestion=\App\Rating_question::find($request->id);
-//        $userRatingAnswers=\App\Rating_answer::where('rating_question_id',$request->id)->get();
-//        if ($ratingQuestion->answer!=NULL)
-//            {
-//                foreach ($userRatingAnswers as $userRatingAnswer)
-//                {
-//                    if($userRatingAnswer->answer==$ratingQuestion->answer)
-//                        {
-//                            $userRatingAnswer->point==1;
-//                            $userRatingAnswer->save();
-//                        }
-//                    else
-//                        {
-//                            $userRatingAnswer->point==0;
-//                            $userRatingAnswer->save();
-//                        }
-//                }
-//            }
-//    }
+
 }

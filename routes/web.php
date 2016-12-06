@@ -15,44 +15,9 @@ Route::get('/', function(){
     return view('welcome');
 });
 Route::get('test', function(){
-//    return view('test');
     $result = \App\Test::inRandomOrder()->limit(10)->get();
     return $result->toArray();
 });
-
-
-
-
-////用户认证的一系列路由：登录，注册，登出...
-//Auth::routes();
-//
-//Route::group(['middleware'=>'auth'],function(){
-//    Route::get('/home', 'HomeController@index');
-////    Route::resource('point','system\PointController@index');
-//    Route::resource('category','CategoryController');
-//
-//    Route::get('category/create', 'CategoryController@create');
-//    Route::get('category/delete/{id}', 'CategoryController@delete');
-//
-//    Route::get('user/index','UserController@index');
-//    Route::get('user/userUpdate','UserController@userUpdate');
-//    Route::get('user/store','UserController@userStore');
-//    Route::get('user/logout','UserController@logout');
-//    Route::get('user/upload','UserController@upload');
-//    Route::get('user/category/index','UserCategoryController@index');
-//    Route::resource('user','UserController');
-//    Route::resource('point','PointController');
-//    Route::resource('order','OrderController');
-//    Route::post('order/generate','OrderController@generate');
-//
-//});
-
-////系统管理模块
-//Route::group(['prefix'=>'admin','namespace'=>'admin'],function(){
-//
-//    //账号管理
-//    Route::resource('account','AccountController');
-//});
 
 Route::get('homePage', function(){
     return view('homePage');
@@ -132,7 +97,7 @@ Route::group(['middleware'=>'auth'],function(){
     return view('API.API_info');
     });
 
-    Route::post('API/test', 'api_infoController@store_rar');
+    Route::post('API/test', 'api_infoController@store');
     Route::get('API/index','api_infoController@index' );
     Route::get('API/info', function(){
         return view('API.info_select');
@@ -143,43 +108,38 @@ Route::group(['middleware'=>'auth'],function(){
         return view('API.info_show');
     });
 
-//Route::get('API/add/{id}', function($id){
-//    echo $id;
-//});
-Route::get('API/add/{id}','api_infoController@add' );
+    Route::get('API/add/{id}','api_infoController@add' );
 
-//API商品首页列表
-Route::get('API/show_index','api_infoController@show_index');
+    //API商品首页列表
+    Route::get('API/show_index','api_infoController@show_index');
 
 
-//API详情查看
-Route::get('API/show_detail/{id}','api_infoController@detail');
+    //API详情查看
+    Route::get('API/show_detail/{id}','api_infoController@detail');
 
-//搜索API
-Route::post('API/search','SearchController@api_search');
-//搜索API未找到
-Route::get('API/unsearch','api_infoController@api_search');
+    //搜索API
+    Route::post('API/search','SearchController@api_search');
+    //搜索API未找到
+    Route::get('API/unsearch','api_infoController@api_search');
 
-//NuSOAP web service
-    Route::post('nuSoap','SoapController@index');//
+    //NuSOAP web service
+        Route::post('nuSoap','SoapController@index');//
 
+
+    //数据标定模块
+    Route::get('Rating/add',function(){
+        return view('Rating.add_rating');
+    });
+    Route::post('Rating/add_task', 'Rating_taskController@add');
+    Route::get('Rating/question/{id}', 'Rating_taskController@answer');
+    Route::post('Rating/question/add_answer', 'Rating_taskController@answer_question');
+    Route::get('Rating/index', 'Rating_taskController@index');
+    Route::get('Rating/store/{id}', 'Rating_taskController@store');
+    Route::get('Rating/favor/{id}','Rating_taskController@favor');
+    Route::get('Rating/favor/delete/{id}','Rating_taskController@favorDelete');
+    Route::get('Rating/point', 'Rating_taskController@point');
 });
 
-//数据标定模块
-Route::get('Rating/add',function(){
-    return view('Rating.add_rating');
-});
-Route::post('Rating/add_task', 'Rating_taskController@add');
-
-
-Route::get('Rating/question/{id}', 'Rating_taskController@answer');
-Route::post('Rating/question/add_answer', 'Rating_taskController@answer_question');
-Route::get('Rating/tiao/',function(){
-    return view('Rating.tiao');
-});
-Route::get('Rating/index', 'Rating_taskController@index');
-Route::get('Rating/store/{id}', 'Rating_taskController@store');
-Route::get('Rating/favor/{id}','Rating_taskController@favor');
 
 //标定任务首页列表
 Route::get('Rating/showIndex','Rating_taskController@showIndex');
@@ -193,6 +153,7 @@ Route::get('Rating/unsearch','Rating_taskController@rt_search');
 Route::get('Rating/result/{id}','Rating_taskController@result');
 //查看结果
 Route::get('Rating/result_check/{id}', 'Rating_taskController@result_down');
+
 
 
 

@@ -27,7 +27,9 @@
                                 <div class="thumbnail">
 
                                     <div class="caption">
+
                                         <h3>商品详情</h3>
+
                                         <div class="portlet-body form">
                                             <table class="table table-bordered table-striped table-condensed flip-content">
                                                 <thead class="flip-content">
@@ -48,13 +50,10 @@
                                                 <tr>
                                                     <td>价格</td>
                                                     <td>{{ $detail->goods->price }}</td>
-                                                </tr>
                                                 <tr>
                                                     <td>作者</td>
                                                     <td>{{ $detail->data_package->user->name }}</td>
                                                 </tr>
-
-
                                                 </tbody>
                                             </table>
 
