@@ -1,5 +1,5 @@
 
-@extends('layouts.system')
+@extends('layouts.userCenter')
 @section('content')
     <div class="portlet light bordered">
         <div class="portlet-title">
