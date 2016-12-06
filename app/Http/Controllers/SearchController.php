@@ -44,7 +44,7 @@ class SearchController extends Controller
             ->join('api_goods', 'api_goods.api_info_id', '=', 'api_info.id')
             ->join('goods_category', 'api_goods.goods_id', '=', 'goods_category.id')
             ->where('goods_category.name','like','%' . $key . '%')
-            ->where('api_info.name','like','%' . $key . '%')
+            ->orwhere('api_info.name','like','%' . $key . '%')
             ->select('api_info.id as id','api_info.name as name','api_info.description as description','api_info.URL as url', 'api_goods.price as price', 'goods_category.name as category')
             ->get();
         if($goods->first()!=null){
@@ -73,6 +73,40 @@ class SearchController extends Controller
             return view('Rating.unsearch')->withInfo('没有您要查询的数据！');
         }
 
+    }
+
+    public function all_search(Request $request)
+    {
+        $key=$request->key;
+
+        $goods = DB::table('goods_data_package')
+            ->join('goods', 'goods.id', '=', 'goods_data_package.goods_id')
+            ->join('goods_category', 'goods.goods_category_id', '=', 'goods_category.id')
+            ->join('data_package', 'data_package.id', '=', 'goods_data_package.data_package_id')
+            ->join('users', 'users.id', '=', 'data_package.owner_id')
+            ->where('goods_category.name','like','%' . $key . '%')
+            ->orwhere('goods.name','like','%' . $key . '%')
+            ->select('goods.name as goodsname','goods.id', 'users.name as username', 'goods_category.name as categoryname', 'data_package.size','data_package.updated_at')
+            ->get();
+
+        $api = DB::table('api_info')
+            ->join('api_goods', 'api_goods.api_info_id', '=', 'api_info.id')
+            ->join('goods_category', 'api_goods.goods_id', '=', 'goods_category.id')
+            ->where('goods_category.name','like','%' . $key . '%')
+            ->orwhere('api_info.name','like','%' . $key . '%')
+            ->select('api_info.id as id','api_info.name as name','api_info.description as description','api_info.URL as url', 'api_goods.price as price', 'goods_category.name as category')
+            ->get();
+
+        if($goods->first()!=null){
+
+            return view('dataPackage.search',['goods'=> $goods]);
+        }else if($api->first()!=null){
+            return view('API.search',['goods'=> $api]);
+        }
+        else{
+            $user = \Auth::user();
+            return view('dataPackage.dp_request',['user'=>$user,'key'=>$key]);
+        }
     }
 
 }
