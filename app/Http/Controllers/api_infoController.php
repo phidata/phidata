@@ -34,30 +34,88 @@ class api_infoController extends Controller
         $flights = api_info::where('wor',1)->get();
         return view('API.index', ['flights' => $flights]);
     }
-    public function add($id){
+//    public function add($id){
+//        //获取文件路径
+//        $request=api_info::find($id);
+//        $url=$request->URL;
+//        //获取文件中的数据并插入数据库中
+//        $xmlDoc = new \DOMDocument();
+//        $xmlDoc->load( $url);
+//        $xmlObject = $xmlDoc->getElementsByTagName('info');
+//        $itemCount = $xmlObject->length;
+//
+//        for ($i=0; $i < $itemCount; $i++) {
+//            $info_id = $xmlObject->item($i)->getElementsByTagName('info_id')->item(0)->childNodes->item(0)->nodeValue;
+//            $adress= $xmlObject->item($i)->getElementsByTagName('adress')->item(0)->childNodes->item(0)->nodeValue;
+//            $time= $xmlObject->item($i)->getElementsByTagName('time')->item(0)->childNodes->item(0)->nodeValue;
+//
+//            $add=new Info();
+//            $add->info_id=$info_id;
+//            $add->adress=$adress;
+//            $add->time=$time;
+//            $add->save();
+//        }
+//        $request->wor=2;
+//        $request->save();
+//        return redirect('API/index')->withInfo('制作成功！');
+//    }
+    public function add(Request $request)
+    {
+
+        //获取API的id
+        $id = $request->info_id;
         //获取文件路径
-        $request=api_info::find($id);
-        $url=$request->URL;
+        $result = api_info::find($id);
+
+        $url = $result->URL;
+        $api_des = new api_des();
+        $interface = new Interfaces();
+        $interface_info = new Interface_info();
+        $data_info = new Data_info();
+        $api_des->api_id = $id;
+        $api_des->description = $request->api_des;
+        $interface->api_id = $id;
+        $interface->request_way = $request->request_way;
+        $interface->interface_add = $request->interface_add;
+        $interface->exam_add = $request->exam_add;
+        $interface->return_format = $request->return_format;
+        $interface_info->api_id = $id;
+        $interface_info->parameter_item = $request->parameter_item;
+        $interface_info->parameter_name = $request->parameter_name;
+        $interface_info->parameter_type = $request->parameter_type;
+        $interface_info->parameter_exam = $request->parameter_exam;
+        $data_info->api_id = $id;
+        $data_info->item_return = $request->item_return;
+        $data_info->item_name = $request->item_name;
+        $data_info->item_exam = $request->item_exam;
+        $api_des->save();
+        $interface->save();
+        $interface_info->save();
+        $data_info->save();
+//        echo $url;
+//        die();
         //获取文件中的数据并插入数据库中
         $xmlDoc = new \DOMDocument();
-        $xmlDoc->load( $url);
+        $xmlDoc->load($url);
         $xmlObject = $xmlDoc->getElementsByTagName('info');
         $itemCount = $xmlObject->length;
 
-        for ($i=0; $i < $itemCount; $i++) {
+        for ($i = 0; $i < $itemCount; $i++) {
             $info_id = $xmlObject->item($i)->getElementsByTagName('info_id')->item(0)->childNodes->item(0)->nodeValue;
-            $adress= $xmlObject->item($i)->getElementsByTagName('adress')->item(0)->childNodes->item(0)->nodeValue;
-            $time= $xmlObject->item($i)->getElementsByTagName('time')->item(0)->childNodes->item(0)->nodeValue;
+            $adress = $xmlObject->item($i)->getElementsByTagName('adress')->item(0)->childNodes->item(0)->nodeValue;
+            $time = $xmlObject->item($i)->getElementsByTagName('time')->item(0)->childNodes->item(0)->nodeValue;
 
-            $add=new Info();
-            $add->info_id=$info_id;
-            $add->adress=$adress;
-            $add->time=$time;
+            $add = new Info();
+            $add->info_id = $info_id;
+            $add->adress = $adress;
+            $add->api_id = $id;
+            $add->time = $time;
             $add->save();
         }
-        $request->wor=2;
-        $request->save();
-        return redirect('API/index')->withInfo('制作成功！');
+    }
+    public function add_info($id){
+        return view('API.add_info', ['id' => $id]);
+
     }
     public function select(Request $request){
 //            echo $request->search;

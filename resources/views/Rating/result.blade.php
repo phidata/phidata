@@ -9,7 +9,7 @@
                         <i class="fa icon-docs font-green-sharp"></i>
                         <span class="caption-subject font-green-sharp bold uppercase">Phidata</span>
                         <span class="caption-helper">
-                            数据标定结果查看
+                            标定结果查询
                         </span>
                     </div>
                     <div class="actions">
@@ -32,25 +32,7 @@
                         </div>
                     </div>
 
-                    <div>
-                        @foreach($tasks as $task)
-                           @if($task->answer!=null)
-                            <div id="div" style="height: 100%;width: 100%;background-color: #9ae3e9" >
-                                <h3>{{$task->url}}</h3><br/>
-                                <div style="float: left; height:100%;width: 25%">答案：{{$task->answer}}</div><br/>
-                            </div>
-                            @else
-                                <div id="div" style="height: 100%;width: 100%;background-color: #9ae3e9" >
-                                    <h3>{{$task->url}}</h3><br/>
-                                    <div style="float: left; height:100%;width: 25%">答案：暂未有答案</div><br/>
-                                </div>
-                            @endif
 
-                            <div style="height: 20px;width: 100%; hidden:hidden"></div>
-
-                        @endforeach
-
-                    </div>
                 </div>
             </div>
         </div>
