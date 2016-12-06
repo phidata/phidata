@@ -45,8 +45,8 @@
                         </form>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li style="padding-top:10px">
-                            <a href="{{action("UserController@index")}}"><img class="img-circle" src="img/user.png" width="22px" height="31px"/></a>
+                        <li>
+                            <a href="{{action("UserController@index")}}"><img class="img-circle" src="img/user.png" width="22px" height="25px"/></a>
                         </li>
                         <li style="padding-left:20px ">
                             <a href="#">登录</a>
