@@ -13,12 +13,14 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\View;
+use Illuminate\Support\Facades\App;
 
 class Rating_taskController extends Controller
 {
 
     public function showIndex()
     {
+        
         $task =Rating_task::all();
         return view('Rating.showIndex',['tasks'=> $task]);
     }
@@ -150,11 +152,12 @@ class Rating_taskController extends Controller
     }
 
     public function index(){
+        $User=\Auth::user();
         $results=Favor_rating_task::where('user_id',\Auth::id())->get();
         foreach($results as $result){
             $result=$result->rating_task;
         }
-        return view('Rating.index',['results' => $results]);
+        return view('Rating.index',['results' => $results],['User'=>$User]);
     }
 
     public function store($id){
@@ -180,11 +183,10 @@ class Rating_taskController extends Controller
 
     public function favor($id){
         $userId = \Auth::id();
-        $favor = Favor::where('user_id',$userId)->where('rating_task_id',$id)->get();
+        $favor = Favor::where('user_id',$userId)->where('rating_task_id',$id)->first();
         if($favor){
             return redirect()->back()->withInfo('您已收藏过该任务！');
         }
-
         $favor = new Favor();
         $favor->rating_task_id = $id;
         $favor->user_id = $userId;
@@ -197,8 +199,15 @@ class Rating_taskController extends Controller
     }
     
     public function  point(){
+        $User=\Auth::user();
         $results=Rating_answer::where('user_id',\Auth::id())->where('point','>',0)->get();
-        return view('Rating.point',['results' => $results]);
+        return view('Rating.point',['results' => $results],['User'=>$User]);
     }
     
+    public function favorDelete($id)
+    {
+        $favor=\App\Favor_rating_task::find($id);
+        $favor->delete();
+        return redirect()->back()->withInfo('您已删除该收藏');
+    }
 }

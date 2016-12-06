@@ -136,6 +136,7 @@ Route::group(['middleware'=>'auth'],function(){
     Route::get('Rating/index', 'Rating_taskController@index');
     Route::get('Rating/store/{id}', 'Rating_taskController@store');
     Route::get('Rating/favor/{id}','Rating_taskController@favor');
+    Route::get('Rating/favor/delete/{id}','Rating_taskController@favorDelete');
     Route::get('Rating/point', 'Rating_taskController@point');
 });
 
@@ -150,6 +151,7 @@ Route::post('Rating/showIndex','SearchController@rt_search');
 Route::get('Rating/unsearch','Rating_taskController@rt_search');
 //标定结果显示
 Route::get('Rating/result','Rating_taskController@result');
+
 
 
 

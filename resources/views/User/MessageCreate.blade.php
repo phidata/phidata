@@ -6,6 +6,7 @@
             <div class="caption">
                 <i class="icon-docs"></i>
                 <span class="caption-subject font-sunglo bold uppercase">发送新的消息</span>
+                <a href="{{action("UserController@index")}}"><button>返回个人中心</button></a>
                 <span class="caption-helper"></span>
             </div>
         </div>

@@ -15,12 +15,13 @@ class UserMessageController extends Controller
 {
     public function index()
     {
+            $User=\Auth::user();
             $id=\Auth::user()->id;
             $UserMessages=UserMessage::where('user_id',$id)->get();
             if(!$UserMessages){
                 return redirect()->back()->withInfo('您尚未上传过数据包');
             }
-            return view('User/message', ['UserMessages' => $UserMessages]);
+            return view('User/message', ['UserMessages' => $UserMessages],['User' => $User]);
     }
     public function deleteMessage($id) {
         $UserMessage = UserMessage::find($id);
