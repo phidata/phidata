@@ -25,8 +25,8 @@ License: You must have a valid license purchased only from themeforest(the above
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <meta content="" name="description" />
     <meta content="" name="author" />
-    @yield('head')
-            <!-- BEGIN GLOBAL MANDATORY STYLES -->
+@yield('head')
+<!-- BEGIN GLOBAL MANDATORY STYLES -->
     {{--<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />--}}
 
     <link href="{{ URL::asset('assets/plugins/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css" />
@@ -36,11 +36,11 @@ License: You must have a valid license purchased only from themeforest(the above
     <link href="{{ URL::asset('assets/plugins/bootstrap-switch/css/bootstrap-switch.min.css') }}" rel="stylesheet" type="text/css" />
     <!-- END GLOBAL MANDATORY STYLES -->
     <!-- BEGIN PAGE LEVEL PLUGINS -->
-    {{--        <link href="{{ URL::asset('assets/plugins/bootstrap-daterangepicker/daterangepicker.min.css') }}" rel="stylesheet" type="text/css" />--}}
-    {{--<link href="{{ URL::asset('assets/plugins/morris/morris.css') }}" rel="stylesheet" type="text/css" />--}}
-    {{--        <link href="{{ URL::asset('assets/plugins/fullcalendar/fullcalendar.min.css') }}" rel="stylesheet" type="text/css" />--}}
-    {{--<link href="{{ URL::asset('assets/plugins/jqvmap/jqvmap/jqvmap.css') }}" rel="stylesheet" type="text/css" />--}}
-            <!-- END PAGE LEVEL PLUGINS -->
+{{--        <link href="{{ URL::asset('assets/plugins/bootstrap-daterangepicker/daterangepicker.min.css') }}" rel="stylesheet" type="text/css" />--}}
+{{--<link href="{{ URL::asset('assets/plugins/morris/morris.css') }}" rel="stylesheet" type="text/css" />--}}
+{{--        <link href="{{ URL::asset('assets/plugins/fullcalendar/fullcalendar.min.css') }}" rel="stylesheet" type="text/css" />--}}
+{{--<link href="{{ URL::asset('assets/plugins/jqvmap/jqvmap/jqvmap.css') }}" rel="stylesheet" type="text/css" />--}}
+<!-- END PAGE LEVEL PLUGINS -->
     <!-- BEGIN THEME GLOBAL STYLES -->
     <link href="{{ URL::asset('assets/css/components.min.css') }}" rel="stylesheet" id="style_components" type="text/css" />
     <link href="{{ URL::asset('assets/css/plugins.min.css') }}" rel="stylesheet" type="text/css" />
@@ -58,43 +58,44 @@ License: You must have a valid license purchased only from themeforest(the above
 
 <body class="page-container-bg-solid page-header-fixed page-sidebar-closed-hide-logo">
 <!-- BEGIN HEADER -->
-<div class="page-header navbar navbar-fixed-top">
-    <!-- BEGIN HEADER INNER -->
-    <div class="page-header-inner ">
-        <!-- BEGIN LOGO -->
-        <div class="page-logo">
-            <a href="/">
-                <img src="{{ URL::asset('assets/img/logo-light.png') }}" alt="logo" class="logo-default" /> </a>
-            <div class="menu-toggler sidebar-toggler">
-                <!-- DOC: Remove the above "hide" to enable the sidebar toggler button on header -->
-            </div>
+<div class="row clearfix" style="padding-left: 100px;padding-right: 100px;">
+    <div class="col-md-12 column" style="padding-top:20px">
+        <div class="navbar-header" style="padding-right: 20px">
+            <img class="img-circle" src="../../img/logo1.png" width="50px" height="50px"/>
         </div>
-        <!-- END LOGO -->
-        <!-- BEGIN RESPONSIVE MENU TOGGLER -->
-        <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse"> </a>
-        <!-- END RESPONSIVE MENU TOGGLER -->
-        <!-- BEGIN PAGE ACTIONS -->
-        <!-- DOC: Remove "hide" class to enable the page header actions -->
-
-
-
-    </div>
-    <!-- END PAGE ACTIONS -->
-    <!-- BEGIN PAGE TOP -->
-    <div class="page-top">
-                <!-- END HEADER SEARCH BOX -->
-        <!-- BEGIN TOP NAVIGATION MENU -->
-        <div class="top-menu">
-            <ul class="nav navbar-nav pull-right">
-                <li class="separator hide"> </li>
-
-                        <!-- END QUICK SIDEBAR TOGGLER -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" >
+            <ul class="nav navbar-nav" >
+                <li class="active">
+                    <a href="{{action('DataPackageController@index')}}" style="color: #000000;" >数据分享</a>
+                </li>
+                <li>
+                    <a href="{{action('api_infoController@show_index')}}" style="color: #000000">数据API</a>
+                </li>
+                <li>
+                    <a href="{{action('Rating_taskController@showIndex')}}" style="color: #000000">数据标定</a>
+                </li>
+            </ul>
+            <ul>
+                <form method="POST" class="navbar-form navbar-left" role="search" action="{{ action('SearchController@dp_search') }}" method="POST">
+                    {{--{!! csrf_field() !!}--}}
+                    <div class="form-group">
+                        <input name="key" type="text" class="form-control input-inline input-small input-sm" placeholder="关键词">
+                    </div> <button class="btn btn-default" type="submit">搜索</button>
+                </form>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="{{action("UserController@index")}}"><img class="img-circle" src="../../img/user.png" width="22px" height="25px"/></a>
+                </li>
+                <li style="padding-left:20px ">
+                    <a href="{{ url('/login') }}">登录</a>
+                </li>
+                <li>
+                    <a href="{{ url('/register') }}">注册</a>
+                </li>
             </ul>
         </div>
-        <!-- END TOP NAVIGATION MENU -->
-
     </div>
-    <!-- END PAGE TOP -->
 </div>
 <!-- END HEADER INNER -->
 </div>
@@ -107,17 +108,17 @@ License: You must have a valid license purchased only from themeforest(the above
     <!-- BEGIN SIDEBAR -->
 
 
-    {{--@if($curDomain =='admin')--}}
-    {{--@include('layouts.nav_left_admin')--}}
-    {{--@elseif($curDomain =='agent')--}}
-    {{--@include('layouts.nav_left_agent')--}}
-    {{--@elseif($curDomain =='recycler')--}}
-    {{--@include('layouts.nav_left_recycler')--}}
-    {{--@elseif($curDomain =='commonuser')--}}
-    {{--@include('layouts.nav_left_commonuser')--}}
-    {{--@endif--}}
-    @include('layouts.goodsCategory')
-            <!-- END SIDEBAR -->
+{{--@if($curDomain =='admin')--}}
+{{--@include('layouts.nav_left_admin')--}}
+{{--@elseif($curDomain =='agent')--}}
+{{--@include('layouts.nav_left_agent')--}}
+{{--@elseif($curDomain =='recycler')--}}
+{{--@include('layouts.nav_left_recycler')--}}
+{{--@elseif($curDomain =='commonuser')--}}
+{{--@include('layouts.nav_left_commonuser')--}}
+{{--@endif--}}
+@include('layouts.nav_left_userCenter')
+<!-- END SIDEBAR -->
     <!-- BEGIN CONTENT -->
     <div class="page-content-wrapper">
         <!-- BEGIN CONTENT BODY -->
@@ -132,17 +133,17 @@ License: You must have a valid license purchased only from themeforest(the above
             </div>
             <!-- END PAGE HEAD-->
             <!-- BEGIN PAGE BREADCRUMB -->
-            {{--<ul class="page-breadcrumb breadcrumb">--}}
-            {{--@yield('breadcrumbs')--}}
-            {{--<!-- <li>--}}
-            {{--<a href="#">Home</a>--}}
-            {{--<i class="fa fa-circle"></i>--}}
-            {{--</li>--}}
-            {{--<li>--}}
-            {{--<span class="active">Dashboard</span>--}}
-            {{--</li> -->--}}
-            {{--</ul>--}}
-                    <!-- END PAGE BREADCRUMB -->
+        {{--<ul class="page-breadcrumb breadcrumb">--}}
+        {{--@yield('breadcrumbs')--}}
+        {{--<!-- <li>--}}
+        {{--<a href="#">Home</a>--}}
+        {{--<i class="fa fa-circle"></i>--}}
+        {{--</li>--}}
+        {{--<li>--}}
+        {{--<span class="active">Dashboard</span>--}}
+        {{--</li> -->--}}
+        {{--</ul>--}}
+        <!-- END PAGE BREADCRUMB -->
             <!-- BEGIN PAGE BASE CONTENT -->
             <!-- BEGIN DASHBOARD STATS 1-->
 
@@ -199,13 +200,13 @@ License: You must have a valid license purchased only from themeforest(the above
 <!-- END THEME GLOBAL SCRIPTS -->
 <!-- BEGIN PAGE LEVEL SCRIPTS -->
 {{--        <script src="{{ URL::asset('assets/scripts/dashboard.min.js') }}" type="text/javascript"></script>--}}
-        <!-- END PAGE LEVEL SCRIPTS -->
+<!-- END PAGE LEVEL SCRIPTS -->
 <!-- BEGIN THEME LAYOUT SCRIPTS -->
 <script src="{{ URL::asset('assets/scripts/layout.min.js') }}" type="text/javascript"></script>
 
 
 {{--<script src="{{ URL::asset('assets/layouts/layout4/scripts/demo.min.js') }}" type="text/javascript"></script>--}}
-        <!-- END THEME LAYOUT SCRIPTS -->
+<!-- END THEME LAYOUT SCRIPTS -->
 <script src="{{ URL::asset('assets/scripts/select2.min.js') }}" type="text/javascript"></script>
 
 </body>

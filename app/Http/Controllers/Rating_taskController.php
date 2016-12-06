@@ -132,11 +132,27 @@ class Rating_taskController extends Controller
                 {
                     $Answer->point=$price;
                     $Answer->save();
+                    $userPoint=\App\UserPoint::where('user_id',$Answer->user_id);     //保存获得的分数
+                    $userPoint=$userPoint+$Answer->point;
+                    $userPoint->save();
+                    $record=\App\UserPointRecord();//储存消费记录
+                    $record->user_id=$Answer->user_id;
+                    $record->amount=$Answer->point;
+                    $record->consumption=$Answer->rating_question->rating_task->description;
+                    $record->save();
                 }
                 else
                 {
                     $Answer->point=0;
                     $Answer->save();
+                    $userPoint=\App\UserPoint::where('user_id',$Answer->user_id);//保存获得的分数
+                    $userPoint=$userPoint+$Answer->point;
+                    $userPoint->save();
+                    $record=\App\UserPointRecord();//储存消费记录
+                    $record->user_id=$Answer->user_id;
+                    $record->amount=$Answer->point;
+                    $record->consumption=$Answer->rating_question->rating_task->description;
+                    $record->save();
                 }
             }
         }
@@ -147,6 +163,14 @@ class Rating_taskController extends Controller
             {
                 $Answer->point=0;
                 $Answer->save();
+                $userPoint=\App\UserPoint::where('user_id',$Answer->user_id);//保存获得的分数
+                $userPoint=$userPoint+$Answer->point;
+                $userPoint->save();
+                $record=\App\UserPointRecord();//储存消费记录
+                $record->user_id=$Answer->user_id;
+                $record->amount=$Answer->point;
+                $record->consumption=$Answer->rating_question->rating_task->description;
+                $record->save();
             }
 
         }
@@ -193,8 +217,9 @@ class Rating_taskController extends Controller
 
     }
 
-    public function result($id)
-    {
+    public function result()
+    {   
+        $id=\Auth::id();
         $tasks = DB::table('rating_question')
             ->join('rating_task', 'rating_task.id', '=', 'rating_question.rating_task_id')
             ->join('users','rating_task.owner_id','=','users.id')
@@ -228,9 +253,18 @@ class Rating_taskController extends Controller
             return redirect()->back()->withInfo('您已删除该收藏');
 
         }
-    }
+}
 
-
-
-    
-
+//    public function result($id)
+//    {
+//        $tasks = DB::table('rating_question')
+//            ->join('rating_task', 'rating_task.id', '=', 'rating_question.rating_task_id')
+//            ->join('users','rating_task.owner_id','=','users.id')
+//            ->where('users.id', $id)
+//            ->select('rating_task.question as question','rating_task.description as description','rating_question.answer as answer','rating_question.url as url')
+//            ->get();
+//        $php_json=json_encode($tasks);
+//        file_put_contents($id.'.json',$php_json);
+//        print_r($php_json);
+//        return view('Rating.result')->withInfo('已生成文件请查收！');
+//    }

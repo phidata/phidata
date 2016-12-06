@@ -1,4 +1,4 @@
-@extends('layouts.system')
+@extends('layouts.blank')
 
 @section('content')
     <div class="row">
@@ -51,7 +51,7 @@
                                                     <td>价格</td>
                                                     <td>{{ $detail->goods->price }}</td>
                                                 <tr>
-                                                    <td>作者</td>
+                                                    <td>上传者</td>
                                                     <td>{{ $detail->data_package->user->name }}</td>
                                                 </tr>
                                                 </tbody>

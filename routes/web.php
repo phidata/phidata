@@ -23,7 +23,8 @@ Route::get('homePage', function(){
     return view('homePage');
 });
 
-
+//NuSOAP web service
+Route::post('nuSoap','SoapController@index');
 
 //用户认证的一系列路由：登录，注册，登出...
 Auth::routes();
@@ -63,6 +64,7 @@ Route::group(['middleware'=>'auth'],function(){
     Route::get('user/store','UserController@userStore');
     Route::get('user/upload','UserController@upload');
     Route::get('user/myGoods','UserController@myGoods');
+    Route::get('user/logout','UserController@logout');
     Route::resource('user','UserController');
     //数据标定判定标准答案
     Route::get('checkAnswer','CheckAnswerController@checkAnswer');
@@ -70,11 +72,13 @@ Route::group(['middleware'=>'auth'],function(){
 
     Route::get('point/changePassword','PointController@changePassword');
     Route::post('point/modify','PointController@modify');
+    Route::get('point/record','PointController@pointRecord');  //查看个人消费记录
+    Route::get('point/record/delete/{id}','PointController@deleteRecord');  //删除个人消费记录
     Route::resource('point','PointController');
 
     //订单管理
     Route::resource('order','OrderController');
-    Route::post('order/generate','OrderController@generate');
+//    Route::post('order/generate','OrderController@generate');
     Route::post('order/generate/{id}','OrderController@generate');
 
     //上传审核
@@ -107,8 +111,9 @@ Route::group(['middleware'=>'auth'],function(){
     Route::get('API/info_show',function(){
         return view('API.info_show');
     });
+    Route::post('API/add', 'api_infoController@add');
 
-    Route::get('API/add/{id}','api_infoController@add' );
+    Route::get('API/add_info/{id}','api_infoController@add_info' );
 
     //API商品首页列表
     Route::get('API/show_index','api_infoController@show_index');
@@ -123,8 +128,7 @@ Route::group(['middleware'=>'auth'],function(){
     //搜索API未找到
     Route::get('API/unsearch','api_infoController@api_search');
 
-    //NuSOAP web service
-        Route::post('nuSoap','SoapController@index');//
+
 
 
     //数据标定模块
@@ -151,13 +155,13 @@ Route::post('Rating/showIndex','SearchController@rt_search');
 //搜索标定未找到任务
 Route::get('Rating/unsearch','Rating_taskController@rt_search');
 //标定结果显示
-Route::get('Rating/result/{id}','Rating_taskController@result');
+Route::get('Rating/result','Rating_taskController@result');
+
 //查看结果
 Route::get('Rating/result_check/{id}', 'Rating_taskController@result_down');
 
 //搜索全部
 Route::post('all_search','SearchController@all_search');
-
 
 
 

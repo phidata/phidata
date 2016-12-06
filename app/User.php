@@ -38,4 +38,7 @@ class User extends Authenticatable
     public function user_message(){
         return  $this->hasOne('App\UserMessage','user_id');
     }
+    public function user_point(){
+        return  $this->hasOne('App\UserPoint','user_id');
+    }
 }

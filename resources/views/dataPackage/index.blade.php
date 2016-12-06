@@ -1,4 +1,4 @@
-@extends('layouts.system')
+@extends('layouts.blank')
 
 @section('content')
     <div class="row">
@@ -52,7 +52,7 @@
                                <tr>
                                 <td> <a href="{{url('dataPackage/detail/'.$good->goods->id)}}">{{ $good->goods->name }}</a></td>
                                 <td>{{ $good->goods->good_category->name }} </td>
-                                <td>{{ $good->data_package->size }}</td>
+                                <td>{{ $good->data_package->size }} Kb</td>
                                 <td>{{ $good->data_package->user->name }}</td>
                                 <td>{{ $good->updated_at }}</td>
                                </tr>

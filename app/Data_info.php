@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class API_des extends Model
+class Data_info extends Model
 {
-    protected $table = 'api_des';
+    protected $table = 'data_info';
 }

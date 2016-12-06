@@ -13,7 +13,7 @@ class UserPoint extends Model
     ];
 
     public function record(){
-        return $this->hasOne('App\UserPointRecord','user_id','user_id');
+        return $this->hasOne('App\UserPointRecord','user_id');
     }
 
 

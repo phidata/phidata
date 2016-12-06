@@ -58,46 +58,54 @@ License: You must have a valid license purchased only from themeforest(the above
 
 <body class="page-container-bg-solid page-header-fixed page-sidebar-closed-hide-logo">
 <!-- BEGIN HEADER -->
-<div class="page-header navbar navbar-fixed-top">
-    <!-- BEGIN HEADER INNER -->
-    <div class="page-header-inner ">
-        <!-- BEGIN LOGO -->
-        <div class="page-logo">
-            <a href="/">
-                <img src="{{ URL::asset('assets/img/logo-light.png') }}" alt="logo" class="logo-default" /> </a>
-            <div class="menu-toggler sidebar-toggler">
-                <!-- DOC: Remove the above "hide" to enable the sidebar toggler button on header -->
-            </div>
+<div class="row clearfix">
+    <div class="col-md-12 column" style="padding-top:20px">
+        <div class="navbar-header" style="padding-right: 20px">
+            <img class="img-circle" src="../../img/logo1.png" width="50px" height="50px"/>
         </div>
-        <!-- END LOGO -->
-        <!-- BEGIN RESPONSIVE MENU TOGGLER -->
-        <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse"> </a>
-        <!-- END RESPONSIVE MENU TOGGLER -->
-        <!-- BEGIN PAGE ACTIONS -->
-        <!-- DOC: Remove "hide" class to enable the page header actions -->
-
-
-
-    </div>
-    <!-- END PAGE ACTIONS -->
-    <!-- BEGIN PAGE TOP -->
-    <div class="page-top">
-                <!-- END HEADER SEARCH BOX -->
-        <!-- BEGIN TOP NAVIGATION MENU -->
-        <div class="top-menu">
-            <ul class="nav navbar-nav pull-right">
-                <li class="separator hide"> </li>
-
-                        <!-- END QUICK SIDEBAR TOGGLER -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" >
+            <ul class="nav navbar-nav" >
+                <li class="active">
+                    <a href="{{action('DataPackageController@index')}}" style="color: #000000;" >数据分享</a>
+                </li>
+                <li>
+                    <a href="{{action('api_infoController@show_index')}}" style="color: #000000">数据API</a>
+                </li>
+                <li>
+                    <a href="{{action('Rating_taskController@showIndex')}}" style="color: #000000">数据标定</a>
+                </li>
+            </ul>
+            <ul>
+                <form method="POST" class="navbar-form navbar-left" role="search" action="{{ action('SearchController@dp_search') }}" method="POST">
+                    {{--{!! csrf_field() !!}--}}
+                    <div class="form-group">
+                        <input name="key" type="text" class="form-control input-inline input-small input-sm" placeholder="关键词">
+                    </div> <button class="btn btn-default" type="submit">搜索</button>
+                </form>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="{{action("UserController@index")}}"><img class="img-circle" src="../../img/user.png" width="22px" height="25px"/></a>
+                </li>
+                @if(\Auth::user())
+                    <li>
+                        <a href="{{ url('user/logout') }}">
+                            登出
+                        </a>
+                    </li>
+                @else
+                    <li style="padding-left:20px ">
+                        <a href="{{ url("login") }}">登录</a>
+                    </li>
+                    <li>
+                        <a href="{{ url("register") }}">注册</a>
+                    </li>
+                @endif
             </ul>
         </div>
-        <!-- END TOP NAVIGATION MENU -->
-
     </div>
-    <!-- END PAGE TOP -->
 </div>
-<!-- END HEADER INNER -->
-</div>
+
 <!-- END HEADER -->
 <!-- BEGIN HEADER & CONTENT DIVIDER -->
 <div class="clearfix"> </div>
@@ -116,7 +124,7 @@ License: You must have a valid license purchased only from themeforest(the above
     {{--@elseif($curDomain =='commonuser')--}}
     {{--@include('layouts.nav_left_commonuser')--}}
     {{--@endif--}}
-    @include('layouts.goodsCategory')
+    @include('layouts.nav_left_goods')
             <!-- END SIDEBAR -->
     <!-- BEGIN CONTENT -->
     <div class="page-content-wrapper">

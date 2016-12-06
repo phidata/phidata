@@ -9,6 +9,7 @@ use App\Http\Requests;
 use App\UserPoint as Point;
 
 use App\UserPointRecord;
+use Illuminate\Support\Facades\App;
 
 class PointController extends Controller
 {
@@ -49,13 +50,24 @@ class PointController extends Controller
         try{
             $point->password = bcrypt($request->password);
             $point->save();
-            return redirect()->back()->withInfo('成功修改支付密码！');
+            return redirect('user')->withInfo('成功修改支付密码！');
         }catch (\Exception $e){
             return redirect()->back()->withInfo('修改支付密码失败！');
         }
     }
+    public function pointRecord()
+    {
+        $user=\Auth::user();
+        $records=\App\UserPointRecord::where('user_id',$user->id)->get();
+        return view('point/record',['User'=> $user],['records'=> $records]);
+    }
 
-
+    public function deleteRecord($id)
+    {
+        $record=\App\UserPointRecord::find($id);
+        $record->delete();
+        return redirect()->back()->withInfo('成功隐藏该记录');
+    }
     public function create()
     {
         //
