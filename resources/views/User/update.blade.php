@@ -5,7 +5,7 @@
         <div class="portlet-title">
             <div class="caption">
                 <i class="icon-docs"></i>
-                <span class="caption-subject font-sunglo bold uppercase">请修改您的密码</span>
+                <span class="caption-subject font-sunglo bold uppercase">请修改您的登录密码</span>
                 <span class="caption-helper"></span>
             </div>
         </div>
@@ -14,19 +14,19 @@
                 {!! csrf_field() !!}
                 <div class="form-body">
                     <div class="form-group">
-                        <label class="col-md-3 control-label">请确认您的旧密码</label>
+                        <label class="col-md-3 control-label">请确认您的旧的登录密码</label>
                         <div class="col-md-4">
                             <input type="password" name="oldPassword" id="oldPassword" class="form-control" placeholder="" required="required" maxlength="15"  />
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-md-3 control-label">您的新密码为</label>
+                        <label class="col-md-3 control-label">您的新登录密码为</label>
                         <div class="col-md-4">
                             <input type="password" name="password" id="password" class="form-control" placeholder="" required="required" maxlength="15"  />
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-md-3 control-label">确认您的密码</label>
+                        <label class="col-md-3 control-label">确认您的登录密码</label>
                         <div class="col-md-4">
                             <input type="password" name="passwordconfirm" id="passwordconfirm" class="form-control" placeholder="" required="required" maxlength="15" />
                         </div>

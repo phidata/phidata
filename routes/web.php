@@ -71,6 +71,8 @@ Route::group(['middleware'=>'auth'],function(){
 
     Route::get('point/changePassword','PointController@changePassword');
     Route::post('point/modify','PointController@modify');
+    Route::get('point/record','PointController@pointRecord');  //查看个人消费记录
+    Route::get('point/record/delete/{id}','PointController@deleteRecord');  //删除个人消费记录
     Route::resource('point','PointController');
 
     //订单管理

@@ -43,7 +43,7 @@
                                 <td>{{ $UserMessage->message->message}}</td>
                                 <td>{{ $UserMessage->message->created_at}}</td>
                                 <td>
-                                    <a href="{{ action('UserMessageController@deleteMessage',$UserMessage->id) }}" class="btn btn-xs blue">
+                                    <a href="{{ action('UserMessageController@deleteMessage',$UserMessage->id) }}" class="btn btn-xs red">
                                     <i class="fa fa-file-o"></i> 删除</a>
                                 </td>
                             </tr>
