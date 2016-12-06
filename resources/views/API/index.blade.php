@@ -53,7 +53,7 @@
                                 <td>{{ $flight->categrory_id}}</td>
                                 {{--<td>{{ $category->address }}</td>--}}
                                 <td>
-                                    <a href="add/{{ $flight->id }}"class="btn btn-xs blue">
+                                    <a href="add_info/{{ $flight->id }}"class="btn btn-xs blue">
                                     <i class="fa fa-file-o"></i> 制作
                                     </a>
                                     {{--<a href="{{ action('ApplycationController@show',$application->id) }}" class="btn btn-xs blue">--}}

@@ -23,7 +23,8 @@ Route::get('homePage', function(){
     return view('homePage');
 });
 
-
+//NuSOAP web service
+Route::post('nuSoap','SoapController@index');
 
 //用户认证的一系列路由：登录，注册，登出...
 Auth::routes();
@@ -109,8 +110,9 @@ Route::group(['middleware'=>'auth'],function(){
     Route::get('API/info_show',function(){
         return view('API.info_show');
     });
+    Route::post('API/add', 'api_infoController@add');
 
-    Route::get('API/add/{id}','api_infoController@add' );
+    Route::get('API/add_info/{id}','api_infoController@add_info' );
 
     //API商品首页列表
     Route::get('API/show_index','api_infoController@show_index');
@@ -124,8 +126,7 @@ Route::group(['middleware'=>'auth'],function(){
     //搜索API未找到
     Route::get('API/unsearch','api_infoController@api_search');
 
-    //NuSOAP web service
-        Route::post('nuSoap','SoapController@index');//
+
 
 
     //数据标定模块
@@ -152,8 +153,10 @@ Route::post('Rating/showIndex','SearchController@rt_search');
 //搜索标定未找到任务
 Route::get('Rating/unsearch','Rating_taskController@rt_search');
 //标定结果显示
-Route::get('Rating/result','Rating_taskController@result');
+Route::get('Rating/result/{id}','Rating_taskController@result');
 
+//查看结果
+Route::get('Rating/result_check/{id}', 'Rating_taskController@result_down');
 
 
 
