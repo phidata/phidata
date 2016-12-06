@@ -1,4 +1,4 @@
-@extends('layouts.system')
+@extends('layouts.blank')
 
 @section('content')
     <div class="portlet light bordered">
@@ -51,4 +51,5 @@
             <!-- END FORM-->
         </div>
     </div>
-@stop
+@endsection
+{{--@stop--}}

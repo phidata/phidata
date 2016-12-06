@@ -20,38 +20,24 @@
             </li>
 
             <li class="nav-item  {{ (Request::segment(2) === 'create') ? 'active' : null }}">
+                <a href="{{url('dataPackage/index')}}" >
+                    <span class="title">数据包</span>
+                    <span class="selected"></span>
+                </a>
+            </li>
+            <li class="nav-item  {{ (Request::segment(2) === 'create') ? 'active' : null }}">
+                <a href="{{url('API/show_index')}}" >
+                    API
+                </a>
+            </li>
+            <li class="nav-item  {{ (Request::segment(2) === 'create') ? 'active' : null }}">
+                <a href="{{action('Rating_taskController@showIndex')}}" class="nav-link ">
+                    数据标定
+                </a>
+            </li>
+            <li class="nav-item  {{ (Request::segment(2) === 'create') ? 'active' : null }}">
                 <a href="{{url('user')}}" class="nav-link ">
-                     个人信息
-                </a>
-            </li>
-            <li class="nav-item  {{ (Request::segment(2) === 'create') ? 'active' : null }}">
-                <a href="{{url('user/myGoods')}}" class="nav-link ">
-                    已购买商品
-                </a>
-            </li>
-            <li class="nav-item  {{ (Request::segment(2) === 'create') ? 'active' : null }}">
-                <a href="{{url('user/upload')}}" class="nav-link ">
-                     上传数据包
-                </a>
-            </li>
-            <li class="nav-item  {{ (Request::segment(2) === 'create') ? 'active' : null }}">
-                <a href="{{url('Rating/index')}}">
-                     已收藏标定任务
-                </a>
-            </li>
-            <li class="nav-item  {{ (Request::segment(2) === 'create') ? 'active' : null }}">
-                <a href="{{url('Rating/point')}}">
-                     标定任务所得积分
-                </a>
-            </li>
-            <li class="nav-item  {{ (Request::segment(2) === 'create') ? 'active' : null }}">
-                <a href="{{action('Rating_taskController@result')}}">
-                    标定任务结果下载
-                </a>
-            </li>
-            <li class="nav-item  {{ (Request::segment(2) === 'create') ? 'active' : null }}">
-                <a href="{{url('user/message')}}" class="nav-link ">
-                     消息查看
+                    个人中心
                 </a>
             </li>
         </ul>

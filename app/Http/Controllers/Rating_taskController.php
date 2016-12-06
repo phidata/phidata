@@ -217,8 +217,9 @@ class Rating_taskController extends Controller
 
     }
 
-    public function result($id)
-    {
+    public function result()
+    {   
+        $id=\Auth::id();
         $tasks = DB::table('rating_question')
             ->join('rating_task', 'rating_task.id', '=', 'rating_question.rating_task_id')
             ->join('users','rating_task.owner_id','=','users.id')

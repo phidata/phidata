@@ -25,8 +25,8 @@ License: You must have a valid license purchased only from themeforest(the above
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <meta content="" name="description" />
     <meta content="" name="author" />
-@yield('head')
-<!-- BEGIN GLOBAL MANDATORY STYLES -->
+    @yield('head')
+            <!-- BEGIN GLOBAL MANDATORY STYLES -->
     {{--<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />--}}
 
     <link href="{{ URL::asset('assets/plugins/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css" />
@@ -36,11 +36,11 @@ License: You must have a valid license purchased only from themeforest(the above
     <link href="{{ URL::asset('assets/plugins/bootstrap-switch/css/bootstrap-switch.min.css') }}" rel="stylesheet" type="text/css" />
     <!-- END GLOBAL MANDATORY STYLES -->
     <!-- BEGIN PAGE LEVEL PLUGINS -->
-{{--        <link href="{{ URL::asset('assets/plugins/bootstrap-daterangepicker/daterangepicker.min.css') }}" rel="stylesheet" type="text/css" />--}}
-{{--<link href="{{ URL::asset('assets/plugins/morris/morris.css') }}" rel="stylesheet" type="text/css" />--}}
-{{--        <link href="{{ URL::asset('assets/plugins/fullcalendar/fullcalendar.min.css') }}" rel="stylesheet" type="text/css" />--}}
-{{--<link href="{{ URL::asset('assets/plugins/jqvmap/jqvmap/jqvmap.css') }}" rel="stylesheet" type="text/css" />--}}
-<!-- END PAGE LEVEL PLUGINS -->
+    {{--        <link href="{{ URL::asset('assets/plugins/bootstrap-daterangepicker/daterangepicker.min.css') }}" rel="stylesheet" type="text/css" />--}}
+    {{--<link href="{{ URL::asset('assets/plugins/morris/morris.css') }}" rel="stylesheet" type="text/css" />--}}
+    {{--        <link href="{{ URL::asset('assets/plugins/fullcalendar/fullcalendar.min.css') }}" rel="stylesheet" type="text/css" />--}}
+    {{--<link href="{{ URL::asset('assets/plugins/jqvmap/jqvmap/jqvmap.css') }}" rel="stylesheet" type="text/css" />--}}
+            <!-- END PAGE LEVEL PLUGINS -->
     <!-- BEGIN THEME GLOBAL STYLES -->
     <link href="{{ URL::asset('assets/css/components.min.css') }}" rel="stylesheet" id="style_components" type="text/css" />
     <link href="{{ URL::asset('assets/css/plugins.min.css') }}" rel="stylesheet" type="text/css" />
@@ -119,93 +119,93 @@ License: You must have a valid license purchased only from themeforest(the above
     <div class="page-top">
         <!-- BEGIN HEADER SEARCH BOX -->
         <!-- DOC: Apply "search-form-expanded" right after the "search-form" class to have half expanded search box -->
-    {{--<form class="search-form" action="#" method="GET">--}}
-    {{--<div class="input-group">--}}
-    {{--<input type="text" class="form-control input-sm" placeholder="Search..." name="query">--}}
-    {{--<span class="input-group-btn">--}}
-    {{--<a href="javascript:;" class="btn submit">--}}
-    {{--<i class="icon-magnifier"></i>--}}
-    {{--</a>--}}
-    {{--</span>--}}
-    {{--</div>--}}
-    {{--</form>--}}
-    <!-- END HEADER SEARCH BOX -->
+        {{--<form class="search-form" action="#" method="GET">--}}
+        {{--<div class="input-group">--}}
+        {{--<input type="text" class="form-control input-sm" placeholder="Search..." name="query">--}}
+        {{--<span class="input-group-btn">--}}
+        {{--<a href="javascript:;" class="btn submit">--}}
+        {{--<i class="icon-magnifier"></i>--}}
+        {{--</a>--}}
+        {{--</span>--}}
+        {{--</div>--}}
+        {{--</form>--}}
+                <!-- END HEADER SEARCH BOX -->
         <!-- BEGIN TOP NAVIGATION MENU -->
         <div class="top-menu">
             <ul class="nav navbar-nav pull-right">
                 <li class="separator hide"> </li>
                 <!-- BEGIN USER LOGIN DROPDOWN -->
                 <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
-            {{--@if(!(--}}
-            {{--\Auth::admin()->guest()--}}
-            {{--&& \Auth::agent()->guest()--}}
-            {{--&& \Auth::recycler()->guest()--}}
-            {{--&& \Auth::commonuser()->guest()--}}
-            {{--))--}}
-            {{--<li class="dropdown dropdown-user dropdown-dark">--}}
-            {{--<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">--}}
-            {{--<span class="username username-hide-on-mobile">--}}
-            {{--@if(!(\Auth::admin()->guest()))--}}
-            {{--{{ \Auth::admin()->get()->name }}--}}
-            {{--@elseif(!(\Auth::agent()->guest()))--}}
-            {{--{{ \Auth::agent()->get()->name }}--}}
-            {{--@elseif(!(\Auth::recycler()->guest()))--}}
-            {{--{{ \Auth::recycler()->get()->name }}--}}
-            {{--@elseif(!(\Auth::commonuser()->guest()))--}}
-            {{--{{ \Auth::commonuser()->get()->name }}--}}
-            {{--@endif--}}
-            {{--</span>--}}
-            {{--<!-- DOC: Do not remove below empty space(&nbsp;) as its purposely used -->--}}
-            {{--<img alt="" class="img-circle" src="{{ URL::asset('assets/img/avatar9.jpg') }}" /> </a>--}}
-            {{--<ul class="dropdown-menu dropdown-menu-default">--}}
-            {{--<!-- <li>--}}
-            {{--<a href="#">--}}
-            {{--<i class="icon-user"></i> My Profile </a>--}}
-            {{--</li>--}}
-            {{--<li>--}}
-            {{--<a href="#">--}}
-            {{--<i class="icon-calendar"></i> My Calendar </a>--}}
-            {{--</li>--}}
-            {{--<li>--}}
-            {{--<a href="#">--}}
-            {{--<i class="icon-envelope-open"></i> My Inbox--}}
-            {{--<span class="badge badge-danger"> 3 </span>--}}
-            {{--</a>--}}
-            {{--</li>--}}
-            {{--<li>--}}
-            {{--<a href="#">--}}
-            {{--<i class="icon-rocket"></i> My Tasks--}}
-            {{--<span class="badge badge-success"> 7 </span>--}}
-            {{--</a>--}}
-            {{--</li>--}}
-            {{--<li class="divider"> </li>--}}
-            {{--<li>--}}
-            {{--<a href="#">--}}
-            {{--<i class="icon-lock"></i> Lock Screen </a>--}}
-            {{--</li> -->--}}
-            {{--<li>--}}
+                {{--@if(!(--}}
+                {{--\Auth::admin()->guest()--}}
+                {{--&& \Auth::agent()->guest()--}}
+                {{--&& \Auth::recycler()->guest()--}}
+                {{--&& \Auth::commonuser()->guest()--}}
+                {{--))--}}
+                {{--<li class="dropdown dropdown-user dropdown-dark">--}}
+                {{--<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">--}}
+                {{--<span class="username username-hide-on-mobile">--}}
+                {{--@if(!(\Auth::admin()->guest()))--}}
+                {{--{{ \Auth::admin()->get()->name }}--}}
+                {{--@elseif(!(\Auth::agent()->guest()))--}}
+                {{--{{ \Auth::agent()->get()->name }}--}}
+                {{--@elseif(!(\Auth::recycler()->guest()))--}}
+                {{--{{ \Auth::recycler()->get()->name }}--}}
+                {{--@elseif(!(\Auth::commonuser()->guest()))--}}
+                {{--{{ \Auth::commonuser()->get()->name }}--}}
+                {{--@endif--}}
+                {{--</span>--}}
+                {{--<!-- DOC: Do not remove below empty space(&nbsp;) as its purposely used -->--}}
+                {{--<img alt="" class="img-circle" src="{{ URL::asset('assets/img/avatar9.jpg') }}" /> </a>--}}
+                {{--<ul class="dropdown-menu dropdown-menu-default">--}}
+                {{--<!-- <li>--}}
+                {{--<a href="#">--}}
+                {{--<i class="icon-user"></i> My Profile </a>--}}
+                {{--</li>--}}
+                {{--<li>--}}
+                {{--<a href="#">--}}
+                {{--<i class="icon-calendar"></i> My Calendar </a>--}}
+                {{--</li>--}}
+                {{--<li>--}}
+                {{--<a href="#">--}}
+                {{--<i class="icon-envelope-open"></i> My Inbox--}}
+                {{--<span class="badge badge-danger"> 3 </span>--}}
+                {{--</a>--}}
+                {{--</li>--}}
+                {{--<li>--}}
+                {{--<a href="#">--}}
+                {{--<i class="icon-rocket"></i> My Tasks--}}
+                {{--<span class="badge badge-success"> 7 </span>--}}
+                {{--</a>--}}
+                {{--</li>--}}
+                {{--<li class="divider"> </li>--}}
+                {{--<li>--}}
+                {{--<a href="#">--}}
+                {{--<i class="icon-lock"></i> Lock Screen </a>--}}
+                {{--</li> -->--}}
+                {{--<li>--}}
 
-            {{--<a href="{{ URL('/auth/logout') }}">--}}
+                {{--<a href="{{ URL('/auth/logout') }}">--}}
 
-            {{--<i class="icon-logout"></i> 注销 </a>--}}
-            {{--</li>--}}
-            {{--</ul>--}}
-            {{--</li>--}}
-            {{--@else--}}
-            {{--<li class="dropdown dropdown-quick-sidebar-toggler">--}}
-            {{--<a href="/auth/login" class="dropdown-toggle">--}}
-            {{--<i class="icon-key"></i>登录/注册--}}
-            {{--</a>--}}
-            {{--</li>--}}
+                {{--<i class="icon-logout"></i> 注销 </a>--}}
+                {{--</li>--}}
+                {{--</ul>--}}
+                {{--</li>--}}
+                {{--@else--}}
+                {{--<li class="dropdown dropdown-quick-sidebar-toggler">--}}
+                {{--<a href="/auth/login" class="dropdown-toggle">--}}
+                {{--<i class="icon-key"></i>登录/注册--}}
+                {{--</a>--}}
+                {{--</li>--}}
 
-            {{--@endif--}}
-            <!-- END USER LOGIN DROPDOWN -->
+                {{--@endif--}}
+                        <!-- END USER LOGIN DROPDOWN -->
                 <!-- BEGIN QUICK SIDEBAR TOGGLER -->
-            {{--<li class="dropdown dropdown-extended quick-sidebar-toggler">--}}
-            {{--<span class="sr-only">Toggle Quick Sidebar</span>--}}
-            {{--<i class="icon-logout"></i>--}}
-            {{--</li>--}}
-            <!-- END QUICK SIDEBAR TOGGLER -->
+                {{--<li class="dropdown dropdown-extended quick-sidebar-toggler">--}}
+                {{--<span class="sr-only">Toggle Quick Sidebar</span>--}}
+                {{--<i class="icon-logout"></i>--}}
+                {{--</li>--}}
+                        <!-- END QUICK SIDEBAR TOGGLER -->
             </ul>
         </div>
         <!-- END TOP NAVIGATION MENU -->
@@ -224,16 +224,17 @@ License: You must have a valid license purchased only from themeforest(the above
     <!-- BEGIN SIDEBAR -->
 
 
-{{--@if($curDomain =='admin')--}}
-{{--@include('layouts.nav_left_admin')--}}
-{{--@elseif($curDomain =='agent')--}}
-{{--@include('layouts.nav_left_agent')--}}
-{{--@elseif($curDomain =='recycler')--}}
-{{--@include('layouts.nav_left_recycler')--}}
-{{--@elseif($curDomain =='commonuser')--}}
-{{--@include('layouts.nav_left_commonuser')--}}
-{{--@endif--}}
-<!-- END SIDEBAR -->
+    {{--@if($curDomain =='admin')--}}
+    {{--@include('layouts.nav_left_admin')--}}
+    {{--@elseif($curDomain =='agent')--}}
+    {{--@include('layouts.nav_left_agent')--}}
+    {{--@elseif($curDomain =='recycler')--}}
+    {{--@include('layouts.nav_left_recycler')--}}
+    {{--@elseif($curDomain =='commonuser')--}}
+    {{--@include('layouts.nav_left_commonuser')--}}
+    {{--@endif--}}
+    @include('layouts.nav_left_goods')
+            <!-- END SIDEBAR -->
     <!-- BEGIN CONTENT -->
     <div class="page-content-wrapper">
         <!-- BEGIN CONTENT BODY -->
@@ -248,17 +249,17 @@ License: You must have a valid license purchased only from themeforest(the above
             </div>
             <!-- END PAGE HEAD-->
             <!-- BEGIN PAGE BREADCRUMB -->
-        {{--<ul class="page-breadcrumb breadcrumb">--}}
-        {{--@yield('breadcrumbs')--}}
-        {{--<!-- <li>--}}
-        {{--<a href="#">Home</a>--}}
-        {{--<i class="fa fa-circle"></i>--}}
-        {{--</li>--}}
-        {{--<li>--}}
-        {{--<span class="active">Dashboard</span>--}}
-        {{--</li> -->--}}
-        {{--</ul>--}}
-        <!-- END PAGE BREADCRUMB -->
+            {{--<ul class="page-breadcrumb breadcrumb">--}}
+            {{--@yield('breadcrumbs')--}}
+            {{--<!-- <li>--}}
+            {{--<a href="#">Home</a>--}}
+            {{--<i class="fa fa-circle"></i>--}}
+            {{--</li>--}}
+            {{--<li>--}}
+            {{--<span class="active">Dashboard</span>--}}
+            {{--</li> -->--}}
+            {{--</ul>--}}
+                    <!-- END PAGE BREADCRUMB -->
             <!-- BEGIN PAGE BASE CONTENT -->
             <!-- BEGIN DASHBOARD STATS 1-->
 
@@ -315,13 +316,13 @@ License: You must have a valid license purchased only from themeforest(the above
 <!-- END THEME GLOBAL SCRIPTS -->
 <!-- BEGIN PAGE LEVEL SCRIPTS -->
 {{--        <script src="{{ URL::asset('assets/scripts/dashboard.min.js') }}" type="text/javascript"></script>--}}
-<!-- END PAGE LEVEL SCRIPTS -->
+        <!-- END PAGE LEVEL SCRIPTS -->
 <!-- BEGIN THEME LAYOUT SCRIPTS -->
 <script src="{{ URL::asset('assets/scripts/layout.min.js') }}" type="text/javascript"></script>
 
 
 {{--<script src="{{ URL::asset('assets/layouts/layout4/scripts/demo.min.js') }}" type="text/javascript"></script>--}}
-<!-- END THEME LAYOUT SCRIPTS -->
+        <!-- END THEME LAYOUT SCRIPTS -->
 <script src="{{ URL::asset('assets/scripts/select2.min.js') }}" type="text/javascript"></script>
 
 </body>
