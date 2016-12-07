@@ -104,7 +104,6 @@ class SearchController extends Controller
 
         if($goods->first()!=null){
 
-
             return view('dataPackage.search',['goods'=> $goods]);
         }else if($api->first()!=null){
 
