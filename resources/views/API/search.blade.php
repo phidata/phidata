@@ -37,7 +37,7 @@
 
                             <div id="div" style="height: 100%;width: 100%;background-color: #9ae3e9" onclick="javasecipt:location.href='{{url('API/show_detail/'.$good->id)}}'">
                                 <h3>{{$good->name}}</h3>
-                                <div style="float: left; height:100%;width: 25%">类别：{{$good->category}}</div>
+                                {{--<div style="float: left; height:100%;width: 25%">类别：{{$good->category}}</div>--}}
                                 <div style="float: left; height:100%;width: 25%">价格：{{$good->price}}</div><br/>
                                 <div style="float: left; height:100%;width: 25%">描述：{{$good->description}}</div><br/>
 

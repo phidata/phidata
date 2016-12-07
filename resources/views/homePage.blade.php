@@ -37,8 +37,8 @@
                         </li>
                     </ul>
                     <ul>
-                        <form method="POST" class="navbar-form navbar-left" role="search" action="{{ action('SearchController@dp_search') }}" method="POST">
-                            {{--{!! csrf_field() !!}--}}
+                        <form method="POST" class="navbar-form navbar-left" role="search" action="{{ action('SearchController@all_search') }}" method="POST">
+                            {!! csrf_field() !!}
                             <div class="form-group">
                                 <input name="key" type="text" class="form-control input-inline input-small input-sm" placeholder="关键词">
                             </div> <button class="btn btn-default" type="submit">搜索</button>

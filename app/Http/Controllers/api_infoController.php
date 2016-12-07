@@ -72,6 +72,18 @@ class api_infoController extends Controller
         $result = api_info::find($id);
 
         $url = $result->URL;
+        $good=new \App\Goods();
+        $good->name=$result->name;
+        $good->type='API';
+        $good->goods_category_id=1;
+        $good->price=100;
+        $good->status=0;
+        $good->save();
+        $api_good=new \App\api_goods();
+        $api_good->api_info_id=$id;
+        $api_good->goods_id=$good->id;
+        $api_good->price=100;
+        $api_good->save();
         $api_des = new \App\api_des();
         $interface = new \App\Interfaces();
         $interface_info = new \App\Interface_info();
@@ -188,6 +200,6 @@ class api_infoController extends Controller
     }
 
     public function api_search(){
-        return view('API.unsearch');
+        return view('API/unsearch');
     }
 }

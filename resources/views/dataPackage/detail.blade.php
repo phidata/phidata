@@ -58,7 +58,12 @@
                                             </table>
 
                                         </div>
+                                        @if(\Auth::user())
                                         <p align="center"><a onclick="showModel({{ $goodsId }})" class="btn btn-primary" role="button">购买</a> </p>
+                                    @else
+                                            <p align="center"><a href="{{url('login')}}" class="btn btn-primary" role="button">请先登录再购买</a> </p>
+
+                                        @endif
                                     </div>
                                 </div>
                             </div>

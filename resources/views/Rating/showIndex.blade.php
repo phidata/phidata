@@ -11,6 +11,7 @@
                         <span class="caption-helper">
                             数据标定任务
                         </span>
+                        <a href="{{ url("Rating/add") }}"><button>我要发布标定任务</button></a>
                     </div>
                     <div class="actions">
 

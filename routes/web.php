@@ -116,16 +116,13 @@ Route::group(['middleware'=>'auth'],function(){
     Route::get('API/add_info/{id}','api_infoController@add_info' );
 
     //API商品首页列表
-    Route::get('API/show_index','api_infoController@show_index');
+//    Route::get('API/show_index','api_infoController@show_index');
 
 
     //API详情查看
     Route::get('API/show_detail/{id}','api_infoController@detail');
 
-    //搜索API
-    Route::post('API/search','SearchController@api_search');
-    //搜索API未找到
-    Route::get('API/unsearch','api_infoController@api_search');
+
 
 
 
@@ -159,6 +156,13 @@ Route::get('Rating/result','Rating_taskController@result');
 //查看结果
 Route::get('Rating/result_check/{id}', 'Rating_taskController@result_down');
 
+//API商品首页列表
+Route::get('API/show_index','api_infoController@show_index');
+//搜索API
+Route::post('API/search','SearchController@api_search');
 
+//搜索API未找到
+Route::get('API/unsearch','api_infoController@api_search');
 
-
+//搜索全部
+Route::post('all_search','SearchController@all_search');

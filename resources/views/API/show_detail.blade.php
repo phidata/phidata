@@ -21,7 +21,7 @@
                             <div class="col-md-8">
                                 <div class="thumbnail">
                                     <div class="caption">
-                                        <h3>Thumbnail label</h3>
+
                                         <div class="portlet-body form">
                                             <table class="table table-bordered table-striped table-condensed flip-content">
                                                 <thead class="flip-content">
@@ -43,7 +43,9 @@
                                                     <td>API价格</td>
                                                     <td>{{ $detail->goods->price }}</td>
                                                 </tr>
-
+                                                <tr>
+                                                    <a href="{{url("API/info")}}"><button>使用API查询</button></a>
+                                                </tr>
                                                 </tbody>
                                             </table>
                                             <form  enctype="multipart/form-data">
